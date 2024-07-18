@@ -5,7 +5,7 @@ import { IoMenu } from "react-icons/io5";
 
 import React, { useState } from "react";
 import Image from "next/image";
-import SubNav from "./subNav";
+import SubNav from "./SubNav";
 import Link from "next/link";
 
 const Nav = () => {
