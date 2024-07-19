@@ -1,9 +1,14 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
-const IconCard = () => {
+const IconCard = ({ data }) => {
   return (
-    <div>IconCard</div>
-  )
-}
+    <Link href={data?.path}>
+      <div className="bg-white p-2 rounded-full shadow">
+        <div className="text-primaryColor">{data?.icon}</div>
+      </div>
+    </Link>
+  );
+};
 
-export default IconCard
+export default IconCard;
