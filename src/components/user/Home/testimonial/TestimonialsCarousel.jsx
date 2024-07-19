@@ -1,15 +1,15 @@
 'use client'
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import EventCard from '../../Common/EventCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import './HomeCarousel.css'; // Import the custom CSS file
+import TestimonialCard from './TestimonialCard';
 
 const responsive = {
     superLargeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
-        items: 3
+        items: 5
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -17,7 +17,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 1
+        items: 3
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -27,6 +27,7 @@ const responsive = {
 
 function HomeCarousel() {
     const carouselRef = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(5);
 
     const handleNext = () => {
         if (carouselRef.current) {
@@ -50,35 +51,39 @@ function HomeCarousel() {
         );
     };
 
+    const afterChange = (currentSlide) => {
+        console.log(currentSlide);
+        setCurrentSlide(currentSlide);
+    };
+
     return (
         <div className="relative">
             <button
                 onClick={handlePrev}
-                className="bg-red-600 p-2 rounded-full text-white absolute -left-12 top-1/2 transform -translate-y-1/2 z-20"
+                className="bg-red-600 p-2 rounded-full text-white absolute left-[40%] bottom-0 transform -translate-y-1/2 z-20"
             >
                 <FaArrowLeft size={21} />
             </button>
             <Carousel
+                className='py-20 gap-10'
                 ref={carouselRef}
                 responsive={responsive}
-                showDots
                 infinite
                 arrows={false}
-                renderDotsOutside
-                customDot={<CustomDot />}
-                centerMode={true} // Enable center mode
-                partialVisible={false} // Ensure full visibility of the center item
+                centerMode={true}
+                partialVisible={false}
                 containerClass="carousel-container"
                 itemClass="carousel-item"
+                initialSlide={0}
+                afterChange={afterChange}
             >
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
+                    return <TestimonialCard className={`${i === (currentSlide - 3) % 11 ? "bg-red-400 scale-110" : "opacity-50 bg-gray-500"}`} key={i} i={i} />
+                })}
             </Carousel>
             <button
                 onClick={handleNext}
-                className="bg-red-600 p-2 rounded-full text-white absolute -right-12 top-1/2 transform -translate-y-1/2 z-20"
+                className="bg-red-600 p-2 rounded-full text-white absolute right-[40%] bottom-0 transform -translate-y-1/2 z-20"
             >
                 <FaArrowRight size={21} />
             </button>

@@ -9,6 +9,7 @@ import ManagingDirectors from './ManagingDirectors'
 import MemberBenefits from './MemberBenefits'
 import Articles from './Articles'
 import Testimonials from './testimonial/Testimonials'
+import HomeRegister from './Register/HomeRegister'
 
 function HomePage() {
     return (
@@ -22,6 +23,7 @@ function HomePage() {
             <MemberBenefits />
             <Articles />
             <Testimonials />
+            <HomeRegister />
         </div>
     )
 }

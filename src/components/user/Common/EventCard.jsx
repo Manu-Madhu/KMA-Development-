@@ -1,11 +1,11 @@
 import React from 'react'
 import eventpic from '../../../../public/assets/events/event1.png'
 import Image from 'next/image'
-function EventCard() {
+function EventCard({ i, className }) {
     return (
-        <div className='p-7 relative border overflow-clip flex flex-col w-[96%] h-80 border-gray-400 justify-between rounded-2xl'>
+        <div className={`p-7 relative border overflow-clip flex flex-col w-[96%] h-80 border-gray-400 justify-between rounded-2xl ${className} transition duration-300`}>
             <h1 className='text-red-600 font-semibold'>Dr. John George Chiramal</h1>
-            <h1 className='text-[2.3rem] font-semibold'>Book Review</h1>
+            <h1 className='text-[2.3rem] font-semibold'>Book Review {i}</h1>
             <p className='w-[43%] text-sm font-medium text-gray-600  my-auto'>
                 The soft science of
                 business transformation

@@ -5,7 +5,7 @@ import vector from '../../../../../public/assets/kma csr awards/vector.png'
 
 function Testimonials() {
     return (
-        <div className='w-11/12 mx-auto mt-14 pb-20'>
+        <div className='w-full mx-auto mt-14 pb-20'>
             <h1 className='text-[2.8rem] font-bold leading-[3.5rem] text-center'>
                 Don't take our
                 <span className='relative ml-3'>
