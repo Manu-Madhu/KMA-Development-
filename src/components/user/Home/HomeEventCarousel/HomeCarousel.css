@@ -1,0 +1,17 @@
+.custom-dot-list {
+    position: absolute;
+    bottom: -4rem;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+.custom-dot-list .react-multi-carousel-dot button {
+    background-color: rgb(255, 174, 174);
+    border: none;
+}
+
+.custom-dot-list .react-multi-carousel-dot--active button {
+    background-color: red;
+    border: none;
+}
