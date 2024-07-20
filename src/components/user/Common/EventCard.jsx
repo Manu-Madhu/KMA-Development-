@@ -9,8 +9,8 @@ function EventCard({ Name, Title, Description, Location, Picture, isArchived = f
             <p className='w-[45%] text-sm font-medium text-gray-600  my-auto'>
                 {Description}
             </p>
-            <div className={`px-4 py-1 ${isArchived ? "bg-[#E3000F] text-white" : "bg-[#E3000F33]"} w-fit max-md:text-sm font-medium rounded-full`}>
-                <p>
+            <div className={`px-4 py-2 ${isArchived ? "bg-[#E3000F] text-white" : "bg-[#E3000F33]"} w-fit max-md:text-sm font-medium rounded-full`}>
+                <p className='text-sm'>
                     {Location}
                 </p>
             </div>
