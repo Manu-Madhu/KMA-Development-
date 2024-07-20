@@ -1,9 +1,11 @@
-import Image from "next/image";
+import EventsPage from "@/components/user/Events/EventsPage";
+import HomePage from "@/components/user/Home/HomePage";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Content
+
+    <main className="bg-white text-black">
+      <HomePage />
     </main>
   );
 }

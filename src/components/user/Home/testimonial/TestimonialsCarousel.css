@@ -1,0 +1,22 @@
+.carousel-container .carousel-item {
+    opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-container .carousel-item.active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.custom-dot {
+    background: #ccc;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.custom-dot--active {
+    background: #333;
+}
