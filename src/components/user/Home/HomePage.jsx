@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import LandingPart from './LandingPart'
 import KMACSRAwards from './KMACSRAwards'

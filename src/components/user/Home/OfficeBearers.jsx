@@ -5,7 +5,7 @@ import OfficeBearerCard from './OfficeBearerCard'
 import { members } from '@/data/members'
 function OfficeBearers() {
     return (
-        <div className='w-11/12 mx-auto flex flex-col items-center mt-10 pb-10'>
+        <div className='max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-10 pb-10'>
             <h1 className='text-title font-bold mx-auto w-fit mb-8 max-md:text-[2.2rem]'>Office
                 <span className='relative ml-3'>
                     Bearers

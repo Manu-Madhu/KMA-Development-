@@ -2,7 +2,7 @@ import vector from '../../../../public/assets/kma csr awards/vector.png'
 import Image from 'next/image'
 function UnderlinedHeading({ heading, text }) {
     return (
-        <h1 className='text-[2.8rem] max-md:text-[2.2rem] font-bold leading-[3.5rem] text-center'>
+        <h1 className='text-[2.8rem] max-md:text-3xl font-bold leading-[3.5rem] text-center'>
             {heading}
             <span className='relative mr-3'>
                 {text}

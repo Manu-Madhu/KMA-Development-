@@ -4,7 +4,7 @@ import { LuUsers } from "react-icons/lu";
 
 function MemberBenefits() {
     return (
-        <div className='pb-10 w-11/12 mx-auto flex flex-col items-center mt-20'>
+        <div className='pb-10 max-w-screen-xl mx-auto p-3 w-full flex flex-col items-center mt-20'>
             <h1 className='text-title max-md:text-[2.2rem] font-bold mx-auto w-fit mb-8'>Member
                 <span className='relative ml-3'>
                     Benefits
