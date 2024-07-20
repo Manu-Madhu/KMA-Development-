@@ -1,5 +1,5 @@
 import ManagingCommittee from "@/components/managingCommitee/ManagingCommittee";
-import { Managing } from "@/data/managing";
+import { Managing } from "@/data/Managing";
 import React from "react";
 
 const page = () => {
