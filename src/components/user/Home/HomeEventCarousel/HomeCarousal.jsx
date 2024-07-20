@@ -5,6 +5,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import './HomeCarousel.css'; // Import the custom CSS file
+import { events } from '@/data/events';
 
 const responsive = {
     superLargeDesktop: {
@@ -57,10 +58,17 @@ function HomeCarousel() {
                 renderDotsOutside
                 dotListClass="custom-dot-list"
             >
-                <EventCard />
-                <EventCard />
-                <EventCard />
-                <EventCard />
+                {
+                    events.map((event, index) => (
+                        <EventCard
+                            key={index}
+                            Name={event.name}
+                            Title={event.title}
+                            Description={event.description}
+                            Location={event.location}
+                        />
+                    ))
+                }
             </Carousel>
             <button
                 onClick={handleNext}
