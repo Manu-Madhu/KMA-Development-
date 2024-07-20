@@ -1,4 +1,4 @@
-import vector from '../../../../public/assets/kma csr awards/vector.png'
+
 import Image from 'next/image'
 import ArticleCard from './ArticleCard'
 function Articles() {
@@ -7,7 +7,7 @@ function Articles() {
             <h1 className='text-[2.8rem] max-md:text-[1.5rem] font-bold leading-[3.5rem] max-md:leading-9 text-center'>
                 <span className='relative mr-3'>
                     Unlimited
-                    <Image src={vector} className='absolute right-0 -bottom-2 max-md:-bottom-1 w-full h-4 max-md:h-2' alt='Vector' />
+                    <Image src={"/assets/kma csr awards/Vector.png"} width={500} height={500} className='absolute right-0 -bottom-2 max-md:-bottom-1 w-full h-4 max-md:h-2' alt='Vector' />
                 </span>
                 Access to All the <br /> Resources, Articles and Insights
             </h1>
