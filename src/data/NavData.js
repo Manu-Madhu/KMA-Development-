@@ -29,7 +29,7 @@ export const NavData = [
         ]
     },
     {
-        _id: 3,
+        _id: 6,
         name: "Knowledge Series",
         Path: "/knowledge-series",
         subData: [
