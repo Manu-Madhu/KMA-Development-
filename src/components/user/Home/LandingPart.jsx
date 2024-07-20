@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import FutureCircle from '../../../../public/assets/home/line.png'
+import FutureCircle from '../../../../public/assets/home/Line.png'
 import RightHand from '../../../../public/assets/home/hand_r.png'
 import LeftHand from '../../../../public/assets/home/hand_l.png'
 

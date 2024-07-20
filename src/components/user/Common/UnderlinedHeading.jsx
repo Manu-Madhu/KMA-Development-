@@ -1,15 +1,20 @@
-import vector from '../../../../public/assets/kma csr awards/vector.png'
-import Image from 'next/image'
+import Image from "next/image";
 function UnderlinedHeading({ heading, text }) {
-    return (
-        <h1 className='text-[2.8rem] max-md:text-4xl font-bold leading-[3.5rem] text-center'>
-            {heading}
-            <span className='relative mr-3'>
-                {text}
-                <Image src={vector} className='absolute right-0 -bottom-2 w-full h-4 max-md:h-3' alt='Vector' />
-            </span>
-        </h1>
-    )
+  return (
+    <h1 className="text-[2.8rem] max-md:text-4xl font-bold leading-[3.5rem] text-center">
+      {heading}
+      <span className="relative mr-3">
+        {text}
+        <Image
+          src={"/assets/kma csr awards/Vector.png"}
+          className="absolute right-0 -bottom-2 w-full h-4 max-md:h-3"
+          alt="Vector"
+          width={500}
+          height={500}
+        />
+      </span>
+    </h1>
+  );
 }
 
-export default UnderlinedHeading
+export default UnderlinedHeading;

@@ -1,5 +1,5 @@
 import React from 'react'
-import vector from '../../../../public/assets/kma csr awards/vector.png'
+import vector from '../../../../public/assets/kma csr awards/Vector.png'
 import Image from 'next/image'
 function StatsCard({ title, value }) {
     return (
