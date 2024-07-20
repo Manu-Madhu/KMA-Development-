@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import pattern1 from '../../../../../public/assets/Register/pattern 1.png'
-import pattern2 from '../../../../../public/assets/Register/pattern 2.png'
+import pattern1 from '../../../../../public/assets/Register/Pattern 1.png'
+import pattern2 from '../../../../../public/assets/Register/Pattern 2.png'
 function HomeRegister() {
     return (
         <div className='w-full mt-5 h-screen relative flex items-center justify-center'>
