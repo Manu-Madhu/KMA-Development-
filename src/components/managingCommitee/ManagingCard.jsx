@@ -14,7 +14,7 @@ const ManagingCard = ({ data }) => {
         />
       </div>
       <div className="p-4 capitalize">
-        <h1 className="font-semibold text-lg text-[#282828]">{data?.name}</h1>
+        <h1 className="font-semibold text-[18px] text-[#282828]">{data?.name}</h1>
         <p className="text-sm mt-1 text-[#3E3E59]">{data?.designation}</p>
       </div>
     </div>
