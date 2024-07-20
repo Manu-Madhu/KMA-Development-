@@ -14,14 +14,14 @@ function ConductEvent() {
         </button>
       </div>
       <img
-        src={"/assets/Register/pattern 1.png"}
+        src={"/assets/Register/Pattern 1.png"}
         alt="Pattern 1"
         // width={500}
         // height={500}
         className="absolute top-0 left-0"
       />
       <img
-        src={"/assets/Register/pattern 2.png"}
+        src={"/assets/Register/Pattern 2.png"}
         alt="Pattern 2"
         // width={500}
         // height={500}
