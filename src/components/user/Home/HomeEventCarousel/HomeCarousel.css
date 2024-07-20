@@ -1,0 +1,54 @@
+.custom-dot-list {
+    position: absolute;
+    bottom: -4rem;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+.custom-dot-list .react-multi-carousel-dot button {
+    background-color: rgb(255, 174, 174);
+    border: none;
+    width: 10px;
+    /* Base size */
+    height: 10px;
+    /* Base size */
+    border-radius: 50%;
+    /* Makes the dots circular */
+}
+
+.custom-dot-list .react-multi-carousel-dot--active button {
+    background-color: red;
+    border: none;
+    width: 12px;
+    /* Base size */
+    height: 12px;
+    /* Base size */
+    border-radius: 50%;
+    /* Ensures active dot is also circular */
+}
+
+/* Smaller devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+
+    .custom-dot-list .react-multi-carousel-dot button,
+    .custom-dot-list .react-multi-carousel-dot--active button {
+        width: 10px;
+        /* Smaller size */
+        height: 12px;
+        /* Smaller size */
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+    .custom-dot-list .react-multi-carousel-dot button,
+    .custom-dot-list .react-multi-carousel-dot--active button {
+        width: 8px;
+        /* Medium size */
+        height: 8px;
+        bottom: 0rem;
+        /* Medium size */
+    }
+}
