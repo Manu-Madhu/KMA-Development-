@@ -1,5 +1,5 @@
 import React from 'react'
-import vector from '../../../../public/assets/kma csr awards/vector.png'
+import vector from '../../../../public/assets/kma csr awards/Vector.png'
 import Image from 'next/image'
 import EventCard from '../Common/EventCard'
 import HomeCarousal from './HomeEventCarousel/HomeCarousal'

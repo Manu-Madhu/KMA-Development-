@@ -1,7 +1,7 @@
 import React from 'react'
 import TestimonialsCarousel from './TestimonialsCarousel'
 import Image from 'next/image'
-import vector from '../../../../../public/assets/kma csr awards/vector.png'
+import vector from '../../../../../public/assets/kma csr awards/Vector.png'
 
 function Testimonials() {
     return (
