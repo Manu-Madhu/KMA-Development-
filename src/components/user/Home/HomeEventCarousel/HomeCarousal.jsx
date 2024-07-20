@@ -45,7 +45,7 @@ function HomeCarousel() {
         <div className="relative">
             <button
                 onClick={handlePrev}
-                className="bg-red-600 p-2 rounded-full text-white absolute -left-12 top-1/2 transform -translate-y-1/2 z-20"
+                className=" max-md:hidden bg-red-600 p-2 rounded-full text-white absolute -left-12 top-1/2 transform -translate-y-1/2 z-20"
             >
                 <FaArrowLeft size={21} />
             </button>
@@ -72,7 +72,7 @@ function HomeCarousel() {
             </Carousel>
             <button
                 onClick={handleNext}
-                className="bg-red-600 p-2 rounded-full text-white absolute -right-12 top-1/2 transform -translate-y-1/2 z-20"
+                className="max-md:hidden bg-red-600 p-2 rounded-full text-white absolute -right-12 top-1/2 transform -translate-y-1/2 z-20"
             >
                 <FaArrowRight size={21} />
             </button>
