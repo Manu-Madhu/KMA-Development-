@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import vector from '../../../../public/assets/kma csr awards/vector.png'
+import vector from '../../../../public/assets/kma csr awards/Vector.png'
 import { LuUsers } from "react-icons/lu";
 
 function MemberBenefits() {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import image from "../../../../public/assets/kma csr awards/award_details.png";
-import vector from "../../../../public/assets/kma csr awards/vector.png";
+import vector from "../../../../public/assets/kma csr awards/Vector.png";
 function KMACSRAwards() {
   return (
     <div className="flex mt-16 max-w-screen-xl mx-auto p-3 w-full  max-md:flex-col">

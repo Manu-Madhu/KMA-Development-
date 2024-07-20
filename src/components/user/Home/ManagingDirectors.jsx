@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import vector from '../../../../public/assets/kma csr awards/vector.png'
+import vector from '../../../../public/assets/kma csr awards/Vector.png'
 
 import OfficeBearerCard from './OfficeBearerCard'
 import { members } from '@/data/members'
