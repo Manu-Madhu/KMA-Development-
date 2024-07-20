@@ -14,6 +14,9 @@ module.exports = {
       },
       fontSize: {
         "title": "2.8rem",
+      },
+      colors: {
+        primaryColor: "#E3000F"
       }
     },
   },
