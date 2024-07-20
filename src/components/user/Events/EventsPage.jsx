@@ -10,13 +10,13 @@ import EventsCalender from './EventsCalender'
 import ConductEvent from './ConductEvent'
 function EventsPage() {
     return (
-        <div className='pt-40 w-11/12 mx-auto'>
+        <div className='pt-20 max-md:pt-10 w-11/12 mx-auto'>
             <UnderlinedHeading text='Events' />
 
-            <div className='my-16 h-[80vh] rounded-2xl overflow-clip relative flex justify-center items-center'>
-                <Image src={banner} alt='events banner' />
+            <div className='my-16 h-[80vh] object-cover max-md:h-[30%] rounded-2xl overflow-clip relative flex justify-center items-center'>
+                <Image src={banner} className='size-full object-cover' alt='events banner' />
                 <div className='absolute bg-black bg-opacity-40 w-full h-full'></div>
-                <h1 className='text-[3.5rem] absolute font-bold text-white flex justify-center items-center'>
+                <h1 className='text-[3.5rem] max-md:text-3xl absolute font-bold text-white flex justify-center items-center'>
                     Our Flagship Event
                 </h1>
                 <p className='absolute text-white bottom-[10%] text-lg'>
