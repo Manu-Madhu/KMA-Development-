@@ -3,6 +3,7 @@
 import { add, differenceInDays, endOfMinute, endOfMonth, startOfMonth, sub } from "date-fns";
 import { useState } from "react";
 import CalendarCell from "./CalendarCell";
+import { eventdata } from "@/data/event_calendar_data";
 
 const dayOfTheWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -10,10 +11,7 @@ function Calendar() {
     const today = new Date();
     const [selectedDate, setSelectedDate] = useState(new Date());
 
-    const eventdata = {
-        '1': ['Note taking', 'Development'],
-        '26': ['Edit file'],
-    }
+
     let startDate = startOfMonth(selectedDate);
     let endDate = endOfMonth(selectedDate);
     let prefixDays = startDate.getDay();
