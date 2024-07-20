@@ -34,7 +34,7 @@ const Footer = () => {
               <MenuList data={data} key={data?._id} />
             ))}
           </div>
-          <div className="bottom flex gap-2 w-full justify-end mt-3">
+          <div className="bottom flex gap-2 w-full md:justify-end mt-3">
             {icon.map((data) => (
               <IconCard data={data} key={data?._id} />
             ))}
