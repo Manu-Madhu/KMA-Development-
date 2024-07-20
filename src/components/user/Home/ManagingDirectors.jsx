@@ -5,7 +5,7 @@ import OfficeBearerCard from './OfficeBearerCard'
 import { members } from '@/data/members'
 function ManagingDirectors() {
     return (
-        <div className='w-11/12 flex flex-col items-center mx-auto mt-20 pb-10'>
+        <div className='max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center  mt-20 pb-10'>
             <h1 className='text-title font-bold mx-auto w-fit mb-8 max-md:text-[2.2rem]'>Managing
                 <span className='relative ml-3'>
                     Directors

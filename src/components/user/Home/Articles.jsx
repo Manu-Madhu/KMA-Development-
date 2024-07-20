@@ -3,7 +3,7 @@ import Image from 'next/image'
 import ArticleCard from './ArticleCard'
 function Articles() {
     return (
-        <div className='w-11/12 mx-auto mt-36 pb-10 flex flex-col items-center'>
+        <div className='max-w-screen-xl mx-auto w-full p-3 mt-36 pb-10 flex flex-col items-center'>
             <h1 className='text-[2.8rem] max-md:text-[1.5rem] font-bold leading-[3.5rem] max-md:leading-9 text-center'>
                 <span className='relative mr-3'>
                     Unlimited

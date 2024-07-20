@@ -3,9 +3,9 @@ import pattern1 from '../../../../public/assets/Register/pattern 1.png'
 import pattern2 from '../../../../public/assets/Register/pattern 2.png'
 function ConductEvent() {
     return (
-        <div className='w-full mt-5 h-screen relative flex items-center justify-center'>
+        <div className='w-full my-5 h-screen relative flex items-center justify-center'>
             <div className='w-fit flex flex-col items-center'>
-                <h1 className='text-[2.4rem] max-md:text-[2.2rem] font-bold leading-[3.5rem] max-md:leading-10 text-center'>
+                <h1 className='text-[2.4rem] max-md:text-3xl font-bold leading-[3.5rem] max-md:leading-10 text-center'>
                     Interested to conduct event in KMA?
                 </h1>
                 <p className='text-center'>Click the register button below to inquire hall</p>
