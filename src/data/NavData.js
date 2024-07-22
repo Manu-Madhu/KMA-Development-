@@ -4,7 +4,7 @@ export const NavData = [
         name: "Home",
         Path: "/"
     },
-    
+
     {
         _id: 2,
         name: "About",
@@ -19,6 +19,11 @@ export const NavData = [
                 _id: 2,
                 name: "Managing Committee",
                 Path: "/managing-committee"
+            },
+            {
+                _id: 2,
+                name: "Gallery",
+                Path: "/gallery"
             },
             {
                 _id: 3,

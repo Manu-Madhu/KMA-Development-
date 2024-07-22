@@ -64,6 +64,8 @@ const CsrPage = () => {
           </a>
         </div>
       </div>
+      
+      {/* Bottom part */}
       <ConductEvent
         heading={"Interested in Becoming a Member?"}
         subheading={"Click the register button below to see the procedures"}
