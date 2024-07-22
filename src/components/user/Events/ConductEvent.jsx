@@ -1,17 +1,20 @@
 import Image from "next/image";
-function ConductEvent() {
+import Link from "next/link";
+function ConductEvent({ heading, subheading, button }) {
   return (
     <div className="w-full my-5 h-screen relative flex items-center justify-center">
-      <div className="w-fit flex flex-col items-center">
+      <div className="w-fit flex flex-col items-center p-3">
         <h1 className="text-[2.4rem] max-md:text-3xl font-bold leading-[3.5rem] max-md:leading-10 text-center">
-          Interested to conduct event in KMA?
+          {heading || "Interested to conduct event in KMA?"}
         </h1>
         <p className="text-center">
-          Click the register button below to inquire hall
+          {subheading || "Click the register button below to inquire hall"}
         </p>
-        <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
-          Inquire now
-        </button>
+        <Link href={button?.path}>
+          <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
+            {button?.title || "Inquire now"}
+          </button>
+        </Link>
       </div>
       <img
         src={"/assets/Register/Pattern 1.png"}
