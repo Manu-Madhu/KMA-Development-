@@ -63,8 +63,8 @@ export const NavData = [
         subData: [
             {
                 _id: 1,
-                name: "Example",
-                Path: "/"
+                name: "Social Connect",
+                Path: "/social-connect"
             },
         ]
     },

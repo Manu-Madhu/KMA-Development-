@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import ArticleCard from './ArticleCard'
+import ArticleCard from '../Common/ArticleCard'
 function Articles() {
     return (
         <div className='max-w-screen-xl mx-auto w-full p-3 mt-36 pb-10 flex flex-col items-center'>

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import UpcomingEvents from './UpcomingEvents'
 import ArchivedEvents from './ArchivedEvents'
 import EventsCalender from './EventsCalender'
-import ConductEvent from '../ConductEvent'
+import ConductEvent from './ConductEvent'
 function EventsPage() {
     return (
         <div className='pt-10 max-md:pt-5 '>
