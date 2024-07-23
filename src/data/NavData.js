@@ -39,8 +39,8 @@ export const NavData = [
         subData: [
             {
                 _id: 1,
-                name: "Example",
-                Path: "/"
+                name: "Event ",
+                Path: "/events"
             },
         ]
     },

@@ -1,6 +1,6 @@
 import React from "react";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import ConductEvent from "@/components/user/Events/ConductEvent";
+import ConductEvent from "@/components/user/ConductEvent";
 import GalleryContent from "@/components/user/gallery/GalleryContent";
 
 const GalleryPage = () => {

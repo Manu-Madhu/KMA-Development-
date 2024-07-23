@@ -10,7 +10,7 @@ function ConductEvent({ heading, subheading, button }) {
         <p className="text-center">
           {subheading || "Click the register button below to inquire hall"}
         </p>
-        <Link href={button?.path}>
+        <Link href={button?.path || ""}>
           <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
             {button?.title || "Inquire now"}
           </button>
