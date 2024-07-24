@@ -7,7 +7,7 @@ import React from 'react'
 function Page() {
     return (
         <div className='max-w-screen-xl p-3 mx-auto'>
-            <UnderlinedHeading heading={"E-"} text="Library" />
+            <UnderlinedHeading text="Reports" />
             <div className='grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-14'>
                 {
                     eLibraryData.map((data) => (

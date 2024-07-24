@@ -1,7 +1,7 @@
 
 import { FaPlay } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
-import PageEndQuery from "../Common/PageEndQuery";
+import PageEndQuery from "./PageEndQuery";
 function EBookCard({ title, type, thumbnailUrl, downloadUrl }) {
     return (
         <div className='rounded-2xl overflow-clip h-[19rem] relative'>
@@ -16,7 +16,7 @@ function EBookCard({ title, type, thumbnailUrl, downloadUrl }) {
                     <LuDownload />    Download
                 </button>
             </div>
-            
+
         </div>
     )
 }
