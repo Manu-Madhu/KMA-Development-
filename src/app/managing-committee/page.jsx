@@ -1,4 +1,4 @@
-import ConductEvent from "@/components/user/ConductEvent";
+import ConductEvent from "@/components/user/Events/ConductEvent";
 import ManagingCommittee from "@/components/user/managingCommitee/ManagingCommittee";
 import { Managing } from "@/data/Managing";
 import React from "react";

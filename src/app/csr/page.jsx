@@ -17,7 +17,7 @@ const CsrPage = () => {
       {/* Content Part */}
       <div className="max-w-screen-xl mx-auto my-5 md:mt-10 p-3">
         <p className="text-sm leading-6">
-          Kerala Management Association (KMA) has invited applications for the
+          {` Kerala Management Association (KMA) has invited applications for the
           scholarship scheme to students who need financial assistance for study
           purposes including fees. Students studying for higher degree or
           admitted to the course will be eligible for the scholarship. <br />{" "}
@@ -49,7 +49,7 @@ const CsrPage = () => {
           allocations. More information is available on KMA's website
           www.kma.org.in. Applications can be downloaded from the website or can
           be collect directly from the KMA office at Panampally Nagar.
-          info@kma.org.in, 0484 2317917.
+          info@kma.org.in, 0484 2317917.`}
         </p>
         <div className="mt-5 md:my-10 ">
           <a
@@ -64,7 +64,7 @@ const CsrPage = () => {
           </a>
         </div>
       </div>
-      
+
       {/* Bottom part */}
       <ConductEvent
         heading={"Interested in Becoming a Member?"}
