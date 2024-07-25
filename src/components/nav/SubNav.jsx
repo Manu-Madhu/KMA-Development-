@@ -20,7 +20,7 @@ const SubNav = ({ data }) => {
         )}
       </div>
       {showData && (
-        <div className="bg-white shadow w-fit absolute top-6 rounded z-10 p-2">
+        <div className="bg-white shadow w-fit absolute top-6 rounded z-10 p-2 md:min-w-[200px]">
           {data.subData.map((data) => (
             <Link
               onClick={() => setShowData(false)}
