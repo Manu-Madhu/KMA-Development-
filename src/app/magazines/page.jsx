@@ -1,8 +1,8 @@
+import React from 'react'
 import PageEndQuery from '@/components/user/Common/PageEndQuery'
 import UnderlinedHeading from '@/components/user/Common/UnderlinedHeading'
 import EBookCard from '@/components/user/Common/EBookCard'
 import { eLibraryData } from '@/data/e_library'
-import React from 'react'
 
 function Page() {
     return (
