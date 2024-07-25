@@ -45,18 +45,6 @@ export const NavData = [
         ]
     },
     {
-        _id: 6,
-        name: "Knowledge Series",
-        Path: "/knowledge-series",
-        subData: [
-            {
-                _id: 1,
-                name: "Example",
-                Path: "/"
-            },
-        ]
-    },
-    {
         _id: 4,
         name: "Media",
         Path: "/media",
@@ -65,6 +53,18 @@ export const NavData = [
                 _id: 1,
                 name: "Social Connect",
                 Path: "/social-connect"
+            },
+        ]
+    },
+    {
+        _id: 6,
+        name: "Resources",
+        Path: "/resources",
+        subData: [
+            {
+                _id: 1,
+                name: "Articles",
+                Path: "/articles"
             },
         ]
     },
