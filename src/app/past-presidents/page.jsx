@@ -1,0 +1,16 @@
+import UnderlinedHeading from '@/components/user/Common/UnderlinedHeading'
+import ScrollProgress from '@/components/user/PastPresidents/ScrollProgress'
+import React from 'react'
+
+function Page() {
+    return (
+        <div className='max-w-screen-xl mx-auto p-3'>
+            <UnderlinedHeading heading={"Past "} text="Precidents" />
+            <div className='relative h-fit mt-20'>
+                <ScrollProgress />
+            </div>
+        </div>
+    )
+}
+
+export default Page
