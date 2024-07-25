@@ -13,7 +13,7 @@ function EBookCard({ title, type, thumbnailUrl, downloadUrl }) {
                     <p className='text-white text-lg'>{title}</p>
                 </div>
                 <button className="bg-white py-2 px-4 flex items-center gap-2 rounded-full font-medium text-sm">
-                    <LuDownload />    Download
+                    <LuDownload /> Download
                 </button>
             </div>
 
