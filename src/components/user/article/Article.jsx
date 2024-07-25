@@ -24,12 +24,13 @@ const Article = ({
           </p>
           <p className="text-white text-lg">{title}</p>
         </div>
-
-        <div
-          className={`p-2 px-5 text-sm inset-0 size-fit  rounded-full bg-white `}
-        >
-          <Link href={link?.link || ""}>{link?.name}</Link>
-        </div>
+        <Link href={link?.link || ""}>
+          <div
+            className={`p-2 px-5 text-sm inset-0 size-fit  rounded-full bg-white `}
+          >
+            {link?.name}
+          </div>
+        </Link>
       </div>
     </div>
   );
