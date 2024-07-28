@@ -3,6 +3,7 @@ import hallBanner from "@/../public/assets/halls/hall_banner.jpg";
 import Image from "next/image";
 import HallsCard from "@/components/user/halls/HallsCard";
 import HallsRequest from "@/components/user/halls/HallsRequest";
+import { halls } from "@/data/halls";
 
 function Page() {
   return (
@@ -40,9 +41,14 @@ function Page() {
         <div className="pb-10">
           <UnderlinedHeading heading={"Our"} text={"Halls"} />
           <div className="mt-16 grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
-            <HallsCard />
-            <HallsCard />
-            <HallsCard />
+            {
+              halls.map((hall, index) => (
+                <HallsCard
+                  key={index}
+                  hall={hall}
+                />
+              ))
+            }
           </div>
         </div>
       </div>
