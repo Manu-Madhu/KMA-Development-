@@ -4,7 +4,6 @@ export const NavData = [
         name: "Home",
         Path: "/"
     },
-
     {
         _id: 2,
         name: "About",
@@ -39,7 +38,7 @@ export const NavData = [
         subData: [
             {
                 _id: 1,
-                name: "Event ",
+                name: "Events ",
                 Path: "/events"
             },
         ]
@@ -54,6 +53,11 @@ export const NavData = [
                 name: "Social Connect",
                 Path: "/social-connect"
             },
+            {
+                _id: 2,
+                name: "E-Library",
+                Path: "/e-library"
+            },
         ]
     },
     {
@@ -65,6 +69,26 @@ export const NavData = [
                 _id: 1,
                 name: "Articles",
                 Path: "/articles"
+            },
+            {
+                _id: 2,
+                name: "Reports",
+                Path: "/reports"
+            },
+            {
+                _id: 3,
+                name: "Magazines",
+                Path: "/magazines"
+            },
+            {
+                _id: 4,
+                name: "Publications",
+                Path: "/publications"
+            },
+            {
+                _id: 5,
+                name: "NewsLetters",
+                Path: "/newsletter"
             },
         ]
     },
