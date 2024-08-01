@@ -4,7 +4,7 @@ import React from 'react'
 
 const layout = ({ children }) => {
     return (
-        <>
+        <main>
             <nav className="w-full">
                 <Nav />
             </nav>
@@ -13,7 +13,7 @@ const layout = ({ children }) => {
             <footer>
                 <Footer />
             </footer>
-        </>
+        </main>
     )
 }
 
