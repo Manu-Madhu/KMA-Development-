@@ -17,7 +17,7 @@ const SideOption = () => {
                 path == item?.path
                   ? "text-white bg-[#F1616c]"
                   : " text-[#475467] "
-              } p-3 hover:bg-[#F1616c] hover:text-white  rounded cursor-pointer font-[500] text-[18px]`}
+              } p-3 hover:bg-[#F1616c] hover:text-white  rounded cursor-pointer font-[600] text-[18px]`}
             >
               {item?.name}
             </li>

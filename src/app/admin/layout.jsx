@@ -11,10 +11,10 @@ const layout = ({ children }) => {
         <AdminNav />
       </div>
       <div className="w-full h-full flex">
-        <div className="w-[400px] h-full bg-[#F0F0F0] p-5 px-8  overflow-y-scroll ">
+        <div className="w-[400px] h-full bg-[#F0F0F0] p-5 px-8  overflow-y-scroll hidden lg:block">
           <SideOption />
         </div>
-        <div className="w-full p-5 px-8 ">{children}</div>
+        <div className="w-full md:p-5 md:px-8 ">{children}</div>
       </div>
     </div>
   );
