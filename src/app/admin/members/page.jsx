@@ -6,7 +6,7 @@ const MembersPage = () => {
   return (
     <main>
       <header>
-        <TopPart title={"View and manage members"} type={{ name: "search", content:"Upload New" }} />
+        <TopPart title={"View and manage members"} type={{ name: "search"}} />
       </header>
       <section>
         <Table />

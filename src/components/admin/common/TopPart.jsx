@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
+import { FaPlus } from "react-icons/fa6";
 
 const TopPart = ({ title, type }) => {
   return (
@@ -20,8 +21,10 @@ const TopPart = ({ title, type }) => {
           <CiSearch size={25} className="absolute top-2 left-3" />
         </div>
       ) : type?.name == "button" ? (
-        <div className="relative flex items-center w-full lg:w-1/3 p-3 px-5  ps-12">
-          <button className="bg-[#E3000F] ">{type?.title?.content}</button>
+        <div className="flex items-end justify-end w-full ">
+          <button className="bg-[#E3000F] flex items-center justify-center gap-3  p-3 px-5 w-full lg:w-fit rounded-xl text-white text-sm">
+          <FaPlus /> {type?.content}
+          </button>
         </div>
       ) : (
         <div></div>
