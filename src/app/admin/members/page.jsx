@@ -15,7 +15,6 @@ const MembersPage = () => {
     })
   );
 
-  console.log(filteredData);
   return (
     <main className="">
       <header>
@@ -23,7 +22,7 @@ const MembersPage = () => {
       </header>
       <section className="overflow-y-scroll mb-10">
         <TableFilter />
-        <Table action={true} data={filteredData} />
+        <Table  data={filteredData} />
       </section>
     </main>
   );
