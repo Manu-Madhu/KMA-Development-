@@ -6,7 +6,10 @@ import React from "react";
 const GalleryPage = () => {
   return (
     <div>
-      <TopPart title={"View and manage gallery"} type={{ name: "button", content:"Upload New" }} />
+      <TopPart
+        title={"View and manage gallery"}
+        type={{ name: "button", content: "Upload New", link: "" }}
+      />
       <TableFilter />
 
       <div>

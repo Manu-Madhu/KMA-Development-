@@ -8,7 +8,7 @@ const SideOption = () => {
   const path = usePathname();
   console.log(path);
   return (
-    <div className="mt-5 mb-20 ">
+    <div className="mt-3 mb-20 ">
       <ul className="flex flex-col gap-1 overflow-y-scroll">
         {Sidebar?.map((item) => (
           <Link key={item?._id} href={`${item?.path}`}>
