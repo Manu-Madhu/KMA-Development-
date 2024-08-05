@@ -38,7 +38,7 @@ const Table = ({ data }) => {
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key={item?.id} className=" border-gray-400">
+            <tr key={item?.id} className=" border-gray-400 capitalize">
               <td className="pl-5 p-3 border">{item?.id}</td>
               <td className="px-5 p-3 border">{item?.name}</td>
               <td className="px-5 p-3 border">{item?.Organization}</td>
