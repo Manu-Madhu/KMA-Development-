@@ -8,13 +8,17 @@ const galleryItems = [
   { id: 4, imageSrc: '/gallery/4.png', title: 'KMA annual meet', date: '17 JUN 2024' },
   { id: 5, imageSrc: '/gallery/5.png', title: 'KMA annual meet', date: '17 JUN 2024' },
   { id: 6, imageSrc: '/gallery/6.png', title: 'KMA annual meet', date: '17 JUN 2024' },
-  { id: 7, imageSrc: '/gallery/7.png', title: 'KMA annual meet', date: '17 JUN 2024' },
-  { id: 8, imageSrc: '/gallery/8.png', title: 'KMA annual meet', date: '17 JUN 2024' },
-  { id: 9, imageSrc: '/gallery/9.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 7, imageSrc: '/gallery/1.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 8, imageSrc: '/gallery/2.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 9, imageSrc: '/gallery/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 9, imageSrc: '/gallery/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 9, imageSrc: '/gallery/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 9, imageSrc: '/gallery/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },
+  { id: 9, imageSrc: '/gallery/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },
 ];
 
 const GalleryContent = () => {
-  console.log('Rendering GalleryContent component'); 
+  
   return (
     <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {galleryItems.map(item => (
@@ -24,7 +28,7 @@ const GalleryContent = () => {
             alt={item.title} 
             className="w-full h-auto rounded-lg object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-2 rounded-lg">
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-2 rounded-2xl">
             <h3 className="text-white text-lg">{item.title}</h3>
             <p className="text-white text-sm">{item.date}</p>
           </div>

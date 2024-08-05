@@ -20,7 +20,7 @@ const MembersPage = () => {
       <header>
         <TopPart title={"View and manage members"} type={{ name: "search" }} />
       </header>
-      <section className="overflow-y-scroll mb-10">
+      <section className="overflow-y-scroll mb-10 ">
         <TableFilter />
         <Table  data={filteredData} />
       </section>

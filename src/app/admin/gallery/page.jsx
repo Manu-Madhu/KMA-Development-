@@ -12,7 +12,7 @@ const GalleryPage = () => {
       />
       <TableFilter />
 
-      <div>
+      <div className="overflow-y-scroll mb-20 min-h-screen">
         <GalleryContent />
       </div>
     </div>
