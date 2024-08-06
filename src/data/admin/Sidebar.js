@@ -50,7 +50,7 @@ export const Sidebar = [
     {
         _id:9,
         name: "Report",
-        path: "/admin/report",
+        path: "/admin/reports",
         icon:''
     },
     {
@@ -67,6 +67,12 @@ export const Sidebar = [
     },
     {
         _id:12,
+        name: "Articles",
+        path: "/admin/articles",
+        icon:''
+    },
+    {
+        _id:13,
         name: "Newsletter",
         path: "/admin/newsletter",
         icon:''
