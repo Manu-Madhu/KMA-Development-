@@ -2,12 +2,12 @@ import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdFileDownload } from "react-icons/md";
 
-const ReportsFilter = () => {
+const MagazineFilter = () => {
   return (
     <main className="flex flex-col lg:flex-row md:items-center justify-between p-3">
       <div className="flex flex-col lg:flex-row md:items-center md:justify-center md:gap-10">
         <div className="font-bold text-4xl">
-              Reports
+              Magazines
         </div>
         <div className="gap-2 flex">
           <h1>
@@ -32,4 +32,4 @@ const ReportsFilter = () => {
   );
 };
 
-export default ReportsFilter;
+export default MagazineFilter;
