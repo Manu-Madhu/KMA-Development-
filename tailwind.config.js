@@ -14,9 +14,13 @@ module.exports = {
       },
       fontSize: {
         "title": "2.8rem",
+        
       },
       colors: {
-        primaryColor: "#E3000F"
+        primaryColor: "#E3000F",
+        secondary:"#475467",
+        customRed: '#ff0000',
+        customGray:'#2A282F'
       }
     },
   },

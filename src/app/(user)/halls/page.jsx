@@ -3,6 +3,7 @@ import hallBanner from "@/../public/assets/halls/hall_banner.jpg";
 import Image from "next/image";
 import HallsCard from "@/components/user/halls/HallsCard";
 import HallsRequest from "@/components/user/halls/HallsRequest";
+import { halls } from "@/data/halls";
 
 function Page() {
   return (
@@ -14,7 +15,7 @@ function Page() {
           </h1>
           <UnderlinedHeading heading={"Iconic KMA"} text={"House"} />
         </div>
-        <div className="py-16">
+        <div className="pt-5">
           <p className="w-full mt-10">
             {`Right at the centre of the buzzing city, in Panampilly Nagar, where
           the heart of Kochi throbs, KMA House stands proud and tall. After its
@@ -37,12 +38,17 @@ function Page() {
             alt="Hall Banner"
           />
         </div>
-        <div className="pb-10">
+        <div className="pb-10 mt-10">
           <UnderlinedHeading heading={"Our"} text={"Halls"} />
           <div className="mt-16 grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
-            <HallsCard />
-            <HallsCard />
-            <HallsCard />
+            {
+              halls.map((hall, index) => (
+                <HallsCard
+                  key={index}
+                  hall={hall}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

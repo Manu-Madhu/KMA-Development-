@@ -8,7 +8,9 @@ import { socialConnect } from "@/data/social_connect";
 function Page() {
     return (
         <div className="max-w-screen-xl p-3 mx-auto">
-            <UnderlinedHeading heading={"Social "} text="Connect" />
+            <div className="mt-10">
+                <UnderlinedHeading heading={"Social "} text="Connect" />
+            </div>
             <Filter />
             <div className="w-full grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-6 mb-20">
                 {

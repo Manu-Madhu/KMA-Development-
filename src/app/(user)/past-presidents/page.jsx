@@ -5,7 +5,9 @@ import React from 'react'
 function Page() {
     return (
         <div className='max-w-screen-xl mx-auto p-3'>
-            <UnderlinedHeading heading={"Past "} text="Precidents" />
+            <div className='mt-10'>
+                <UnderlinedHeading heading={"Past "} text="Precidents" />
+            </div>
             <div className='relative h-fit mt-20'>
                 <ScrollProgress />
             </div>
