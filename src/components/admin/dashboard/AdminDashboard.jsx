@@ -2,14 +2,16 @@ import React from 'react'
 import GradientLineChart from './LineChart'
 import { LuLaugh } from "react-icons/lu";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import RecentActivities from './RecentActivities';
+import QuickActions from './QuickActions';
 function AdminDashboard() {
     return (
-        <div className='flex w-full mx-16'>
+        <div className='flex w-full justify-between mx-16'>
             <div className='py-4'>
                 <h1 className='text-[2.2rem] font-semibold'>Good Evening <span className='text-primaryColor'>Qmark</span></h1>
                 <p className='text-gray-500 font-medium text-3xl my-3'>At a glance</p>
                 <GradientLineChart />
-                <div>
+                <div className='mt-4'>
                     <h2 className='text-gray-500 font-medium text-3xl my-3'>
                         Recent updates
                     </h2>
@@ -35,8 +37,9 @@ function AdminDashboard() {
                     </div>
                 </div>
             </div>
-            <div>
-
+            <div className='pr-20 mt-14'>
+                <RecentActivities />
+                <QuickActions />
             </div>
         </div>
     )

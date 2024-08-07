@@ -29,9 +29,11 @@ const GradientLineChart = () => {
         },
     };
 
-    return <div className='relative h-72 bg-gray-100 p-6 rounded-xl  max-sm:h-[10rem]'>
+    return <div className='relative h-[21rem] bg-gray-100 p-6 rounded-xl  max-sm:h-[10rem] pb-20'>
+        <h4>Users</h4>
+        <p className='text-2xl'>80 <span className='text-primaryColor font-medium text-xs'>+15%</span></p>
         <Line className='h-full' ref={chartRef} data={data} options={options} />
-    </div>;
+    </div>
 };
 
 export default GradientLineChart;
