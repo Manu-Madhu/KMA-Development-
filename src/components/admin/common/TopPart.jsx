@@ -18,12 +18,11 @@ const TopPart = ({ title, type, onClick }) => {
           />
           <CiSearch size={25} className="absolute top-2 left-3" />
         </div>
-      ) : type?.name === "button" ? (
-        <div className="flex items-end justify-end w-full">
-          <button
-            onClick={onClick}
-            className="bg-[#E3000F] flex items-center justify-center gap-3 p-3 px-5 w-full lg:w-fit rounded-xl text-white text-sm"
-          >
+
+      ) : type?.name == "button" ? (
+        <div className="flex items-end justify-end w-full ">
+          <button className="bg-[#E3000F] flex items-center justify-center gap-3  p-3 px-5 w-full lg:w-fit rounded-xl text-white text-sm"
+          onClick={type.onClick}>
             <FaPlus /> {type?.content}
           </button>
         </div>

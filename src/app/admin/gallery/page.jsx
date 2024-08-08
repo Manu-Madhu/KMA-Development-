@@ -89,6 +89,7 @@ const SocialConnectModal = () => {
           onChange={handleLinkChange}
           className="border p-2 w-full"
         />
+
       </div>
       <button type="submit" className="bg-red-500 text-white p-2 w-full">
         Upload
