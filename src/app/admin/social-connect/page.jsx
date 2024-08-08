@@ -1,37 +1,37 @@
-"use client"
-import React,{useState} from 'react'
-import TopPart from '@/components/admin/common/TopPart'
-import SocialConnectContent from '@/components/admin/socialConnect/SocialConnectContent'
-import SocialConnectFilter from '@/components/admin/socialConnect/SocialConnectFilter'
-import ModalFrame from '@/components/admin/common/ModalFram'
-import SocialConnectModal from '@/components/admin/socialConnect/SocialConnectModal'
+
+"use client";
+
+import React, { useState } from "react";
+import TopPart from "@/components/admin/common/TopPart"; 
+import TableFilter from "@/components/admin/common/TableFilter";
+import SocialConnect from "@/components/admin/socialconnect/SocialConnect";
+import ModalFrame from "@/components/admin/common/ModalFram";
+import SocialConnectModal from "@/components/admin/socialconnect/SocialConnectModal";
 
 const SocialConnectPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showSocialConnectModal, setShowSocialConnectModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
   return (
-    <main className="">
-      <header>
-        <TopPart title={"Add social media content"} type={{ name: "button",content: "create new", onClick: handleOpenModal }} />
-      </header>
-      <section>
-        <SocialConnectFilter/>
-        <SocialConnectContent/>
-      </section>
-      {isModalOpen && (
+    <div>
+      <TopPart
+        title={"Add social media content"}
+        type={{ name: "button", content: "create new " }}
+        onClick={() => setShowSocialConnectModal(true)} // Toggle SocialConnectModal visibility
+      />
+      <TableFilter />
+      
+      <div className="overflow-y-scroll mb-20 min-h-screen">
+        <SocialConnect />
+      </div>
+
+      {showSocialConnectModal && (
         <ModalFrame>
-          <SocialConnectModal isOpen={isModalOpen} onClose={handleCloseModal} />
+          <SocialConnectModal close={() => setShowSocialConnectModal(false)} /> {/* Use SocialConnectModal */}
         </ModalFrame>
       )}
-      </main>
-  )
-}
+    </div>
+  );
+};
 
-export default SocialConnectPage
+export default SocialConnectPage;
+

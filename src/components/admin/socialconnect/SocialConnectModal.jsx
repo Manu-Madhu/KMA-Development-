@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const SocialConnectModal = () => {
+const SocialConnectModal = ({ close }) => {
   const [coverImage, setCoverImage] = useState('');
   const [eventName, setEventName] = useState('');
   const [platform, setPlatform] = useState('Youtube');
@@ -34,28 +34,38 @@ const SocialConnectModal = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto bg-white rounded shadow-lg">
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        width: '800px', // Adjust the width as needed
+        padding: '36px 48px',
+        borderRadius: '20px 0px 0px 0px',
+      }}
+      className="bg-white mx-auto shadow-lg"
+    >
       <h2 className="text-lg font-bold mb-4">Add social connect</h2>
       <div className="mb-4">
         <label className="block mb-1">Cover image</label>
-        <div className="flex">
+        <div className="mb-2">
           <input
             type="text"
             value={coverImage}
             readOnly
-            className="border p-2 flex-grow"
+            className="border p-2 w-full"
           />
+        </div>
+        <div className="flex">
           <input
             type="file"
             onChange={handleCoverImageChange}
             className="hidden"
             id="coverImageUpload"
           />
-          <label htmlFor="coverImageUpload" className="border p-2 cursor-pointer">
-            browse
+          <label htmlFor="coverImageUpload" className="border p-2 cursor-pointer w-full text-center">
+            Browse
           </label>
-          <button type="button" className="border p-2 ml-2">
-            view
+          <button type="button" className="border p-2 ml-2 w-full text-center">
+            View
           </button>
         </div>
       </div>
@@ -89,7 +99,6 @@ const SocialConnectModal = () => {
           onChange={handleLinkChange}
           className="border p-2 w-full"
         />
-
       </div>
       <button type="submit" className="bg-red-500 text-white p-2 w-full">
         Upload
