@@ -1,0 +1,12 @@
+
+  .placeholder-option option {
+    
+    width: 5px;
+    height: 10px;
+  }
+  
+  .placeholder-option {
+    position: relative;
+    padding-left: 2.5rem; /* Adjust padding to accommodate the icon */
+    color: gray;
+  }
