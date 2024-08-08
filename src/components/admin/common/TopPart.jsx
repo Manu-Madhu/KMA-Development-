@@ -23,7 +23,7 @@ const TopPart = ({ title, type }) => {
       ) : type?.name == "button" ? (
         <div className="flex items-end justify-end w-full ">
           <button className="bg-[#E3000F] flex items-center justify-center gap-3  p-3 px-5 w-full lg:w-fit rounded-xl text-white text-sm">
-          <FaPlus /> {type?.content}
+            <FaPlus /> {type?.content}
           </button>
         </div>
       ) : (

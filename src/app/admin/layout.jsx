@@ -14,7 +14,7 @@ const layout = ({ children }) => {
         <div className="w-[400px] h-full bg-[#F0F0F0] p-5 px-8  overflow-y-scroll hidden lg:block">
           <SideOption />
         </div>
-        <div className="w-full md:p-5 md:px-8 ">{children}</div>
+        <div className="w-full md:p-5 md:px-8 overflow-y-scroll">{children}</div>
       </div>
     </div>
   );

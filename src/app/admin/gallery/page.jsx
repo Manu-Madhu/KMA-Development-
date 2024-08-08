@@ -6,10 +6,13 @@ import React from "react";
 const GalleryPage = () => {
   return (
     <div>
-      <TopPart title={"View and manage gallery"} type={{ name: "button", content:"Upload New" }} />
+      <TopPart
+        title={"View and manage gallery"}
+        type={{ name: "button", content: "Upload New", link: "" }}
+      />
       <TableFilter />
 
-      <div>
+      <div className="overflow-y-scroll mb-20 min-h-screen">
         <GalleryContent />
       </div>
     </div>
