@@ -2,7 +2,7 @@ import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdFileDownload } from "react-icons/md";
 
-const TableFilter = () => {
+const TableFilter = ({ label }) => {
   return (
     <main className="flex flex-col lg:flex-row md:items-center justify-between p-3">
       <div className="flex flex-col lg:flex-row md:items-center md:justify-center md:gap-10">
@@ -14,7 +14,7 @@ const TableFilter = () => {
             placeholder=""
           >
             <option value="" className="text-sm">
-              Available
+              {label || "Available"}
             </option>
             <option value="" className="text-sm">
               Test Option
