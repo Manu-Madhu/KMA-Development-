@@ -16,7 +16,7 @@ const SocialConnectContent = () => {
         
       ];
   return (
-    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-20">
       {galleryItems.map(item => (
         <div key={item.id} className="relative mb-20">
           <img 

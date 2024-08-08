@@ -20,7 +20,8 @@ module.exports = {
         primaryColor: "#E3000F",
         secondary:"#475467",
         customRed: '#ff0000',
-        customGray:'#2A282F'
+        customGray:'#2A282F',
+        customBlack:'#344054'
       }
     },
   },
