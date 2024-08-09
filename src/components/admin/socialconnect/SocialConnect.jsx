@@ -2,15 +2,18 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const Card = ({ platform, title, imageSrc }) => {
+    const isYouTube = platform === 'YouTube';
     return (
         <div className="relative flex flex-col items-center">
-            <div className="border rounded-lg overflow-hidden shadow-lg w-full h-64 opacity-100 flex flex-col">
-                <img src={imageSrc} alt={title} className="w-full h-40 object-cover" />
-                <div className="p-4 bg-gray-800 text-white flex flex-col flex-grow">
-                    <div className={`text-sm ${platform === 'YouTube' ? 'text-red-500' : 'text-blue-500'}`}>
+            <div
+                className={`border rounded-[32px] overflow-hidden shadow-lg w-full h-[230px] flex flex-col ${isYouTube ? 'bg-[#2A282F]' : 'bg-gray-800'}`}
+            >
+                <img src={imageSrc} alt={title} className="w-full h-[150px] object-cover" />
+                <div className={`p-4 ${isYouTube ? 'bg-[#2A282F]' : 'bg-gray-800'} text-white flex flex-col flex-grow`}>
+                    <div className={`text-xs ${isYouTube ? 'text-red-500' : 'text-blue-500'}`}>
                         {platform}
                     </div>
-                    <div className="text-lg font-bold mt-1">{title}</div>
+                    <div className={`text-sm font-bold mt-1 ${isYouTube ? 'text-sm' : 'text-lg'}`}>{title}</div>
                 </div>
             </div>
             <div className="p-4 flex justify-between w-full">

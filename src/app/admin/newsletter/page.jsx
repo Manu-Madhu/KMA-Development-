@@ -3,18 +3,19 @@
 import React, { useState } from "react";
 import TableFilter from "@/components/admin/common/TableFilter";
 import TopPart from "@/components/admin/common/TopPart";
-import ModalFrame from "@/components/admin/common/ModalFram";
+import ModalFrame from "@/components/admin/common/ModalFram"; // Ensure correct import
+import AddMagazineForm from "@/components/admin/common/AddMagazineForm";
+import NewsletterList from "@/components/admin/newsletter/NewsletterList"; // Adjust the import path
 import Publication from "@/components/admin/publication/Publication";
-import AddMagazineForm from "@/components/admin/common/AddMagazineForm";  // Adjust the import path
 
-const NewsletterPage = () => {
+const ManageNewslettersPage = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
 
   return (
     <div>
       <TopPart
         title="Manage Newsletters"
-        type={{ name: "button", content: "Create New Newsletter" }}
+        type={{ name: "button", content: "Create New " }}
         onClick={() => setShowUploadModal(true)}
       />
       <TableFilter label="Newsletter" />
@@ -25,11 +26,14 @@ const NewsletterPage = () => {
 
       {showUploadModal && (
         <ModalFrame>
-          <AddMagazineForm close={() => setShowUploadModal(false)} />
+          <AddMagazineForm 
+            close={() => setShowUploadModal(false)} 
+            heading="Add Magazine" // Pass the "Add Magazine" title here
+          />
         </ModalFrame>
       )}
     </div>
   );
 };
 
-export default NewsletterPage;
+export default ManageNewslettersPage;
