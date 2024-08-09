@@ -1,14 +1,16 @@
 import TopPart from "@/components/admin/common/TopPart";
+import EventGridPart from "@/components/admin/events/EventsGridPart";
 import React from "react";
 
 const EventsPage = () => {
   return (
-    <main>
+    <div>
       <TopPart
         title={"Create, edit or delete events"}
         type={{ name: "button", content: "Create new", link: "" }}
       />
-    </main>
+      <EventGridPart />
+    </div>
   );
 };
 
