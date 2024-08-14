@@ -5,17 +5,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import cover from "../../../../public/assets/about/about1.png"
-import Link from "next/link";
 
-import { BsArrowLeftCircleFill } from "react-icons/bs";
-import { BsArrowRightCircleFill } from "react-icons/bs";
+import { ImQuotesLeft } from "react-icons/im";
 
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const DontTakeCards = () => {
   const [slideIndex, setSlideIndex] = useState(0)
-  const [data, setData] = useState([1, 1, 1, 1, 1, 1 ])
+  const [data, setData] = useState([1, 1, 1, 1, 1, 1])
   const [loading, setLoading] = useState(true)
 
 
@@ -66,7 +64,7 @@ const DontTakeCards = () => {
       }
     ],
   };
-  
+
   function formatDate(createdAt) {
     const date = new Date(createdAt);
     let formattedDate = null;
@@ -78,7 +76,7 @@ const DontTakeCards = () => {
       return formattedDate;
     }
     return ''
-  } 
+  }
 
   return (
 
@@ -105,15 +103,15 @@ const DontTakeCards = () => {
             data?.map((item, index) => (
               <div key={index}
                 className={`w-full h-[300px] sm:h-[400px] relative rounded-2xl overflow-clip
-                      ${index === slideIndex ? 'slide-active' 
-                        : ( (index === slideIndex - 1 || index === slideIndex + 1 || (slideIndex === 0 && index === data.length -1)  || (slideIndex === data.length -1 && index === 0) ) 
-                        ? 'slide-btw' : 'slide')}
+                      ${index === slideIndex ? 'slide-active'
+                    : ((index === slideIndex - 1 || index === slideIndex + 1 || (slideIndex === 0 && index === data.length - 1) || (slideIndex === data.length - 1 && index === 0))
+                      ? 'slide-btw' : 'slide')}
                       `}
               >
                 {
                   item?.thumbnail?.location
                     ?
-                    <img
+                    <Image
                       src={item?.thumbnail?.location}
                       alt="image"
                       className="w-full h-full object-cover "
@@ -125,19 +123,22 @@ const DontTakeCards = () => {
                 }
 
                 <div
-                  className="absolute bottom-0 w-full h-[80px] flex justify-between 
-                  items-center p-4 bg-[#2A282F] backdrop-blur-lg">
+                  className="absolute bottom-0 w-full h-[300px] sm:h-[400px] flex flex-col
+                  items-start text-white px-4 justify-around">
 
-                    <div className="flex flex-col">
-                      <span className="text-[#FF5C67] text-sm">Slide Index : {slideIndex}</span>
-                      <span className="text-white">index: {index}</span>
+                  <ImQuotesLeft size={56} className={`${index === slideIndex ? 'text-red-600' : 'text-white'}`} />
 
-                    </div>
+                  <div className="flex flex-col items-start">
+                    <p className="text-lg mb-4">
+                      Overall, I had a great experience at KMA Hall. The facilities are excellent, the location is convenient, and the staff is friendly and helpful.
+                    </p>
 
-                    <button className="bg-white text-sm text-black rounded-2xl py-2 px-6">
-                      View
-                    </button>
-                  
+                    <span>P V Ravindran</span>
+                    <span className="text-sm font-light">Manager of XYZQWRT company</span>
+
+                  </div>
+
+
                 </div>
 
               </div>
