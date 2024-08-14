@@ -14,7 +14,7 @@ const PublicationPage = () => {
   return (
     <div>
       <TopPart
-        title={"Manage Publications"}
+        title="Manage Publications"
         type={{ name: "button", content: "Create New" }}
         onClick={() => setShowUploadModal(true)}
       />
@@ -26,7 +26,10 @@ const PublicationPage = () => {
 
       {showUploadModal && (
         <ModalFrame>
-          <AddMagazineForm close={() => setShowUploadModal(false)} />
+          <AddMagazineForm 
+            close={() => setShowUploadModal(false)} 
+            heading="Add Magazine" // Pass the "Add Magazine" title here
+          />
         </ModalFrame>
       )}
     </div>

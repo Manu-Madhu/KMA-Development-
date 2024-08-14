@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const AddMagazineForm = ({ close }) => {
+const AddMagazineForm = ({ close, heading }) => {
   const [title, setTitle] = useState('');
   const [coverImage, setCoverImage] = useState('');
   const [file, setFile] = useState('');
@@ -48,7 +48,7 @@ const AddMagazineForm = ({ close }) => {
               color: 'rgba(71, 84, 103, 1)',
             }}
           >
-            Add Magazine
+            {heading} {/* Use the heading prop here */}
           </h2>
           <div className="mb-3">
             <label className="block mb-1 text-xs">Title</label>

@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 import TableFilter from '@/components/admin/common/TableFilter';
 import TopPart from '@/components/admin/common/TopPart';
 import Library from '@/components/admin/E-Library/Library';
-import AddMagazineForm from '@/components/admin/common/AddMagazineForm';
+import AddMagazineForm from '@/components/admin/common/AddMagazineForm'; // Ensure correct import
+import Publication from '@/components/admin/publication/Publication';
 
 const ELibraryPage = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
@@ -20,7 +21,7 @@ const ELibraryPage = () => {
       <TableFilter />
 
       <div className="overflow-y-scroll mb-20 min-h-screen">
-        <Library />
+        <Publication />
       </div>
 
       {showUploadModal && (
@@ -33,7 +34,10 @@ const ELibraryPage = () => {
               <span className="text-xl">&times;</span>
             </button>
             <div className="w-full">
-              <AddMagazineForm close={() => setShowUploadModal(false)} />
+              <AddMagazineForm 
+                close={() => setShowUploadModal(false)} 
+                heading="Add Book" 
+              />
             </div>
           </div>
         </div>
