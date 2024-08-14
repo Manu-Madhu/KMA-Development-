@@ -27,7 +27,7 @@ function HomePage() {
             <DontTakeCards/>
             <ArticleSlideCards/>
             <Articles />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <HomeRegister />
         </div>
     )
