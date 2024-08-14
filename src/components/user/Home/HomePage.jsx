@@ -13,6 +13,7 @@ import AwardSlideCards from './AwardSlideCards'
 import ArticleSlideCards from './ArticleSlideCards'
 import DontTakeCards from './DontTakeCards'
 import AboutKMA from './AboutKMA'
+import Mission from './Mission'
 
 function HomePage() {
     return (
@@ -22,6 +23,7 @@ function HomePage() {
             {/* <KMACSRAwards /> */}
             <AboutKMA/>
             <Stats />
+            <Mission/>
             <HomeEvents />
             <OfficeBearers />
             <ManagingDirectors />
