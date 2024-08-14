@@ -35,6 +35,7 @@ const NewsletterPage = () => {
         </ModalFrame>
       )}
     </div>
+
   );
 };
 

@@ -1,3 +1,4 @@
+
 "use client"; // Add this directive at the top
 
 import React, { useState } from "react";
@@ -36,3 +37,4 @@ const PublicationPage = () => {
 }
 
 export default PublicationPage;
+

@@ -5,7 +5,6 @@ import { DummyTableData } from "@/data/admin/TableData";
 import React from "react";
 
 const MembersPage = () => {
-  
   const filteredData = DummyTableData.map(
     ({ id, name, Organization, status }) => ({
       id,

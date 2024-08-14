@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -35,5 +36,5 @@ const ManageNewslettersPage = () => {
     </div>
   );
 };
-
 export default ManageNewslettersPage;
+
