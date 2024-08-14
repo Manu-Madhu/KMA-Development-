@@ -6,7 +6,7 @@ import TopPart from "@/components/admin/common/TopPart";
 import TableFilter from "@/components/admin/common/TableFilter";
 import SocialConnect from "@/components/admin/socialconnect/SocialConnect";
 import ModalFrame from "@/components/admin/common/ModalFram";
-import SocialConnectModal from "@/components/admin/socialconnect/SocialConnectModal";
+import SocialConnectModal from "@/components/admin/socialConnect/SocialConnectModal_temp";
 
 const SocialConnectPage = () => {
   const [showSocialConnectModal, setShowSocialConnectModal] = useState(false);

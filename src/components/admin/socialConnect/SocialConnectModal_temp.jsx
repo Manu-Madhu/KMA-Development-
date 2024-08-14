@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const SocialConnectModal = ({ close }) => {
-  const [coverImage, setCoverImage] = useState('');
-  const [eventName, setEventName] = useState('');
-  const [platform, setPlatform] = useState('Youtube');
-  const [link, setLink] = useState('');
+  const [coverImage, setCoverImage] = useState("");
+  const [eventName, setEventName] = useState("");
+  const [platform, setPlatform] = useState("Youtube");
+  const [link, setLink] = useState("");
 
   const handleCoverImageChange = (e) => {
-    setCoverImage(e.target.files[0]?.name || '');
+    setCoverImage(e.target.files[0]?.name || "");
   };
 
   const handleEventNameChange = (e) => {
@@ -27,19 +27,19 @@ const SocialConnectModal = ({ close }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Cover Image:', coverImage);
-    console.log('Event Name:', eventName);
-    console.log('Platform:', platform);
-    console.log('Link:', link);
+    console.log("Cover Image:", coverImage);
+    console.log("Event Name:", eventName);
+    console.log("Platform:", platform);
+    console.log("Link:", link);
   };
 
   return (
     <form
       onSubmit={handleSubmit}
       style={{
-        width: '800px', // Adjust the width as needed
-        padding: '36px 48px',
-        borderRadius: '20px 0px 0px 0px',
+        width: "800px",
+        padding: "36px 48px",
+        borderRadius: "20px 0px 0px 0px",
       }}
       className="bg-white mx-auto shadow-lg"
     >
@@ -61,7 +61,10 @@ const SocialConnectModal = ({ close }) => {
             className="hidden"
             id="coverImageUpload"
           />
-          <label htmlFor="coverImageUpload" className="border p-2 cursor-pointer w-full text-center">
+          <label
+            htmlFor="coverImageUpload"
+            className="border p-2 cursor-pointer w-full text-center"
+          >
             Browse
           </label>
           <button type="button" className="border p-2 ml-2 w-full text-center">
