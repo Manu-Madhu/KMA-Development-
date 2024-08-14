@@ -12,13 +12,15 @@ import HomeRegister from './Register/HomeRegister'
 import AwardSlideCards from './AwardSlideCards'
 import ArticleSlideCards from './ArticleSlideCards'
 import DontTakeCards from './DontTakeCards'
+import AboutKMA from './AboutKMA'
 
 function HomePage() {
     return (
         <div>
             <LandingPart />
             < AwardSlideCards />
-            <KMACSRAwards />
+            {/* <KMACSRAwards /> */}
+            <AboutKMA/>
             <Stats />
             <HomeEvents />
             <OfficeBearers />
