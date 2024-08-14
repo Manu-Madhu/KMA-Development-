@@ -11,3 +11,13 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.slide{
+  opacity:0.5;
+  transform: scale(0.7);
+}
+
+.slide-active{
+  opacity:1;
+  transform: scale(1)
+}

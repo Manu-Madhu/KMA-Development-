@@ -9,11 +9,13 @@ import MemberBenefits from './MemberBenefits'
 import Articles from './Articles'
 import Testimonials from './testimonial/Testimonials'
 import HomeRegister from './Register/HomeRegister'
+import AwardSlideCards from './AwardSlideCards'
 
 function HomePage() {
     return (
         <div>
             <LandingPart />
+            < AwardSlideCards />
             <KMACSRAwards />
             <Stats />
             <HomeEvents />
