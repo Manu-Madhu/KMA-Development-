@@ -25,7 +25,7 @@ const ArticleSlideCards = () => {
   };
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -41,7 +41,7 @@ const ArticleSlideCards = () => {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
@@ -151,7 +151,7 @@ const ArticleSlideCards = () => {
         <BsArrowRightCircleFill size={28} color="#E3000F" />
       </span>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center my-5">
         <button className='mx-auto px-6 py-2 mt-12 border border-gray-600 w-fit rounded-full font-semibold text-red-600'>
           View All
         </button>
