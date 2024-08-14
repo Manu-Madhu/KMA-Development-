@@ -10,6 +10,7 @@ import Articles from './Articles'
 import Testimonials from './testimonial/Testimonials'
 import HomeRegister from './Register/HomeRegister'
 import AwardSlideCards from './AwardSlideCards'
+import ArticleSlideCards from './ArticleSlideCards'
 
 function HomePage() {
     return (
@@ -22,6 +23,7 @@ function HomePage() {
             <OfficeBearers />
             <ManagingDirectors />
             <MemberBenefits />
+            <ArticleSlideCards/>
             <Articles />
             <Testimonials />
             <HomeRegister />
