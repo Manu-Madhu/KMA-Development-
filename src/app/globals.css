@@ -21,3 +21,8 @@
   opacity:1;
   transform: scale(1)
 }
+
+.slide-btw{
+  opacity:0.5;
+  transform: scale(0.8);
+}

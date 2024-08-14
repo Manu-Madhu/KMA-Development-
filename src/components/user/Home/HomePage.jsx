@@ -11,6 +11,7 @@ import Testimonials from './testimonial/Testimonials'
 import HomeRegister from './Register/HomeRegister'
 import AwardSlideCards from './AwardSlideCards'
 import ArticleSlideCards from './ArticleSlideCards'
+import DontTakeCards from './DontTakeCards'
 
 function HomePage() {
     return (
@@ -23,6 +24,7 @@ function HomePage() {
             <OfficeBearers />
             <ManagingDirectors />
             <MemberBenefits />
+            <DontTakeCards/>
             <ArticleSlideCards/>
             <Articles />
             <Testimonials />
