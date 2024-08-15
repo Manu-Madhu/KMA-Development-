@@ -16,6 +16,7 @@ import AboutKMA from './AboutKMA'
 import Mission from './Mission'
 import Flagship from './Flagship'
 import YearVideoBanner from './YearVideoBanner'
+import RotateGallery from './RotateGallery'
 
 function HomePage() {
     return (
@@ -25,6 +26,7 @@ function HomePage() {
             {/* <KMACSRAwards /> */}
             <AboutKMA/>
             <Stats />
+            <RotateGallery/>
             <YearVideoBanner/>
             <Mission/>
             <HomeEvents />
