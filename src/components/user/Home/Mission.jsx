@@ -9,7 +9,7 @@ const Mission = () => {
     <div className='pb-10 max-w-screen-xl mx-auto p-3 w-full flex flex-col sm:flex-row items-start 
     justify-center my-24 max-md:gap-8'>
         
-        <div className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
+        <div data-aos="zoom-in" data-aos-duration="2000" className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
           <Image
           src={flag}
           alt=''
@@ -25,7 +25,7 @@ const Mission = () => {
 
         <div class="hidden sm:flex border-l-2 border-gray-300 h-32 mx-4"></div>
 
-        <div className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
+        <div data-aos="zoom-in" data-aos-duration="2000" className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
           <Image
           src={eye}
           alt=''
@@ -42,7 +42,7 @@ const Mission = () => {
         <div class="hidden sm:flex border-l-2 border-gray-300 h-32 mx-4"></div>
 
 
-        <div className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
+        <div data-aos="zoom-in" data-aos-duration="1000" className='w-full sm:w-[20vw] flex flex-col items-center gap-2 '>
           <Image
           src={diamond}
           alt=''

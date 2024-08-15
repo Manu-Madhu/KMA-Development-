@@ -19,7 +19,7 @@ function Flagship() {
 
                 <span className='text-xs'>Will starts in</span>
 
-                <div className='mt-4 flex flex-col sm:flex-row items-center text-xl sm:text-3xl font-light max-sm:gap-4 '>
+                <div data-aos="zoom-in" data-aos-duration="1000" className='mt-4 flex flex-col sm:flex-row items-center text-xl sm:text-3xl font-light max-sm:gap-4 '>
                     <span>120 Days</span>
                     <div class="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
                     <span>4 Hours</span>

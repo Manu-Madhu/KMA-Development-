@@ -45,6 +45,7 @@ function AboutKMA() {
 
       </div>
       <Image
+      data-aos="fade-up" data-aos-duration="1000"
         className="w-full lg:w-2/5 h-[300px] sm:h-full max-lg:mt-6 object-cover rounded-xl"
         src={image}
         alt="KMA"
