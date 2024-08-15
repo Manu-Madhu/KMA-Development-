@@ -10,25 +10,25 @@ function MemberBenefits() {
 
     const data = [
         {
-            bgcolor:'#FF5C67',
+            bgcolor:'bg-[#FF5C67]',
             icon: <FaRegHandshake size={32} />,
             title: "Networking",
             content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`
         },
         {
-            bgcolor:'#5CA7FF',
+            bgcolor:'bg-[#5CA7FF]',
             icon: <HiOutlineBookOpen size={32} />,
             title: "Learning",
             content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`
         },
         {
-            bgcolor:'#FFB45C',
+            bgcolor:'bg-[#FFB45C]',
             icon: <HiOutlineChatBubbleLeftRight size={32} />,
             title: "Social",
             content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`
         },
         {
-            bgcolor:'#61C55F',
+            bgcolor:'bg-[#61C55F]',
             icon: <LuUsers size={32} />,
             title: "Community",
             content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`
