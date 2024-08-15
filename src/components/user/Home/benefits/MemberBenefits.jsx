@@ -47,7 +47,7 @@ function MemberBenefits() {
                 KMA membership provides innumerable opportunities to enrich their <br /> experiences by participating in a variety of programs
             </p>
 
-            <div className='w-full mt-20 flex flex-col sm:flex-row items-center gap-4'>
+            <div className='w-full mt-20 flex flex-wrap lg:flex-row justify-around items-center gap-4'>
 
                 {
                     data.map((item, index) => (
