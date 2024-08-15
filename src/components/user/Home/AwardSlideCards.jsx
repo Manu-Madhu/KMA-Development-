@@ -79,7 +79,7 @@ const AwardSlideCards = () => {
     } ``
     return (
 
-        <div className='w-full h-[240px] sm:h-[280px] relative'>
+        <div className='w-full h-[240px] sm:h-[280px] relative my-24'>
             <div className=" mx-auto slider-container relative ">
                 <Slider
                     ref={slider => {

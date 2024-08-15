@@ -1,26 +1,24 @@
-import Image from 'next/image'
 import React from 'react'
-import FutureCircle from '../../../../public/assets/home/Line.png'
-import RightHand from '../../../../public/assets/home/hand_r.png'
-import LeftHand from '../../../../public/assets/home/hand_l.png'
+import VideoBackground from './VideoBackground'
 
 function LandingPart() {
+    // const sample = "https://firebasestorage.googleapis.com/v0/b/knotube-55bb5.appspot.com/o/1671624810510file_example_MP4_640_3MG.mp4?alt=media&token=aa154461-6565-4b94-8d25-e259f0f0ebb8"
+    const sample = '/assets/home/sample.mp4'
+
     return (
-        <div className='h-screen relative w-full flex flex-col items-center text-black bg-white'>
-            <div className='absolute flex flex-col items-center top-1/4'>
-                <h1 className='text-black text-[4.5rem] max-sm:text-3xl leading-[50px] font-bold z-10'>Shaping a sustainable</h1>
-                <div className='relative'>
-                    <h1 className='text-black w-fit h-fit leading-3 text-[4.5rem] max-sm:text-3xl  absolute inset-0 m-auto font-bold'>future</h1>
-                    <Image
-                        src={FutureCircle}
-                        className='h-[6.5rem] max-sm:h-[3rem] w-[21rem] max-sm:w-[8rem]  mx-auto'
-                        alt='Future Circle'
-                    />
-                </div>
+        <div className='h-screen relative w-full flex flex-col items-center text-white bg-white'>
+            <VideoBackground videoSrc={sample} />
+
+            <div className='absolute flex flex-col items-center gap-6 top-1/4'>
+                <h1 className=' text-[4.5rem] max-sm:text-3xl leading-[80px] font-bold z-10 text-center'>Shaping a sustainable <br/> future</h1>
+
                 <p className='text-xl mt-4 max-sm:text-base'>Honouring Excellence in CSR and ESG Leadership</p>
+
+                <button className='px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold bg-white text-red-600'>
+          Join Us
+        </button>
             </div>
-            <Image src={RightHand} className='absolute right-0   top-1/4 max-sm:top-1/2 max-sm:size-40' alt='Right Hand' />
-            <Image src={LeftHand} className='absolute left-0  max-sm:size-40' alt='Left Hand' />
+
         </div>
     )
 }
