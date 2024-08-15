@@ -25,10 +25,10 @@ function HomePage() {
             <Stats />
             <Mission/>
             <HomeEvents />
-            <OfficeBearers />
-            <ManagingDirectors />
+            {/* <OfficeBearers /> */}
             <MemberBenefits />
             <DontTakeCards/>
+            <ManagingDirectors />
             <ArticleSlideCards/>
             <Articles />
             {/* <Testimonials /> */}
