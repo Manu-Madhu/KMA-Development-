@@ -14,6 +14,7 @@ import ArticleSlideCards from './ArticleSlideCards'
 import DontTakeCards from './DontTakeCards'
 import AboutKMA from './AboutKMA'
 import Mission from './Mission'
+import Flagship from './Flagship'
 
 function HomePage() {
     return (
@@ -26,6 +27,7 @@ function HomePage() {
             <Mission/>
             <HomeEvents />
             {/* <OfficeBearers /> */}
+            <Flagship/>
             <MemberBenefits />
             <DontTakeCards/>
             <ManagingDirectors />
