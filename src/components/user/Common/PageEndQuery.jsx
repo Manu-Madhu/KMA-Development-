@@ -15,14 +15,14 @@ function PageEndQuery({ heading, subheading, button }) {
             />
             <div className="w-fit flex flex-col items-center absolute">
                 <h1 className="text-[2.4rem] max-md:text-3xl font-bold leading-[3.5rem] max-md:leading-10 text-center">
-                    {heading || "Interested to conduct event in KMA?"}
+                    {heading }
                 </h1>
                 <p className="text-center">
-                    {subheading || "Click the register button below to inquire hall"}
+                    {subheading }
                 </p>
                 <Link href={button?.path || ""}>
                     <button className="px-6 py-2 mt-8 bg-white border border-gray-600 w-fit rounded-full font-semibold text-red-600">
-                        {button?.title || "Inquire now"}
+                        {button?.title}
                     </button>
                 </Link>
             </div>

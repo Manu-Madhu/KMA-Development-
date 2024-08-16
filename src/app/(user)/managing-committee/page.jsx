@@ -1,3 +1,4 @@
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import ConductEvent from "@/components/user/Events/ConductEvent";
 import ManagingCommittee from "@/components/user/managingCommitee/ManagingCommittee";
 import { Managing } from "@/data/Managing";
@@ -57,7 +58,7 @@ const page = () => {
           />
         </div>
       </div>
-      <ConductEvent
+      <PageEndQuery
         heading={"View Our Past Presidents"}
         subheading={"Click the button below to see our past presidents"}
         button={{ title: "Past Presidents", path: "/past-presidents" }}

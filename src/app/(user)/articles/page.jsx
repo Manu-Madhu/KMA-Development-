@@ -1,6 +1,6 @@
 import Article from "@/components/user/article/Article";
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import ConductEvent from "@/components/user/Events/ConductEvent";
 import { Articles } from "@/data/Articles";
 import React from "react";
 
@@ -27,7 +27,7 @@ const ArticlePage = () => {
           </div>
         </div>
       </div>
-      <ConductEvent
+      <PageEndQuery
         heading={"Want to See More Resources?"}
         subheading={"Click the button below to see more resources"}
         button={{ title: "View More", path: "/" }}

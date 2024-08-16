@@ -6,6 +6,7 @@ import React from 'react'
 
 function Page() {
     return (
+        <>
         <div className='max-w-screen-xl p-3 mx-auto'>
             <UnderlinedHeading heading={"E-"} text="Library" />
             <div className='grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-14'>
@@ -21,14 +22,14 @@ function Page() {
                     ))
                 }
             </div>
-            <div className="my-20">
+           
+        </div>
                 <PageEndQuery
                     heading="Want to See More Resources?"
                     subheading="Click the button below to see more resources"
                     button={{ path: "/", title: "View More" }}
                 />
-            </div>
-        </div>
+        </>
     )
 }
 

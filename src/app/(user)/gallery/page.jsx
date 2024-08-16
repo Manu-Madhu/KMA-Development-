@@ -1,7 +1,7 @@
 import React from "react";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import ConductEvent from "@/components/user/Events/ConductEvent";
 import GalleryContent from "@/components/user/gallery/GalleryContent";
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 
 const GalleryPage = () => {
   return (
@@ -17,7 +17,7 @@ const GalleryPage = () => {
       </div>
 
       {/* Bottom part */}
-      <ConductEvent
+      <PageEndQuery
         heading={"Want to See More Social Media Resources?"}
         subheading={"Click the button below to see more resources"}
         button={{ title: "View More", path: "/gallery" }}
