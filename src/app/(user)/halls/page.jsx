@@ -2,8 +2,8 @@ import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
 import hallBanner from "@/../public/assets/halls/hall_banner.jpg";
 import Image from "next/image";
 import HallsCard from "@/components/user/halls/HallsCard";
-import HallsRequest from "@/components/user/halls/HallsRequest";
 import { halls } from "@/data/halls";
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 
 function Page() {
   return (
@@ -52,7 +52,8 @@ function Page() {
           </div>
         </div>
       </div>
-      <HallsRequest />
+      <PageEndQuery heading={`To inquire more about our halls`} subheading={`Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here`} button={{ title: "Submit Request", path:'/halls/inquiry' }} />
+
     </>
   );
 }

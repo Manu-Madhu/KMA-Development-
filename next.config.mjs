@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['www.veeforu.com'],
+        remotePatterns: [
+          {
+            protocol: "https", 
+            hostname: "www.veeforu.com", 
+          },
+        ],
       },
 };
 

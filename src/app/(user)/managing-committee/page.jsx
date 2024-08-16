@@ -60,7 +60,7 @@ const page = () => {
       <ConductEvent
         heading={"View Our Past Presidents"}
         subheading={"Click the button below to see our past presidents"}
-        button={{ title: "Past Presidents", path: "/" }}
+        button={{ title: "Past Presidents", path: "/past-presidents" }}
       />
     </>
   );

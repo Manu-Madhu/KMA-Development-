@@ -1,3 +1,4 @@
+import PageEndQuery from '@/components/user/Common/PageEndQuery'
 import Banner from '@/components/user/member/Banner'
 import BottomImage from '@/components/user/member/BottomImage'
 import Category from '@/components/user/member/Category'
@@ -11,7 +12,8 @@ const Member = () => {
         <Category/>
       </section>
       <section>
-        <BottomImage/>
+        <PageEndQuery heading={`Interested in Becoming a Member?`} subheading={`Click the register button below to see the procedures`} button={{ title: "Register Now", path:'/registration' }} />
+
       </section>
     </div>
   )

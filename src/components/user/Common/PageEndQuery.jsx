@@ -21,7 +21,7 @@ function PageEndQuery({ heading, subheading, button }) {
                     {subheading || "Click the register button below to inquire hall"}
                 </p>
                 <Link href={button?.path || ""}>
-                    <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
+                    <button className="px-6 py-2 mt-8 bg-white border border-gray-600 w-fit rounded-full font-semibold text-red-600">
                         {button?.title || "Inquire now"}
                     </button>
                 </Link>
