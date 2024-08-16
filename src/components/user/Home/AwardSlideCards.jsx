@@ -28,6 +28,7 @@ const AwardSlideCards = () => {
 
     const settings = {
         dots: true,
+        arrows:false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -79,7 +80,7 @@ const AwardSlideCards = () => {
     } ``
     return (
 
-        <div className='w-full h-[240px] sm:h-[280px] relative my-24'>
+        <div className='w-full h-auto my-24'>
             <div className=" mx-auto slider-container relative ">
                 <Slider
                     ref={slider => {
@@ -91,7 +92,7 @@ const AwardSlideCards = () => {
                     {
                         data?.map((item, index) => (
                             <div key={index}
-                                className={`w-full h-[200px] sm:h-[250px] rounded-2xl
+                                className={`w-full h-[220px] max-xl:h-[300px] max-sm:h-[220px] rounded-2xl
                                     bg-gradient-to-r from-[#E83F4A] to-[#F5828A] "
                                 ${index === slideIndex ? 'slide slide-active' : 'slide'}
                                 flex flex-col p-4 text-white
@@ -105,7 +106,7 @@ const AwardSlideCards = () => {
 
                                 <p className="mt-6">KMA CSR Award 2024</p>
 
-                                <p className="mt-6">KMA CSR Award 2024 for recognising exceponal Corporate Social Responsibility (CSR)
+                                <p className="mt-6 text-sm">KMA CSR Award 2024 for recognising exceponal Corporate Social Responsibility (CSR)
                                     Projects in each of the following CSR themes:</p>
                             </div>
 
@@ -115,14 +116,14 @@ const AwardSlideCards = () => {
 
                 </Slider>
 
-            </div>
-
-            <span className=" z-40 cursor-pointer absolute top-[100px] sm:top-[125px] left-4  " onClick={previous} >
+            <span className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center  " onClick={previous} >
                 <BsArrowLeftCircleFill size={28} color="#E3000F" />
             </span>
-            <span className=" z-40 cursor-pointer absolute top-[100px] sm:top-[125px] right-4" onClick={next} >
+            <span className="z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit h-full flex items-center" onClick={next} >
                 <BsArrowRightCircleFill size={28} color="#E3000F" />
             </span>
+
+            </div>
         </div>
 
     )

@@ -27,6 +27,7 @@ const DontTakeCards = () => {
 
   const settings = {
     dots: false,
+    arrows:false,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
