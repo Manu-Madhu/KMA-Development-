@@ -1,35 +1,33 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import wavynet from '../../../../public/assets/home/wavynet.png';
+
 function ConductEvent({ heading, subheading, button }) {
   return (
-    <div className="w-full my-5 h-screen relative flex items-center justify-center">
-      <div className="w-fit flex flex-col items-center p-3">
+    <div className="w-full mt-5 h-[300px] sm:h-screen relative flex items-center justify-center">
+       <Image
+                src={wavynet}
+                alt=''
+                fill
+                className="z-0 object-fill"
+                quality={100}
+            />
+
+      <div className="w-fit flex flex-col items-center absolute">
         <h1 className="text-[2.4rem] max-md:text-3xl font-bold leading-[3.5rem] max-md:leading-10 text-center">
           {heading || "Interested to conduct event in KMA?"}
         </h1>
         <p className="text-center">
-          {subheading || "Click the register button below to inquire hall"}
+          {subheading || "Click the below button to inquire hall"}
         </p>
         <Link href={button?.path || ""}>
-          <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
+          <button className="px-6 py-2 mt-8 bg-white border border-gray-600 w-fit rounded-full font-semibold text-red-600">
             {button?.title || "Inquire now"}
           </button>
         </Link>
       </div>
-      <img
-        src={"/assets/Register/Pattern 1.png"}
-        alt="Pattern 1"
-        // width={500}
-        // height={500}
-        className="absolute top-0 left-0"
-      />
-      <img
-        src={"/assets/Register/Pattern 2.png"}
-        alt="Pattern 2"
-        // width={500}
-        // height={500}
-        className="absolute bottom-0 max-md:hidden right-0 "
-      />
+      
     </div>
   );
 }

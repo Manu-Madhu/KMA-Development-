@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import pattern1 from '../../../../../public/assets/Register/Pattern 1.png'
-import pattern2 from '../../../../../public/assets/Register/Pattern 2.png'
+
 import wavynet from '../../../../../public/assets/home/wavynet.png';
 
 function HomeRegister() {
@@ -9,8 +8,7 @@ function HomeRegister() {
              <Image
                 src={wavynet}
                 alt=''
-                layout="fill"
-                // objectFit="fill"
+                fill
                 className="z-0 object-fill"
                 quality={100}
             />
@@ -24,10 +22,6 @@ function HomeRegister() {
                     Register now
                 </button>
             </div>
-
-
-            {/* <Image src={pattern1} alt='Pattern 1' className='absolute top-0 left-0' />
-            <Image src={pattern2} alt='Pattern 2' className='absolute bottom-0 right-0 max-md:hidden' /> */}
 
         </div>
     )

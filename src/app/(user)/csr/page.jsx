@@ -1,7 +1,7 @@
 import { GoDownload } from "react-icons/go";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import ConductEvent from "@/components/user/Events/ConductEvent";
 import React from "react";
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 
 const CsrPage = () => {
   // Application path
@@ -66,7 +66,7 @@ const CsrPage = () => {
       </div>
 
       {/* Bottom part */}
-      <ConductEvent
+      <PageEndQuery
         heading={"Interested in Becoming a Member?"}
         subheading={"Click the register button below to see the procedures"}
         button={{ title: "Register now", path: "/" }}

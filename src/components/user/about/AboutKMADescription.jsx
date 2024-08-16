@@ -1,5 +1,6 @@
 import React from 'react'
 import UnderlinedHeading from '@/components/user/Common/UnderlinedHeading'
+import AboutVideoCard from './AboutVideoCard'
 
 function AboutKMADescription() {
     return (
@@ -7,6 +8,9 @@ function AboutKMADescription() {
             <div className='mt-10'>
                 <UnderlinedHeading heading='About' text='KMA' />
             </div>
+
+            <AboutVideoCard />
+
             <p className='mt-10 max-md:text-sm'>
                 {`Cochin was a sleepy little town in the 1950’s. The State of Kerala had just been formed in November 1956 and the Communist Government 
                 headed by E.M.S.Namboodiripad was yet to become a reality. P.S.Rao, formerly of the Indian Civil Service, was the Governor who administered

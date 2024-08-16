@@ -11,8 +11,7 @@ function HomeEvents() {
             <Image
                 src={wavybg}
                 alt=''
-                layout="fill"
-                // objectFit="fill"
+                fill
                 className="z-0 object-cover sm:object-fill"
                 quality={100}
             />

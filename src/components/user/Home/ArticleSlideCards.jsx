@@ -26,6 +26,7 @@ const ArticleSlideCards = () => {
 
   const settings = {
     dots: false,
+    arrows:false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -77,7 +78,7 @@ const ArticleSlideCards = () => {
   } ``
   return (
 
-    <div className='w-full py-12 relative '>
+    <div className='w-full py-12'>
 
       <h1 className='my-14 text-[2.8rem] max-md:text-[1.5rem] font-bold leading-[3.5rem] max-md:leading-9 text-center'>
         Latest {" "}
@@ -141,15 +142,15 @@ const ArticleSlideCards = () => {
 
         </Slider>
 
-      </div>
-
-      <span className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit translate-y-1/2 " onClick={previous} >
+      <span className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center  " onClick={previous} >
         <BsArrowLeftCircleFill size={28} color="#E3000F" />
       </span>
 
-      <span className=" z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit translate-y-1/2 " onClick={next} >
+      <span className=" z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit h-full flex items-center  " onClick={next} >
         <BsArrowRightCircleFill size={28} color="#E3000F" />
       </span>
+      </div>
+
 
       <div className="flex justify-center my-5">
         <button className='mx-auto px-6 py-2 mt-12 border border-gray-600 w-fit rounded-full font-semibold text-red-600'>

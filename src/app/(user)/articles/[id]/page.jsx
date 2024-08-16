@@ -1,5 +1,5 @@
+import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import ConductEvent from "@/components/user/Events/ConductEvent";
 import { Articles } from "@/data/Articles";
 import Image from "next/image";
 import React from "react";
@@ -68,7 +68,7 @@ const ArticleDetailedView = async ({ params }) => {
         </div>
       </div>
       {/* Bottom Part */}
-      <ConductEvent
+      <PageEndQuery
         heading={"Want to See More Resources?"}
         subheading={"Click the button below to see more resources"}
         button={{ title: "View More", path: "/" }}
