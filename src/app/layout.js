@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Nav from "@/components/nav/Nav";
+import AOSInitializer from "@/components/AOSInitializer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
 
         {/* Content part */}
         <section>
+          <AOSInitializer/>
           {children}
         </section>
 

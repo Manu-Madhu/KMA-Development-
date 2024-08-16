@@ -3,7 +3,8 @@ import eventpic from '../../../../public/assets/events/event1.png'
 import Image from 'next/image'
 function EventCard({ Name, Title, Description, Location, Picture, isArchived = false }) {
     return (
-        <div className={`p-7 relative border overflow-clip flex flex-col w-[96%] h-80 max-md:h-64 border-gray-400 justify-between rounded-2xl`}>
+        <div className={`p-7 relative border overflow-clip flex flex-col w-[96%] h-80 max-md:h-64 border-gray-400 justify-between 
+        rounded-2xl bg-white`}>
             <h1 className='text-red-600 font-semibold max-md:text-sm'>{Name}</h1>
             <h1 className='text-[2.3rem] font-semibold max-md:text-[1.7rem]'>{Title}</h1>
             <p className='w-[45%] text-sm font-medium text-gray-600  my-auto'>
