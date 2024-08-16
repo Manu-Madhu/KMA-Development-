@@ -9,8 +9,7 @@ function HomeRegister() {
              <Image
                 src={wavynet}
                 alt=''
-                layout="fill"
-                // objectFit="fill"
+                fill
                 className="z-0 object-fill"
                 quality={100}
             />

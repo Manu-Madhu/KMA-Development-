@@ -7,8 +7,7 @@ function Flagship() {
             <Image
                 src={countdown}
                 alt=''
-                layout="fill"
-                // objectFit="fill"
+                fill
                 className="z-0 object-cover sm:object-fill"
                 quality={100}
             />
@@ -21,11 +20,11 @@ function Flagship() {
 
                 <div data-aos="zoom-in" data-aos-duration="1000" className='mt-4 flex flex-col sm:flex-row items-center text-xl sm:text-3xl font-light max-sm:gap-4 '>
                     <span>120 Days</span>
-                    <div class="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
+                    <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
                     <span>4 Hours</span>
-                    <div class="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
+                    <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
                     <span>32 Minutes</span>
-                    <div class="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
+                    <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
                     <span>6 Seconds</span>
                 </div>
 

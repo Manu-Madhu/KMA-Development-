@@ -13,7 +13,7 @@ function ManagingDirectors() {
                     <Image src={vector} className='absolute right-0 -bottom-2' alt='Vector' />
                 </span>
             </h1>
-            <div className='grid grid-cols-6 max-sm:grid-cols-2 gap-4 w-full'>
+            <div className='grid grid-cols-6 max-sm:grid-cols-2 max-lg:grid-cols-4 gap-2 sm:gap-4 w-full'>
                 {
                     members.map((member, index) => (
                         <ProfileCard key={index} name={member?.name} role={member.title} image={Person} />

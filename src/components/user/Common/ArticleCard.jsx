@@ -14,7 +14,10 @@ function ArticleCard({
       <Image
         src={thumbnailUrl}
         alt="Article Thumbnail"
-        className="object-cover h-full"
+        fill
+        className="object-cover"
+        sizes=""
+        priority
       />
       <div className="h-[80px] absolute p-4 bg-gray-700/80 bottom-0 w-full backdrop-blur-xl">
         <p

@@ -44,11 +44,11 @@ function HomeCarousel() {
 
     return (
         <div className=' relative '>
-            <span className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit translate-y-1/2 " onClick={handlePrev} >
+            <span className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center " onClick={handlePrev} >
                 <BsArrowLeftCircleFill size={28} color="#E3000F" />
             </span>
 
-            <span className=" z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit translate-y-1/2 " onClick={handleNext} >
+            <span className=" z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit h-full flex items-center " onClick={handleNext} >
                 <BsArrowRightCircleFill size={28} color="#E3000F" />
             </span>
 
