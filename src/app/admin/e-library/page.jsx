@@ -43,7 +43,7 @@ const ELibraryPage = () => {
 
       <div className="overflow-y-scroll mb-20 min-h-screen">
 
-        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-20">
           {data.map((item, index) => (
             <DownloadCard
               key={index}

@@ -1,42 +1,33 @@
 import Link from 'next/link';
 import React from 'react';
-import { FaEdit, FaTrashAlt, FaDownload } from 'react-icons/fa';
+import { LuDownload } from "react-icons/lu";
+import { FiEdit } from "react-icons/fi";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const DownloadCard = ({ platform, title, imageSrc, fileUrl }) => {
     return (
-        <div className="relative flex flex-col items-center">
-            <div className="border rounded-[32px] overflow-hidden shadow-lg w-full h-[230px] flex flex-col relative">
-                <img src={imageSrc} alt={title} className="w-full h-[150px] object-cover" />
-                <div className="p-2 flex flex-col flex-grow" style={{ backgroundColor: 'rgba(42, 40, 47, 0.8)' }}> 
-                    <div className="text-xs mb-1" style={{ color: 'rgba(255, 92, 103, 1)', fontSize: '12px', marginTop: '5px' }}> 
-                        {platform}
-                    </div>
-                    <div className="text-sm font-bold text-white" style={{ marginTop: '8px', fontSize: '14px' }}>{title}</div>
-
-                    <Link href={fileUrl} >
-                        <button
-                            className="absolute bottom-6 right-4 flex items-center gap-2 bg-white text-black px-2 py-1 rounded-lg shadow-lg hover:bg-gray-100 focus:outline-none"
-                            style={{
-                                width: '105px',
-                                height: '25.48px',
-                                borderRadius: '12.74px',
-                                border: '0.53px solid transparent',
-                            }}
-                        >
-                            <FaDownload className="w-4 h-4" />
-                            <span className="text-sm">Download</span>
-                        </button>
-                    </Link> 
-                </div>
+        <div className="relative mb-20">
+            <img
+                src={imageSrc}
+                alt={title}
+                className="w-full h-[250px] rounded-3xl object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/4  bg-customGray flex flex-col justify-end p-2 rounded-b-3xl ">
+                <h3 className="text-customRed text-xs pl-3 pt-1 ">{platform}</h3>
+                <p className="text-white text-sm pl-3 pb-2">{title}</p>
+                <a href={fileUrl} target='_blank' rel="noopener noreferrer" className="absolute bg-[#FFFFFF] bg-opacity-90 right-4 py-2 px-4 rounded-full text-sm flex items-center mt-2">
+                    <LuDownload className="h-5 w-5 text-black mr-2" />
+                    Download
+                </a>
             </div>
-            <div className="p-4 flex justify-between w-full">
-                <button className="flex items-center w-[120px] h-[40px] px-3 py-2 gap-2 bg-white text-black rounded-lg shadow-lg hover:bg-gray-100 focus:outline-none mt-2">
-                    <FaEdit className="w-4 h-4" />
-                    <span className="text-sm">Edit</span>
+            <div className="flex flex-row justify-around mt-4">
+                <button className="absolute shadow-lg  bg-opacity-90 left-1 py-2 px-4 rounded-lg text-sm flex items-center mt-2">
+                    <FiEdit className="h-4 w-4 text-black mr-2" />
+                    Edit
                 </button>
-                <button className="flex items-center w-[120px] h-[40px] mr-[80px] px-3 py-2 gap-2 bg-white text-[#475467] rounded-lg shadow-lg hover:bg-gray-100 focus:outline-none mt-2">
-                    <FaTrashAlt className="w-4 h-4" />
-                    <span className="text-sm">Delete</span>
+                <button className="absolute shadow-lg opacity-60  py-2 px-4 rounded-lg text-sm flex items-center mt-2">
+                    <RiDeleteBinLine className="h-5 w-5 text-black mr-2" />
+                    Delete
                 </button>
             </div>
         </div>
