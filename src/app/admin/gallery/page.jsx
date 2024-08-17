@@ -1,26 +1,46 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TableFilter from "@/components/admin/common/TableFilter";
 import TopPart from "@/components/admin/common/TopPart";
 import ModalFrame from "@/components/admin/common/ModalFram";
 import GalleryContent from "@/components/admin/gallery/GalleryContent";
 import UploadModal from "@/components/admin/gallery/UploadModal"; 
+import axios from "@/axios-folder/axios";
+import { galleryRoute } from "@/utils/Endpoint";
 
-const NewsletterPage = () => {
+const page = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
+
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const response = await axios.get(galleryRoute);
+      console.log({ response })
+      if (response.status === 200) {
+        setData(response?.data?.gallery)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   return (
     <div>
       <TopPart
-        title="Manage Newsletters"
+        title="Manage Gallery"
         type={{ name: "button", content: "Create New" }}
         onClick={() => setShowUploadModal(true)}
       />
-      <TableFilter label="Newsletter" />
+      <TableFilter label="Gallery" />
 
       <div className="overflow-y-scroll mb-20 min-h-screen">
-        <GalleryContent />
+        <GalleryContent data={data} />
       </div>
 
       {showUploadModal && (
@@ -39,4 +59,4 @@ const NewsletterPage = () => {
   );
 };
 
-export default NewsletterPage;
+export default page;
