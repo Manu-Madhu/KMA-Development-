@@ -30,7 +30,7 @@ const Card = ({ platform, title, imageSrc }) => {
     );
 };
 
-const SocialConnect = () => {
+const SocialConnect = ({data}) => {
     const galleryItems = [
         {
             platform: 'YouTube',
@@ -66,12 +66,12 @@ const SocialConnect = () => {
 
     return (
         <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryItems.map((item, index) => (
+            {data?.map((item, index) => (
                 <Card
                     key={index}
                     platform={item.platform}
                     title={item.title}
-                    imageSrc={item.imageSrc}
+                    imageSrc={item.coverImageUrl}
                 />
             ))}
         </div>
