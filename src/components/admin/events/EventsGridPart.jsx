@@ -1,31 +1,27 @@
-'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import EventTypeSelect from './EventsFilter'
 import EventsCardAdmin from './EventsCardAdmin'
-import useAxiosPrivate from '@/hooks/useAxiosPrivate'
 import { eventRoute } from '@/utils/Endpoint'
+import axios from '@/axios-folder/axios'
 
-function EventsGridPart() {
-    const [data, setData] = useState([])
+async function EventsGridPart() {
 
-    const axiosPrivate = useAxiosPrivate()
+    let data = [];
 
     const getEvents = async () => {
-      try {
-        const response = await axiosPrivate.get(eventRoute);
-        console.log({ response })
-        if (response.status === 200) {
-          setData(response?.data?.events)
+        try {
+            const response = await axios.get(eventRoute);
+            console.log({ response })
+            if (response.status === 200) {
+                data = response?.data?.events
+            }
+        } catch (error) {
+            console.log(error)
         }
-      } catch (error) {
-        console.log(error)
-      }
     }
-  
-    useEffect(() => {
-      getEvents()
-    }, [])
-    
+
+    await getEvents()
+
     return (
         <div>
             <div className='flex items-center w-fulll justify-between'>
@@ -40,7 +36,7 @@ function EventsGridPart() {
             </div>
             <div className='w-full flex flex-col sm:flex-row gap-4' >
                 {
-                    data?.map((item,index)=>(
+                    data?.map((item, index) => (
                         <EventsCardAdmin data={item} />
 
                     ))
