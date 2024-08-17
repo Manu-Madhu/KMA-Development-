@@ -7,7 +7,7 @@ const useRefreshToken = () => {
     const refreshToken = session?.user?.refreshToken;
 
     const refresh = async () => {
-        const response = await axios.post('/api/auth/refresh-token', {
+        const response = await axios.post('/api/v1/auth/regenerate', {
             refreshToken: refreshToken
         });
 

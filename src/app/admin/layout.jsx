@@ -7,7 +7,7 @@ import { AdminProvider } from "../Providers";
 
 const layout = ({ children }) => {
   return (
-    // <AdminProvider>
+    <AdminProvider>
       <div className="h-screen max-h-screen overflow-hidden">
         <div>
           <AdminNav />
@@ -20,7 +20,7 @@ const layout = ({ children }) => {
         </div>
       </div>
 
-    // </AdminProvider>
+     </AdminProvider>
   );
 };
 
