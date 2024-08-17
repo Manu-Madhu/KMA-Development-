@@ -1,8 +1,12 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import EventTypeSelect from './EventsFilter'
 import EventsCardAdmin from './EventsCardAdmin'
 
 function EventsGridPart() {
+    const [data, setData] = useState([])
+
+    
     return (
         <div>
             <div className='flex items-center w-fulll justify-between'>

@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Nav from "@/components/nav/Nav";
 import AOSInitializer from "@/components/AOSInitializer";
+import { AuthProvider } from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
 
-        {/* Content part */}
-        <section>
-          <AOSInitializer/>
-          {children}
-        </section>
+        <AuthProvider>
+          <section>
+            <AOSInitializer/>
+            {children}
+          </section>
+
+        </AuthProvider>
+
 
       </body>
     </html>
