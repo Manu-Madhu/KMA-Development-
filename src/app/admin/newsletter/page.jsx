@@ -6,7 +6,6 @@ import TableFilter from "@/components/admin/common/TableFilter";
 import TopPart from "@/components/admin/common/TopPart";
 import ModalFrame from "@/components/admin/common/ModalFram"; // Ensure correct import
 import AddMagazineForm from "@/components/admin/common/AddMagazineForm";
-import NewsletterList from "@/components/admin/newsletter/NewsletterList"; // Adjust the import path
 import Publication from "@/components/admin/publication/Publication";
 
 const ManageNewslettersPage = () => {
