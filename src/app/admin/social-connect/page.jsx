@@ -44,12 +44,12 @@ const SocialConnectPage = () => {
       <TableFilter />
       
       <div className="overflow-y-scroll mb-20 min-h-screen">
-        <SocialConnect data={data} />
+        <SocialConnect data={data} setData={setData} />
       </div>
 
       {showSocialConnectModal && (
         <ModalFrame>
-          <SocialConnectModal close={() => setShowSocialConnectModal(false)} /> {/* Use SocialConnectModal */}
+          <SocialConnectModal close={() => setShowSocialConnectModal(false)} getData={getData} /> 
         </ModalFrame>
       )}
     </div>

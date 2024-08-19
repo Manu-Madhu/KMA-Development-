@@ -1,19 +1,22 @@
 "use client";
 
+import useAxiosPrivate from "@/hooks/useAxiosPrivate";
+import { socialConnectRoute } from "@/utils/Endpoint";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-const SocialConnectModal = ({ close }) => {
-  const [coverImage, setCoverImage] = useState("");
-  const [eventName, setEventName] = useState("");
+const SocialConnectModal = ({ close, getData }) => {
+  const [coverImage, setCoverImage] = useState({});
+  const [title, setTitle] = useState("");
   const [platform, setPlatform] = useState("Youtube");
   const [link, setLink] = useState("");
 
   const handleCoverImageChange = (e) => {
-    setCoverImage(e.target.files[0]?.name || "");
+    setCoverImage(e.target.files[0]);
   };
 
-  const handleEventNameChange = (e) => {
-    setEventName(e.target.value);
+  const handletitleChange = (e) => {
+    setTitle(e.target.value);
   };
 
   const handlePlatformChange = (e) => {
@@ -24,13 +27,41 @@ const SocialConnectModal = ({ close }) => {
     setLink(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const axiosPrivate = useAxiosPrivate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission
     console.log("Cover Image:", coverImage);
-    console.log("Event Name:", eventName);
+    console.log("title:", title);
     console.log("Platform:", platform);
     console.log("Link:", link);
+
+    const formdata = new FormData();
+
+    formdata.append('coverImage', coverImage)
+    formdata.append('title', title)
+    formdata.append('platform', platform)
+    formdata.append('link', link)
+
+    try {
+      const response = await axiosPrivate.post(socialConnectRoute, formdata)
+
+      if (response.status === 201) {
+        toast.success('Added')
+        await getData()
+        close()
+      }
+      else{
+        toast.error('Failed to add')
+      }
+
+    } catch (error) {
+      console.log(error)
+      toast.error('Failed to add')
+
+    }
+
   };
 
   return (
@@ -44,11 +75,11 @@ const SocialConnectModal = ({ close }) => {
       className="bg-white mx-auto shadow-lg"
     >
       <button
-          onClick={close}
-          className="absolute top-3 right-6 text-gray-500 hover:text-gray-700"
-        >
-          <span className="text-2xl">&times;</span> {/* Cross icon */}
-        </button>
+        onClick={close}
+        className="absolute top-3 right-6 text-gray-500 hover:text-gray-700"
+      >
+        <span className="text-2xl">&times;</span> {/* Cross icon */}
+      </button>
 
       <h2 className="text-lg font-bold mb-4">Add social connect</h2>
       <div className="mb-4">
@@ -56,7 +87,7 @@ const SocialConnectModal = ({ close }) => {
         <div className="mb-2">
           <input
             type="text"
-            value={coverImage}
+            value={coverImage?.name}
             readOnly
             className="border p-2 w-full"
           />
@@ -80,11 +111,11 @@ const SocialConnectModal = ({ close }) => {
         </div>
       </div>
       <div className="mb-4">
-        <label className="block mb-1">Event name</label>
+        <label className="block mb-1">title</label>
         <input
           type="text"
-          value={eventName}
-          onChange={handleEventNameChange}
+          value={title}
+          onChange={handletitleChange}
           className="border p-2 w-full"
         />
       </div>
