@@ -49,7 +49,7 @@ const ManageNewslettersPage = () => {
         <ModalFrame>
           <AddMagazineForm 
             close={() => setShowUploadModal(false)} 
-            heading="Add Magazine" // Pass the "Add Magazine" title here
+            heading="Add Newsletter" // Pass the "Add Magazine" title here
           />
         </ModalFrame>
       )}

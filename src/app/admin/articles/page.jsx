@@ -42,7 +42,7 @@ const ArticlePage = () => {
   return (
     <main className="">
       <header>
-        <TopPart title={"Manage articles"} type={{ name: "button",content: "create new", onClick: handleOpenModal }} />
+        <TopPart title={"Manage articles"} type={{ name: "button",content: "create new"}} onClick={handleOpenModal}   />
       </header>
       <section>
         <ArticleFilter/>

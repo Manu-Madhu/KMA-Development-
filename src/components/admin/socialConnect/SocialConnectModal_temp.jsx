@@ -43,6 +43,13 @@ const SocialConnectModal = ({ close }) => {
       }}
       className="bg-white mx-auto shadow-lg"
     >
+      <button
+          onClick={close}
+          className="absolute top-3 right-6 text-gray-500 hover:text-gray-700"
+        >
+          <span className="text-2xl">&times;</span> {/* Cross icon */}
+        </button>
+
       <h2 className="text-lg font-bold mb-4">Add social connect</h2>
       <div className="mb-4">
         <label className="block mb-1">Cover image</label>

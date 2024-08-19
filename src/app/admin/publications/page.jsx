@@ -47,7 +47,7 @@ const PublicationPage = () => {
         <ModalFrame>
           <AddMagazineForm 
             close={() => setShowUploadModal(false)} 
-            heading="Add Magazine" // Pass the "Add Magazine" title here
+            heading="Add Publication" 
           />
         </ModalFrame>
       )}

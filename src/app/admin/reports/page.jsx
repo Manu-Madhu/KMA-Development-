@@ -41,7 +41,7 @@ const ReportsPage = () => {
   return (
     <main className="">
       <header>
-        <TopPart title={"Manage Reports"} type={{ name: "button",content: "create new", onClick: handleOpenModal}} />
+        <TopPart title={"Manage Reports"} type={{ name: "button",content: "create new"}}  onClick={handleOpenModal}  />
       </header>
       <section>
         <ReportsFilter/>

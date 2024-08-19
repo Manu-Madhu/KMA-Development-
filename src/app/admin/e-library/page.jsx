@@ -10,6 +10,7 @@ import Publication from '@/components/admin/publication/Publication';
 import axios from '@/axios-folder/axios';
 import { elibraryRoute } from '@/utils/Endpoint';
 import DownloadCard from '@/components/admin/cards/DownloadCard'
+import ModalFrame from "@/components/admin/common/ModalFram";
 
 const ELibraryPage = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
@@ -58,22 +59,12 @@ const ELibraryPage = () => {
       </div>
 
       {showUploadModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-70 z-50">
-          <div className="relative bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
-            <button
-              onClick={() => setShowUploadModal(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-            >
-              <span className="text-xl">&times;</span>
-            </button>
-            <div className="w-full">
+        <ModalFrame>
               <AddMagazineForm
                 close={() => setShowUploadModal(false)}
                 heading="Add Book"
               />
-            </div>
-          </div>
-        </div>
+          </ModalFrame>
       )}
     </div>
   );

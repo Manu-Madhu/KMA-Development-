@@ -41,7 +41,7 @@ const MagazinePage = () => {
   return (
     <main className="">
       <header>
-        <TopPart title={"Manage magazines"} type={{ name: "button",content: "create new", onClick: handleOpenModal }} />
+        <TopPart title={"Manage magazines"} type={{ name: "button",content: "create new" }}  onClick={handleOpenModal}  />
       </header>
       <section>
         <MagazineFilter/>

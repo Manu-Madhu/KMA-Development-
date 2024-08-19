@@ -45,7 +45,7 @@ const page = () => {
 
       {showUploadModal && (
         <ModalFrame>
-          <UploadModal />
+          <UploadModal close={() => setShowUploadModal(false)} />
           <button
             onClick={() => setShowUploadModal(false)}
             className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full"

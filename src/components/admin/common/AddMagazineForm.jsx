@@ -35,6 +35,13 @@ const AddMagazineForm = ({ close, heading }) => {
         boxSizing: 'border-box',
       }}
     >
+      <button
+          onClick={close}
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+        >
+          <span className="text-2xl">&times;</span> {/* Cross icon */}
+        </button>
+        
       <form onSubmit={handleSubmit} className="flex flex-col h-full">
         <div className="mb-4">
           <h2
