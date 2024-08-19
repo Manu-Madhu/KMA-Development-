@@ -1,22 +1,50 @@
+import useAxiosPrivate from '@/hooks/useAxiosPrivate';
+import { galleryRoute } from '@/utils/Endpoint';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const UploadModal = ({ close }) => {
-  const [image, setImage] = useState('');
-  const [eventName, setEventName] = useState('');
+const UploadModal = ({ close, getData }) => {
+  const [file, setFile] = useState('');
+  const [name, setName] = useState('');
 
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]?.name || '');
+  const handlefileChange = (e) => {
+    setFile(e.target.files[0]);
   };
 
-  const handleEventNameChange = (e) => {
-    setEventName(e.target.value);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const axiosPrivate = useAxiosPrivate()
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Image:', image);
-    console.log('Event Name:', eventName);
+    console.log('file:', file);
+    console.log('Name:', name);
+
+    try {
+      const formdata = new FormData()
+      formdata.append('file', file)
+      formdata.append('name', name)
+  
+      const response = await axiosPrivate.post(galleryRoute, formdata)
+  
+      if(response.status === 201){
+        toast.success('file uploaded')
+        getData()
+        close()
+      }else{
+        toast.error('Failed to upload file')
+      }
+      
+    } catch (error) {
+      console.log(error)
+      toast.error('Failed to upload file')
+      
+    }
+    
+
   };
 
   return (
@@ -31,22 +59,22 @@ const UploadModal = ({ close }) => {
         <form onSubmit={handleSubmit}>
           <h2 className="text-lg font-bold mb-4">Add image to gallery</h2>
           <div className="mb-4">
-            <label htmlFor="imageUpload" className="block mb-1">Upload image</label>
+            <label htmlFor="fileUpload" className="block mb-1">Upload Image</label>
             <input
               type="text"
-              value={image}
+              value={file?.name}
               readOnly
               className="border p-2 w-full"
             />
             <input
               type="file"
-              onChange={handleImageChange}
+              onChange={handlefileChange}
               className="hidden"
-              id="imageUpload"
+              id="fileUpload"
             />
             <div className="flex mt-2 gap-2">
               <label
-                htmlFor="imageUpload"
+                htmlFor="fileUpload"
                 className="border p-2 text-sm cursor-pointer w-[80px] text-center rounded-lg bg-white text-black"
               >
                 Browse
@@ -60,12 +88,12 @@ const UploadModal = ({ close }) => {
             </div>
           </div>
           <div className="mb-4">
-            <label htmlFor="eventName" className="block mb-1">Event name</label>
+            <label htmlFor="name" className="block mb-1">Name</label>
             <input
               type="text"
-              id="eventName"
-              value={eventName}
-              onChange={handleEventNameChange}
+              id="name"
+              value={name}
+              onChange={handleNameChange}
               className="border p-2 w-full"
             />
           </div>

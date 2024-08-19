@@ -17,7 +17,7 @@ const page = () => {
   const getData = async () => {
     try {
       const response = await axios.get(galleryRoute);
-      console.log({ response })
+      // console.log({ response })
       if (response.status === 200) {
         setData(response?.data?.gallery)
       }
@@ -40,12 +40,12 @@ const page = () => {
       <TableFilter label="Gallery" />
 
       <div className="overflow-y-scroll mb-20 min-h-screen">
-        <GalleryContent data={data} />
+        <GalleryContent data={data} setData={setData} />
       </div>
 
       {showUploadModal && (
         <ModalFrame>
-          <UploadModal close={() => setShowUploadModal(false)} />
+          <UploadModal close={() => setShowUploadModal(false)} getData={getData} />
           <button
             onClick={() => setShowUploadModal(false)}
             className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full"
