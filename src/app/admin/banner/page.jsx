@@ -40,7 +40,7 @@ const page = () => {
       <TableFilter label="Banner" />
 
       <div className="overflow-y-scroll mb-20 min-h-screen">
-        <BannerContent data={data} />
+        <BannerContent data={data} setData={setData} />
       </div>
 
       {showUploadModal && (

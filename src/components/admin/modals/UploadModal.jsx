@@ -31,8 +31,11 @@ const UploadModal = ({ close, getData, tab }) => {
       let route = tab === "gallery" ? galleryRoute : tab === "banner" ? bannersRoute : ''
   
       const response = await axiosPrivate.post(route, formdata)
+
+      console.log({responsefromUPMODAL: response})
   
       if(response.status === 201){
+        console.log('SUCCESS')
         toast.success('file uploaded')
         getData()
         close()

@@ -4,6 +4,7 @@ import Footer from "@/components/footer/Footer";
 import Nav from "@/components/nav/Nav";
 import AOSInitializer from "@/components/AOSInitializer";
 import { AuthProvider } from "./Providers";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <section>
             <AOSInitializer/>
+            <ToastContainer />
             {children}
           </section>
 

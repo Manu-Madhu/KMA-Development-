@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 
 const useRefreshToken = () => {
    
-    const { data: session, status } = useSession();
+    const { data: session, update } = useSession();
     const refreshToken = session?.user?.refreshToken;
 
     const refresh = async () => {
@@ -13,7 +13,7 @@ const useRefreshToken = () => {
         });
 
         console.log({response})
-
+        
         return response?.data?.accessToken;
     }
     return refresh;

@@ -19,7 +19,9 @@ const page = () => {
       const response = await axios.get(galleryRoute);
       // console.log({ response })
       if (response.status === 200) {
-        setData(response?.data?.gallery)
+        const newData = response?.data?.gallery || [];
+        console.log({newData})
+        setData(newData)
       }
     } catch (error) {
       console.log(error)
@@ -28,7 +30,9 @@ const page = () => {
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [])  
+
+  console.log({ultimtest: data})
 
   return (
     <div>
