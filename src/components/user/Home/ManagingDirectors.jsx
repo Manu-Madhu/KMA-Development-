@@ -1,21 +1,22 @@
 import Image from 'next/image'
-import vector from '../../../../public/assets/kma csr awards/Vector.png'
+import vector from '../../../../public/assets/kma csr awards/Vector.png';
+import Person from '../../../../public/assets/events/event1.png'
 
-import OfficeBearerCard from './OfficeBearerCard'
+import ProfileCard from './ProfileCard'
 import { members } from '@/data/members'
 function ManagingDirectors() {
     return (
-        <div className='max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center  mt-20 pb-10'>
-            <h1 className='text-title font-bold mx-auto w-fit mb-8 max-md:text-[2.2rem]'>Managing
+        <div className='max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-20 pb-10'>
+            <h1 className='text-title font-bold mx-auto w-fit mb-12 max-md:text-[2rem]'>Managing
                 <span className='relative ml-3'>
-                    Directors
+                    Committee
                     <Image src={vector} className='absolute right-0 -bottom-2' alt='Vector' />
                 </span>
             </h1>
-            <div className='grid grid-cols-6 max-sm:grid-cols-2 gap-4 w-full'>
+            <div className='grid grid-cols-6 max-sm:grid-cols-2 max-lg:grid-cols-4 gap-2 sm:gap-4 w-full'>
                 {
                     members.map((member, index) => (
-                        <OfficeBearerCard key={index} member={member} />
+                        <ProfileCard key={index} name={member?.name} role={member.title} image={Person} />
                     ))
                 }
             </div>

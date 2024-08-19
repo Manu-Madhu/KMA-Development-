@@ -1,5 +1,4 @@
-"use client"
-
+'use client'
 import { NavData } from "@/data/NavData";
 import { IoMenu } from "react-icons/io5";
 
@@ -10,10 +9,13 @@ import Link from "next/link";
 
 const Nav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
+
   return (
-    <div>
+    <div className="">
       {/* Window View */}
-      <div className="max-w-screen-xl mx-auto w-full  hidden lg:flex items-center justify-between h-[80px] p-3">
+      <div
+        className={` max-w-screen-xl mx-auto w-full  hidden lg:flex items-center justify-between h-[80px] p-3 `}
+      >
         <Image
           src={"/logo.png"}
           alt="logo"
