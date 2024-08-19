@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       {/* top side */}
-      <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto p-3 pb-5 h-fit md:h-[300px]">
+      <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto p-3 pb-5 my-10 h-fit md:h-[300px]">
         <div className="flex flex-col items-start justify-between w-full md:w-2/5">
           <div className="top">
             <Image

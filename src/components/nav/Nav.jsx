@@ -11,10 +11,10 @@ const Nav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <div>
+    <div className="">
       {/* Window View */}
       <div
-        className={` max-w-screen-xl mx-auto w-full  hidden lg:flex items-center justify-between h-[80px] p-3`}
+        className={` max-w-screen-xl mx-auto w-full  hidden lg:flex items-center justify-between h-[80px] p-3 `}
       >
         <Image
           src={"/logo.png"}
