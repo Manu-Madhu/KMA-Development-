@@ -1,3 +1,4 @@
+import { regenerateRoute } from '@/utils/Endpoint';
 import axios from '../axios-folder/axios';
 import { useSession } from 'next-auth/react';
 
@@ -7,9 +8,11 @@ const useRefreshToken = () => {
     const refreshToken = session?.user?.refreshToken;
 
     const refresh = async () => {
-        const response = await axios.post('/api/v1/auth/regenerate', {
+        const response = await axios.post(regenerateRoute, {
             refreshToken: refreshToken
         });
+
+        console.log({response})
 
         return response?.data?.accessToken;
     }

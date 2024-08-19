@@ -5,7 +5,7 @@ import TableFilter from "@/components/admin/common/TableFilter";
 import TopPart from "@/components/admin/common/TopPart";
 import ModalFrame from "@/components/admin/common/ModalFram";
 import GalleryContent from "@/components/admin/gallery/GalleryContent";
-import UploadModal from "@/components/admin/gallery/UploadModal"; 
+import UploadModal from "@/components/admin/modals/UploadModal"; 
 import axios from "@/axios-folder/axios";
 import { galleryRoute } from "@/utils/Endpoint";
 
@@ -45,7 +45,7 @@ const page = () => {
 
       {showUploadModal && (
         <ModalFrame>
-          <UploadModal close={() => setShowUploadModal(false)} getData={getData} />
+          <UploadModal close={() => setShowUploadModal(false)} getData={getData} tab="gallery" />
           <button
             onClick={() => setShowUploadModal(false)}
             className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full"

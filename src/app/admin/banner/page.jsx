@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import TableFilter from "@/components/admin/common/TableFilter";
 import TopPart from "@/components/admin/common/TopPart";
 import ModalFrame from "@/components/admin/common/ModalFram";
-import UploadModal from "@/components/admin/banner/UploadModal"; 
 import axios from "@/axios-folder/axios";
 import { bannersRoute } from "@/utils/Endpoint";
 import BannerContent from "@/components/admin/banner/BannerContent";
+import UploadModal from "@/components/admin/modals/UploadModal";
 
 const page = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
@@ -45,7 +45,7 @@ const page = () => {
 
       {showUploadModal && (
         <ModalFrame>
-          <UploadModal close={() => setShowUploadModal(false)} />
+          <UploadModal close={() => setShowUploadModal(false)} getData={getData} tab="banner" />
           <button
             onClick={() => setShowUploadModal(false)}
             className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full"

@@ -2,6 +2,7 @@ import { axiosPrivate } from "../axios-folder/axios"
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
 import { useSession } from 'next-auth/react'
+import { regenerateRoute } from "@/utils/Endpoint";
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
@@ -29,12 +30,14 @@ const useAxiosPrivate = () => {
                 if (error?.response?.status === 401 && !prevRequest?.sent) {
                     prevRequest.sent = true;
 
-                    if (prevRequest.url === "/api/auth/refresh-token") {
+                    if (prevRequest.url === regenerateRoute) {
                         // trigger logout user
                         return
                     }
 
                     const newAccessToken = await refresh();
+
+                    console.log({newAccessToken})
 
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     return axiosPrivate(prevRequest);

@@ -1,9 +1,9 @@
 import useAxiosPrivate from '@/hooks/useAxiosPrivate';
-import { galleryRoute } from '@/utils/Endpoint';
+import { bannersRoute, galleryRoute } from '@/utils/Endpoint';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const UploadModal = ({ close, getData }) => {
+const UploadModal = ({ close, getData, tab }) => {
   const [file, setFile] = useState('');
   const [name, setName] = useState('');
 
@@ -27,8 +27,10 @@ const UploadModal = ({ close, getData }) => {
       const formdata = new FormData()
       formdata.append('file', file)
       formdata.append('name', name)
+
+      let route = tab === "gallery" ? galleryRoute : tab === "banner" ? bannersRoute : ''
   
-      const response = await axiosPrivate.post(galleryRoute, formdata)
+      const response = await axiosPrivate.post(route, formdata)
   
       if(response.status === 201){
         toast.success('file uploaded')
@@ -57,7 +59,7 @@ const UploadModal = ({ close, getData }) => {
           <span className="text-2xl">&times;</span> {/* Cross icon */}
         </button>
         <form onSubmit={handleSubmit}>
-          <h2 className="text-lg font-bold mb-4">Add image to gallery</h2>
+          <h2 className="text-lg font-bold mb-4">Add image to {tab}</h2>
           <div className="mb-4">
             <label htmlFor="fileUpload" className="block mb-1">Upload Image</label>
             <input
