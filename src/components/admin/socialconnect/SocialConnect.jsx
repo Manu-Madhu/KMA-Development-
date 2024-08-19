@@ -4,7 +4,7 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
-const Card = ({ deleteHandler, item }) => {
+const Card = ({ deleteHandler, item , handleEdit}) => {
     const isYouTube = item?.platform === 'YouTube';
     return (
         <div className="relative flex flex-col items-center">
@@ -20,7 +20,9 @@ const Card = ({ deleteHandler, item }) => {
                 </div>
             </div>
             <div className="p-4 flex justify-between w-full">
-                <button className="flex items-center w-24 h-10 px-3 py-2 gap-2 bg-white text-black rounded-lg shadow-lg hover:bg-gray-100 focus:outline-none">
+                <button 
+                onClick={()=> handleEdit(item._id)}
+                className="flex items-center w-24 h-10 px-3 py-2 gap-2 bg-white text-black rounded-lg shadow-lg hover:bg-gray-100 focus:outline-none">
                     <FaEdit className="w-4 h-4" />
                     Edit
                 </button>
@@ -35,7 +37,7 @@ const Card = ({ deleteHandler, item }) => {
     );
 };
 
-const SocialConnect = ({data,setData}) => {
+const SocialConnect = ({data,setData,  handleEdit}) => {
     const galleryItems = [
         {
             platform: 'YouTube',
@@ -99,6 +101,7 @@ const SocialConnect = ({data,setData}) => {
                     imageSrc={item.coverImageUrl}
                     item={item}
                     deleteHandler={deleteHandler}
+                    handleEdit={handleEdit}
                 />
             ))}
         </div>
