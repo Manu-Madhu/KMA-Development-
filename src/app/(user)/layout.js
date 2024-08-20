@@ -8,7 +8,7 @@ const layout = ({ children }) => {
             <nav className="w-full">
                 <Nav />
             </nav>
-            <section>{children}</section>
+            <section className='mt-14'>{children}</section>
             {/* Footer Part */}
             <footer>
                 <Footer />

@@ -12,6 +12,8 @@ function AboutKMA() {
               src="/assets/kma csr awards/Vector.png"
               className="absolute right-0 -bottom-2"
               alt="Vector"
+              width={100}
+              height={100}
             />
           </span>
         </h1>
@@ -45,7 +47,7 @@ function AboutKMA() {
           your success through KMA's publications and press releases.
         </p>
 
-        <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
+        <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600 hover:bg-red-600  hover:text-white ease-in-out duration-200 hover:border-red-600">
           Know more
         </button>
       </div>
@@ -54,6 +56,8 @@ function AboutKMA() {
         data-aos-duration="1000"
         className="w-full lg:w-2/5 h-[300px] sm:h-full max-lg:mt-6 object-cover rounded-xl"
         src="/assets/home/aboutImg.png"
+        width={500}
+        height={500}
         alt="KMA"
       />
     </div>
