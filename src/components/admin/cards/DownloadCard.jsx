@@ -4,13 +4,16 @@ import { LuDownload } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import useAxiosPrivate from '@/hooks/useAxiosPrivate';
-import { elibraryRoute, reportsRoute } from '@/utils/Endpoint';
+import { elibraryRoute, magazineRoute, reportsRoute } from '@/utils/Endpoint';
 import { toast } from 'react-toastify';
 
 const DownloadCard = ({ item, handleEdit, tab, data, setData }) => {
     const axiosPrivate = useAxiosPrivate();
 
-    const route = tab === 'e-library' ? elibraryRoute : tab === 'report' ? reportsRoute : ''
+    const route = tab === 'e-library' ? elibraryRoute 
+    : tab === 'report' ? reportsRoute 
+    : tab === 'magazine' ? magazineRoute
+    : ''
 
 
     const deleteHandler = async(id)=>{

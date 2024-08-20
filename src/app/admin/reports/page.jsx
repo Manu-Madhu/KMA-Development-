@@ -28,14 +28,6 @@ const ReportsPage = () => {
     setId(id)
     setIsModalOpen(true)
   }
-  
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   const [data, setData] = useState([]);
 
@@ -77,12 +69,13 @@ const ReportsPage = () => {
     </div>
 
       </section>
+
       {isModalOpen && (
         <ModalFrame>
 
           <AlterModal 
           close={()=>setIsModalOpen(false)}
-          heading={"Add Report"}
+          heading={ mode === 'create' ? "Add Report" : "Update Report"}
           tab="report"
           mode={mode}
           id={id}
