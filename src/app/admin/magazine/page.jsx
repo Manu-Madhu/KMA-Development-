@@ -1,6 +1,6 @@
 
 "use client";
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import TopPart from '@/components/admin/common/TopPart'
 import MagazineFilter from '@/components/admin/magazine/MagazineFilter'
 import MagazineContent from '@/components/admin/magazine/MagazineContent'
@@ -17,25 +17,17 @@ const MagazinePage = () => {
   const [mode, setMode] = useState('create')
   const [id, setId] = useState(null)
 
-  const handleCreate = ()=>{
+  const handleCreate = () => {
     setMode('create')
     setId(null)
     setIsModalOpen(true)
   }
 
-  const handleEdit = (id)=>{
+  const handleEdit = (id) => {
     setMode('update')
     setId(id)
     setIsModalOpen(true)
   }
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   const [data, setData] = useState([]);
 
@@ -58,24 +50,24 @@ const MagazinePage = () => {
   return (
     <main className="">
       <header>
-        <TopPart title={"Manage magazines"} type={{ name: "button",content: "create new" }}  onClick={handleCreate}  />
+        <TopPart title={"Manage magazines"} type={{ name: "button", content: "create new" }} onClick={handleCreate} />
       </header>
       <section>
-        <MagazineFilter/>
+        <MagazineFilter />
         {/* <MagazineContent data={data} /> */}
 
         <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-20">
-      {data.map((item, index) => (
-        <DownloadCard
-          key={index}
-          item={item}
-          handleEdit={handleEdit}
-          tab='magazine'
-          data={data}
-          setData={setData}
-        />
-      ))}
-    </div>
+          {data.map((item, index) => (
+            <DownloadCard
+              key={index}
+              item={item}
+              handleEdit={handleEdit}
+              tab='magazine'
+              data={data}
+              setData={setData}
+            />
+          ))}
+        </div>
 
       </section>
       {isModalOpen && (
@@ -83,17 +75,17 @@ const MagazinePage = () => {
           {/* <MagazineModal isOpen={isModalOpen} onClose={handleCloseModal} /> */}
 
           <AlterModal
-          close={()=>setIsModalOpen(false)}
-          heading={mode=== 'create' ? "Add Magazine" : "Update Magazine"}
-          tab="magazine"
-          mode={mode}
-          id={id}
-          getData={getData}
+            close={() => setIsModalOpen(false)}
+            heading={mode === 'create' ? "Add Magazine" : "Update Magazine"}
+            tab="magazine"
+            mode={mode}
+            id={id}
+            getData={getData}
           />
 
         </ModalFrame>
       )}
-      </main>
+    </main>
   )
 }
 

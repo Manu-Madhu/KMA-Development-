@@ -1,6 +1,6 @@
 import axios from '@/axios-folder/axios';
 import useAxiosPrivate from '@/hooks/useAxiosPrivate';
-import { elibraryRoute, magazineRoute, reportsRoute } from '@/utils/Endpoint';
+import { elibraryRoute, magazineRoute, newsletterRoute, publicationsRoute, reportsRoute } from '@/utils/Endpoint';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { IoClose } from 'react-icons/io5';
@@ -30,6 +30,8 @@ const AlterModal = ({ close, heading, tab, mode, id, getData }) => {
     const route = tab === 'e-library' ? elibraryRoute 
     : tab === 'report' ? reportsRoute 
     : tab === 'magazine' ? magazineRoute 
+    : tab === 'publication' ? publicationsRoute
+    : tab === 'newsletter' ? newsletterRoute
     : ''
 
     const getSingleData = async () => {

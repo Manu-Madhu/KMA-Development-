@@ -10,9 +10,26 @@ import Publication from "@/components/admin/publication/Publication";
 import axios from "@/axios-folder/axios";
 import { publicationsRoute } from "@/utils/Endpoint";
 import CardGroup from "@/components/admin/cards/CardGroup";
+import DownloadCard from "@/components/admin/cards/DownloadCard";
+import AlterModal from "@/components/admin/modals/AlterModal";
 
 const PublicationPage = () => {
   const [showUploadModal, setShowUploadModal] = useState(false);
+
+  const [mode, setMode] = useState('create')
+  const [id, setId] = useState(null)
+
+  const handleCreate = ()=>{
+    setMode('create')
+    setId(null)
+    setShowUploadModal(true)
+  }
+
+  const handleEdit = (id)=>{
+    setMode('update')
+    setId(id)
+    setShowUploadModal(true)
+  }
 
   const [data, setData] = useState([]);
 
@@ -37,17 +54,32 @@ const PublicationPage = () => {
       <TopPart
         title="Manage Publications"
         type={{ name: "button", content: "Create New" }}
-        onClick={() => setShowUploadModal(true)}
+        onClick={handleCreate}
       />
       <TableFilter label="Publication" />
       
-      <CardGroup data={data} />
+      <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-20">
+      {data.map((item, index) => (
+        <DownloadCard
+          key={index}
+          item={item}
+          handleEdit={handleEdit}
+          tab='publication'
+          data={data}
+          setData={setData}
+        />
+      ))}
+    </div>
 
       {showUploadModal && (
         <ModalFrame>
-          <AddMagazineForm 
-            close={() => setShowUploadModal(false)} 
-            heading="Add Publication" 
+          <AlterModal
+          close={()=>setShowUploadModal(false)}
+          heading={mode=== 'create' ? "Add publication" : "Update publication"}
+          tab="publication"
+          mode={mode}
+          id={id}
+          getData={getData}
           />
         </ModalFrame>
       )}
