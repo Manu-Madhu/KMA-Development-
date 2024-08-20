@@ -5,7 +5,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const SubNav = ({ data, isOpen, handleToggle }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div
         onClick={handleToggle}
         key={data?._id}
@@ -19,7 +19,7 @@ const SubNav = ({ data, isOpen, handleToggle }) => {
         )}
       </div>
       {isOpen && (
-        <div className="bg-white shadow w-fit absolute top-6 rounded z-10 p-2 md:min-w-[200px]">
+        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded z-10 p-2 md:min-w-[200px]">
           {data.subData.map((subItem) => (
             <Link
               onClick={handleToggle}
