@@ -7,10 +7,27 @@ import ModalFrame from '@/components/admin/common/ModalFram';
 import ReportModal from '@/components/admin/reports/ReportModal'
 import axios from '@/axios-folder/axios';
 import { reportsRoute } from '@/utils/Endpoint';
+import DownloadCard from '@/components/admin/cards/DownloadCard';
+import AlterModal from '@/components/admin/modals/AlterModal';
 
 
 const ReportsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [mode, setMode] = useState('create')
+  const [id, setId] = useState(null)
+
+  const handleCreate = ()=>{
+    setMode('create')
+    setId(null)
+    setIsModalOpen(true)
+  }
+
+  const handleEdit = (id)=>{
+    setMode('update')
+    setId(id)
+    setIsModalOpen(true)
+  }
   
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -41,15 +58,37 @@ const ReportsPage = () => {
   return (
     <main className="">
       <header>
-        <TopPart title={"Manage Reports"} type={{ name: "button",content: "create new"}}  onClick={handleOpenModal}  />
+        <TopPart title={"Manage Reports"} type={{ name: "button",content: "create new"}}  onClick={handleCreate}  />
       </header>
       <section>
         <ReportsFilter/>
-        <ReportsContent data={data} />
+        
+        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-20">
+      {data.map((item, index) => (
+        <DownloadCard
+          key={index}
+          item={item}
+          handleEdit={handleEdit}
+          tab='report'
+          data={data}
+          setData={setData}
+        />
+      ))}
+    </div>
+
       </section>
       {isModalOpen && (
         <ModalFrame>
-          <ReportModal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+          <AlterModal 
+          close={()=>setIsModalOpen(false)}
+          heading={"Add Report"}
+          tab="report"
+          mode={mode}
+          id={id}
+          getData={getData}
+          />
+
         </ModalFrame>
       )}
       

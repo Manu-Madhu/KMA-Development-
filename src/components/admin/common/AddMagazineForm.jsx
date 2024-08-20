@@ -1,29 +1,93 @@
-import React, { useState } from 'react';
+import axios from '@/axios-folder/axios';
+import useAxiosPrivate from '@/hooks/useAxiosPrivate';
+import { elibraryRoute } from '@/utils/Endpoint';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-const AddMagazineForm = ({ close, heading }) => {
+const AddMagazineForm = ({ close, heading, tab , mode, id, getData}) => {
   const [title, setTitle] = useState('');
-  const [coverImage, setCoverImage] = useState('');
-  const [file, setFile] = useState('');
+  const [coverImage, setCoverImage] = useState({});
+  const [file, setFile] = useState({});
+
+  const [singleData, setSingleData] = useState({})
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
   const handleCoverImageChange = (e) => {
-    setCoverImage(e.target.files[0]?.name || '');
+    setCoverImage(e.target.files[0]);
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]?.name || '');
+    setFile(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const axiosPrivate = useAxiosPrivate()
+  const route = tab === 'e-library' ? elibraryRoute : ''
+
+  const getSingleData = async()=>{
+    try {
+      const response = await axios.get(`${route}/${id}`)
+
+      if(response?.status === 200){
+          const fetchedData = response?.data
+          setSingleData(fetchedData)
+          setTitle(fetchedData?.title)
+          setCoverImage(fetchedData?.coverImage)
+          setFile(fetchedData?.file)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Handle form submission
     console.log('Title:', title);
     console.log('Cover Image:', coverImage);
     console.log('File:', file);
+
+    const formdata = new FormData()
+    formdata.append('title', title)
+    formdata.append('coverImage', coverImage)
+    formdata.append('file', file)
+
+    try {
+      let response;
+  
+      if(mode === 'create'){
+        response = await axiosPrivate.post(route, formdata)
+      }
+      else if(mode === 'update'){
+        response = await axiosPrivate.put(`${route}/${id}`, formdata)
+      }
+  
+      if(response?.status === 201){
+        toast.success('Created')
+        getData()
+        close()
+      }
+      if(response?.status === 200){
+        toast.success('Updated')
+        getData()
+        close()
+      }
+      
+    } catch (error) {
+      console.log(error)
+      toast.error('Attempt failed')
+    }
+
+
   };
+
+  useEffect(()=>{
+    if(mode === 'update' && id){
+      getSingleData()
+    }
+  },[id])
 
   return (
     <div
@@ -37,7 +101,7 @@ const AddMagazineForm = ({ close, heading }) => {
     >
       <button
           onClick={close}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+          className="absolute top-4 right-6 text-gray-500 hover:text-gray-700"
         >
           <span className="text-2xl">&times;</span> {/* Cross icon */}
         </button>
@@ -67,11 +131,12 @@ const AddMagazineForm = ({ close, heading }) => {
               style={{ fontFamily: 'SF Pro Display' }}
             />
           </div>
+          
           <div className="mb-3">
             <label className="block mb-1 text-xs">Cover Image</label>
             <input
               type="text"
-              value={coverImage}
+              value={coverImage?.name ? coverImage?.name : singleData?.coverImageFileName}
               readOnly
               className="border p-2 w-full text-xs mb-2"
               style={{ fontFamily: 'SF Pro Display' }}
@@ -116,7 +181,7 @@ const AddMagazineForm = ({ close, heading }) => {
             <label className="block mb-1 text-xs">File</label>
             <input
               type="text"
-              value={file}
+              value={ file?.name ? file?.name : singleData?.fileName}
               readOnly
               className="border p-2 w-full text-xs mb-2"
               style={{ fontFamily: 'SF Pro Display' }}

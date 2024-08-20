@@ -17,6 +17,21 @@ const ELibraryPage = () => {
 
   const [data, setData] = useState([]);
 
+  const [mode, setMode] = useState('create')
+  const [id, setId] = useState(null)
+
+  const handleCreate = ()=>{
+    setMode('create')
+    setId(null)
+    setShowUploadModal(true)
+  }
+
+  const handleEdit = (id)=>{
+    setMode('update')
+    setId(id)
+    setShowUploadModal(true)
+  }
+
   const getData = async () => {
     try {
       const response = await axios.get(elibraryRoute);
@@ -38,7 +53,7 @@ const ELibraryPage = () => {
       <TopPart
         title={"Manage E-Library"}
         type={{ name: "button", content: "Create New" }}
-        onClick={() => setShowUploadModal(true)}
+        onClick={handleCreate}
       />
       <TableFilter />
 
@@ -48,10 +63,11 @@ const ELibraryPage = () => {
           {data.map((item, index) => (
             <DownloadCard
               key={index}
-              platform={item?.platform ?? "test"}
-              title={item?.title}
-              imageSrc={item?.coverImageUrl}
-              fileUrl={item?.fileUrl}
+              item={item}
+              handleEdit={handleEdit}
+              tab='e-library'
+              data={data}
+              setData = {setData}
             />
           ))}
         </div>
@@ -62,7 +78,11 @@ const ELibraryPage = () => {
         <ModalFrame>
               <AddMagazineForm
                 close={() => setShowUploadModal(false)}
-                heading="Add Book"
+                heading={mode === 'create' ? "Add Book" : 'Update Book'}
+                tab='e-library'
+                mode={mode}
+                id={id}
+                getData={getData}
               />
           </ModalFrame>
       )}

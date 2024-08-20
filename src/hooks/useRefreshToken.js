@@ -13,6 +13,8 @@ const useRefreshToken = () => {
         });
 
         console.log({response})
+
+        // await update({user:{accessToken: response?.data?.accessToken, refreshToken: response?.data?.refreshToken}})
         
         return response?.data?.accessToken;
     }
