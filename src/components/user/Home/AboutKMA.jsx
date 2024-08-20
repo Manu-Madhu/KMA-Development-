@@ -12,6 +12,8 @@ function AboutKMA() {
               src="/assets/kma csr awards/Vector.png"
               className="absolute right-0 -bottom-2"
               alt="Vector"
+              width={100}
+              height={100}
             />
           </span>
         </h1>
@@ -54,6 +56,8 @@ function AboutKMA() {
         data-aos-duration="1000"
         className="w-full lg:w-2/5 h-[300px] sm:h-full max-lg:mt-6 object-cover rounded-xl"
         src="/assets/home/aboutImg.png"
+        width={100}
+        height={100}
         alt="KMA"
       />
     </div>
