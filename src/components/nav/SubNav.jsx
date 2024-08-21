@@ -1,35 +1,33 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-const SubNav = ({ data }) => {
-  const [showData, setShowData] = useState(false);
+const SubNav = ({ data, isOpen, handleToggle }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <div
-        onClick={() => setShowData(!showData)}
+        onClick={handleToggle}
         key={data?._id}
         className="flex items-center justify-center gap-2"
       >
         <h1 className="cursor-pointer">{data?.name}</h1>
-        {showData ? (
+        {isOpen ? (
           <IoIosArrowUp key={data?._id} className="cursor-pointer" />
         ) : (
           <IoIosArrowDown key={data?._id} className="cursor-pointer" />
         )}
       </div>
-      {showData && (
-        <div className="bg-white shadow w-fit absolute top-6 rounded z-10 p-2 md:min-w-[200px]">
-          {data.subData.map((data) => (
+      {isOpen && (
+        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded z-10 p-2 md:min-w-[200px]">
+          {data.subData.map((subItem) => (
             <Link
-              onClick={() => setShowData(false)}
-              key={data?._id}
-              className="\"
-              href={data?.Path || "#"}
+              onClick={handleToggle}
+              key={subItem?._id}
+              href={subItem?.Path || "#"}
             >
-              <li className="cursor-pointer truncate capitalize hover:bg-primaryColor hover:rounded text-sm hover:text-white px-5 py-2">
-                {data?.name}
+              <li className="cursor-pointer truncate capitalize hover:bg-primaryColor hover:rounded text-sm text-black hover:text-white px-5 py-2">
+                {subItem?.name}
               </li>
             </Link>
           ))}

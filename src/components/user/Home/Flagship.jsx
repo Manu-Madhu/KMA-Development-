@@ -32,7 +32,7 @@ function Flagship() {
     }, [currentTime]);
 
     return (
-        <div className='max-w-screen-xl mx-auto my-24 w-full h-[500px]  bg-no-repeat bg-cover bg-center relative flex items-center'>
+        <div className='max-w-screen-xl mx-auto my-16 lg:my-36 w-full h-[500px]  bg-no-repeat bg-cover bg-center relative flex items-center'>
             <Image
                 src={countdownImg}
                 alt=''
@@ -43,18 +43,18 @@ function Flagship() {
 
             <div className='w-full h-full absolute text-white flex flex-col items-center justify-center'>
 
-                <h2 className='text-[#FF3C49] text-2xl sm:text-4xl font-bold mb-10'>Our Flagship Event</h2>
+                <h2 className='text-[#FF3C49] text-3xl sm:text-4xl font-bold mb-10'>Our Flagship Event</h2>
 
                 <span className='text-xs'>Will starts in</span>
 
-                <div data-aos="zoom-in" data-aos-duration="1000" className='mt-4 flex flex-col sm:flex-row items-center text-xl sm:text-3xl font-light max-sm:gap-4 '>
-                    <span>{countdown?.days} Days</span>
+                <div data-aos="zoom-in" data-aos-duration="1000" className='mt-4 flex flex-col sm:flex-row items-center text-2xl sm:text-3xl font-bold lg:font-light max-sm:gap-2 '>
+                    <span className=''>{countdown?.days} Days</span>
                     <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
-                    <span>{countdown?.hours} Hours</span>
+                    <span className=''>{countdown?.hours} Hours</span>
                     <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
-                    <span>{countdown?.minutes} Minutes</span>
+                    <span className=''>{countdown?.minutes} Minutes</span>
                     <div className="hidden sm:flex border-l-2 border-gray-500 h-5 mx-4"></div>
-                    <span>{countdown?.seconds} Seconds</span>
+                    <span className=''>{countdown?.seconds} Seconds</span>
                 </div>
 
                 <button className='mt-16 bg-white text-primaryColor rounded-2xl text-xs py-2 px-4'>
