@@ -8,19 +8,21 @@ import Link from "next/link";
 
 const Page = () => {
   return (
-    <div className="max-w-screen-xl px-5 mt-5 mb-20 mx-auto">
+    <div className="max-w-screen-xl p-3 py-14 pb-20 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left Side: Text Content */}
         <div className="lg:mr-20">
-          <UnderlinedHeading heading="The Member" text="Registration" />
-          <div className="ml-2 lg:text-left text-center">
+          <div className="lg:mr-5">
+            <UnderlinedHeading heading="The Member" text="Registration" />
+          </div>
+          <div className="lg:text-left text-center">
             <h1 className="text-[2.5rem] max-md:text-3xl font-bold leading-[3.5rem]">
               Process:
             </h1>
-            <ol className="list-decimal pl-8 mt-4 space-y-5 text-lg font-semibold text-gray-800 lg:text-left text-center">
+            <ol className="list-decimal pl-4 mt-4 space-y-5  text-gray-800 lg:text-left text-start">
               <li>
                 Understand Member benefits, Membership Options, and Fee Details.{" "}
-                <Link href="#" className="text-red-600 underline">
+                <Link href="/member" className="text-red-600 underline">
                   Read more
                 </Link>
               </li>
@@ -28,11 +30,11 @@ const Page = () => {
               <li>Complete Membership Application Online</li>
               <li>Remit Membership Fee</li>
             </ol>
-            <p className="mt-4 text-gray-800 lg:text-left text-center">
+            <p className="mt-2 lg:mt-4 text-gray-800 lg:text-left text-start">
               Please choose from 3 payment options for settling the membership
               fee online:
             </p>
-            <p className="mt-4 text-gray-800 font-medium lg:text-left text-center">
+            <p className="mt-2 lg:mt-4 text-gray-800 font-medium lg:text-left text-start">
               1. Online Payment (Credit/Debit Card) 2. Bank Transfer 3. Demand
               Draft/Cheque
             </p>

@@ -24,7 +24,7 @@ const page = () => {
             dataListing={Managing}
           />
         </div>
-        <div className="my-10 lg:my-20">
+        <div className="my-5  lg:my-20">
           <ManagingCommittee
             heading={"Office"}
             title={" Bearers"}

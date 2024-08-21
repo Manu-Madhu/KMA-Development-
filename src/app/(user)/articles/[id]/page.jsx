@@ -35,12 +35,12 @@ const ArticleDetailedView = async ({ params }) => {
   const title = splitTitle(articleData?.title);
   return (
     <>
-      <div className="pt-5 md:pt-10 max-w-screen-xl mx-auto w-full h-full p-3">
+      <div className="pt-10 max-w-screen-xl mx-auto w-full h-full p-3">
         {/* Heading */}
         <UnderlinedHeading heading={title?.first} text={title?.second} />
 
         {/* Section  */}
-        <div className="my-7 md:my-16 h-full">
+        <div className="my-10 md:my-16 h-full">
           <div className="w-full h-full md:h-[350px] rounded-2xl overflow-hidden">
             <img
               src={articleData?.thumbnailUrl}

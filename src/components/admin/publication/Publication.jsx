@@ -39,7 +39,7 @@ const PublicationCard = ({ platform, title, imageSrc }) => {
     );
 };
 
-const Publication = () => {
+const Publication = ({data}) => {
     const publicationItems = [
         {
             platform: 'E-Book',

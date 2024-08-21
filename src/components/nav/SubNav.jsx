@@ -3,7 +3,11 @@ import Link from "next/link";
 import React from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-const SubNav = ({ data, isOpen, handleToggle }) => {
+const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
+  const onChanger = () => {
+    handleToggle();
+    closeNav(false);
+  };
   return (
     <div className="relative w-full">
       <div
@@ -22,7 +26,7 @@ const SubNav = ({ data, isOpen, handleToggle }) => {
         <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded z-10 p-2 md:min-w-[200px]">
           {data.subData.map((subItem) => (
             <Link
-              onClick={handleToggle}
+              onClick={onChanger}
               key={subItem?._id}
               href={subItem?.Path || "#"}
             >

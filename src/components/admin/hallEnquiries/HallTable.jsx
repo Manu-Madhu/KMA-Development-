@@ -24,7 +24,7 @@ const HallTable = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
+          {data?.map((item) => (
             <tr key={item?.id} className=" border-gray-400">
               <td className="pl-5 p-3 border">{item?.id}</td>
               <td className="px-5 p-3 border">{item?.hall}</td>
