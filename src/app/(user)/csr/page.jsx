@@ -8,7 +8,7 @@ const CsrPage = () => {
   const ApplicationFile = "/csr/test.pdf";
 
   return (
-    <div className="pt-10 max-md:pt-5">
+    <div className="pt-10 ">
       {/* title */}
       <div className="">
         <UnderlinedHeading heading={"A CSR Initiative By"} text={"KMA"} />

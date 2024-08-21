@@ -7,9 +7,9 @@ import React from "react";
 const ArticlePage = () => {
   return (
     <>
-      <div className="pt-5 md:pt-10 max-w-screen-xl mx-auto w-full p-3">
+      <div className="pt-10 max-w-screen-xl mx-auto w-full p-3">
         <UnderlinedHeading heading="" text="Articles" />
-        <div className="my-7 md:my-16">
+        <div className="my-10 md:my-16">
           <div className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-4 gap-3">
             {Articles.map((item) => (
               <Article

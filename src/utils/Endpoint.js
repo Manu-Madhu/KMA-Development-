@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:3000'
+export const baseUrl = 'http://localhost:8080'
 
 export const adminLogin = '/api/v1/auth/admin/login'
 export const regenerateRoute = "/api/v1/auth/regenerate";
