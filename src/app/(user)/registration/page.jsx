@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Page = () => {
   return (
-    <div className="max-w-screen-xl p-3 pt-14 mx-auto">
+    <div className="max-w-screen-xl p-3 py-14 pb-20 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left Side: Text Content */}
         <div className="lg:mr-20">
