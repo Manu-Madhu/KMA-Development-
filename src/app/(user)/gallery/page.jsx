@@ -5,7 +5,7 @@ import PageEndQuery from "@/components/user/Common/PageEndQuery";
 
 const GalleryPage = () => {
   return (
-    <div className="pt-10 max-md:pt-5">
+    <div className="pt-10">
       {/* title */}
       <div className="">
         <UnderlinedHeading heading={"Image"} text={"Gallery"} />

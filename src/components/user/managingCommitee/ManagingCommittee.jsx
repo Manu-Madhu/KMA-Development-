@@ -5,7 +5,7 @@ import UnderlinedHeading from "../Common/UnderlinedHeading";
 const ManagingCommittee = ({ heading, title, content, dataListing, count }) => {
   return (
     <>
-      <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center pt-5 ">
         <div className="font-bold w-full text-start md:text-center text-3xl md:text-4xl my-5 md:my-10">
           <UnderlinedHeading heading={heading} text={title} />
         </div>

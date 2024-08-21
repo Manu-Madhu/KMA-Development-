@@ -128,10 +128,16 @@ const Nav = () => {
                           data={item}
                           isOpen={openDropdown === item?._id} // Pass down if the dropdown is open
                           handleToggle={() => handleToggle(item?._id)} // Handle toggle
+                          closeNav={setMobileMenu}
                         />
                       ) : (
                         <li className="cursor-pointer flex items-center w-full justify-center">
-                          <Link href={item?.Path}>{item?.name}</Link>
+                          <Link
+                            onClick={() => setMobileMenu(!mobileMenu)}
+                            href={item?.Path}
+                          >
+                            {item?.name}
+                          </Link>
                         </li>
                       )}
                     </div>
