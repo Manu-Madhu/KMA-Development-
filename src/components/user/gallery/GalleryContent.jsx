@@ -1,19 +1,68 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GalleryData } from "@/data/gallery";
 import GalleryImageCard from "./GalleryImageCard";
+import axios from "../../../axios-folder/axios";
+import { toast } from "react-toastify";
+
+
+
+const useFetchGalleryData = () => {
+  const [galleryData, setGalleryData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        const response = await axios.get("api/v1/gallery"); 
+        const data = await response.data;
+
+        if (data.error) {
+          toast.error(`Error: ${data.error}`);
+          return;
+        }
+
+        setGalleryData(data.gallery); 
+      } catch (err) {
+        toast.error("Failed to load gallery data. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
+
+  return { galleryData, loading };
+};
 
 const GalleryContent = () => {
-  const UniqData = [...new Set(GalleryData.map((item) => item.category))];
-  const [galleryData, setGalleryData] = useState(GalleryData);
-  const [category, setCategory] = useState(UniqData);
-  const [selectedCategory, setSelectedCategory] = useState(category?.[0]);
+  const { galleryData, loading } = useFetchGalleryData();
+  const [filteredData, setFilteredData] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  useEffect(() => {
+    if (!loading && galleryData.length > 0) {
+      const uniqueCategories = [...new Set(galleryData.map((item) => item.category))];
+      setCategory(uniqueCategories);
+      setSelectedCategory(uniqueCategories[0]);
+      setFilteredData(galleryData.filter((item) => item.category === uniqueCategories[0]));
+    }
+  }, [galleryData, loading]);
 
   const FilterHandler = (data) => {
     setSelectedCategory(data);
-    const filterData = GalleryData.filter((items) => items?.category === data);
-    setGalleryData(filterData);
+    const filterData = galleryData.filter((items) => items?.category === data);
+    setFilteredData(filterData);
   };
+
+  if(loading) {
+    return <div class=" flex justify-center items-center">
+  <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+</div>
+  }
+
 
   return (
     <div>
@@ -36,7 +85,7 @@ const GalleryContent = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 mt-4">
-        {galleryData.map((item) => (
+        {filteredData.map((item) => (
           <GalleryImageCard data={item} key={item?._id} />
         ))}
       </div>
