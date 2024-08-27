@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
 import Image from "next/image";
@@ -5,8 +6,30 @@ import { MdEmail } from "react-icons/md";
 import { FaGlobeAsia } from "react-icons/fa";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import Link from "next/link";
+import useregistrationValidation from "@/hooks/registrationHooks.js/useregistrationValidation";
+import validateForm from "@/hooks/registrationHooks.js/validateRegistration";
 
 const Page = () => {
+  const initialState={
+    username: "",
+    password: "",
+    name: "",
+    email: "",
+    telephone: "",
+    country: "",
+  }
+  const {
+    formData,
+    errors,
+    handleChange,
+    handleSubmit,
+  }=useregistrationValidation(initialState,validateForm)
+
+  //handle form submission
+  const submitForm=()=>{
+    console.log("Form submitted Successfully",formData);
+  }
+
   return (
     <div className="max-w-screen-xl p-3 py-14 pb-20 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -42,17 +65,22 @@ const Page = () => {
         </div>
         {/* Right Side: Form in a Card */}
         <div className="bg-white shadow-md border w-full rounded-lg mx-auto p-6 max-w-md sm:max-w-lg lg:max-w-full lg:ml-10">
-          <form className="grid grid-cols-1 gap-4">
+          <form className="grid grid-cols-1 gap-4" onSubmit={(e) => handleSubmit(e, submitForm)}>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
                 Username
               </label>
               <input
                 type="text"
-                name="Username"
+                name="username"
                 placeholder="Username"
+                value={formData.username}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
+              {errors.username && (
+                <p className="text-red-500 text-sm">{errors.username}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -60,9 +88,15 @@ const Page = () => {
               </label>
               <input
                 type="Password"
+                name="password"
                 placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
+              {errors.password && (
+                <p className="text-red-500 text-sm">{errors.password}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -70,9 +104,15 @@ const Page = () => {
               </label>
               <input
                 type="text"
+                name="name"
                 placeholder="Name of the Applicant"
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
+              {errors.name && (
+                <p className="text-red-500 text-sm">{errors.name}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -110,7 +150,10 @@ const Page = () => {
                 Country
               </label>
               <div className="relative w-full lg:w-2/3 mt-1">
-                <select className="block w-full px-8 py-2 border border-gray-200 rounded-md shadow-sm appearance-none pr-8 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+                <select className="block w-full px-8 py-2 border border-gray-200 rounded-md shadow-sm appearance-none pr-8 focus:outline-none
+                 focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                 value={formData.country}
+                onChange={handleChange}>
                   <option>United States</option>
                   <option>India</option>
                   {/* Add other countries as needed */}
@@ -119,6 +162,9 @@ const Page = () => {
                   <FaGlobeAsia className="text-gray-400" />
                 </div>
               </div>
+              {errors.country && (
+                <p className="text-red-500 text-sm">{errors.country}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -127,8 +173,13 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="Telephone"
+                value={formData.telephone}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
+              {errors.telephone && (
+                <p className="text-red-500 text-sm">{errors.telephone}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -141,8 +192,13 @@ const Page = () => {
                 <input
                   type="email"
                   placeholder="@gmail.com"
+                  value={formData.email}
+                onChange={handleChange}
                   className="w-full px-3 py-2 focus:outline-none sm:text-sm"
                 />
+                {errors.telephone && (
+                <p className="text-red-500 text-sm">{errors.email}</p>
+              )}
               </div>
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">

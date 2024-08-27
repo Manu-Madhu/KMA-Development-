@@ -4,7 +4,7 @@ import useAxiosPrivate from '@/hooks/useAxiosPrivate';
 import { bannersRoute } from '@/utils/Endpoint';
 import { toast } from 'react-toastify';
 
-const bannerItems = [
+export const bannerItems = [
   { id: 1, imageSrc: '/banner/1.png', title: 'KMA annual meet', date: '17 JUN 2024' },
   { id: 2, imageSrc: '/banner/2.png', title: 'KMA annual meet', date: '17 JUN 2024' },
   { id: 3, imageSrc: '/banner/3.png', title: 'KMA annual meet', date: '17 JUN 2024' },

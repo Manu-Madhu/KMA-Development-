@@ -24,22 +24,6 @@ const page = () => {
             dataListing={Managing}
           />
         </div>
-        <div className="my-5  lg:my-20">
-          <ManagingCommittee
-            heading={"Office"}
-            title={" Bearers"}
-            content={`The Management of the Association is vested in a Managing 
-            Committee of not more than sixteen elected members of which at least three 
-            persons should be from Corporate Sector. The Managing Committee shall be elected 
-            at the Annual General Meeting of the Association every year. There shall be 
-            a President, two Vice Presidents, an Honorary Secretary, a Joint Secretary 
-            and a Treasurer all of whom shall be elected by the Managing Committee and 
-            will hold office for the duration of the Management Committee for which they 
-            were elected. In addition to the elected members there are Co-opted Members and 
-            FSpecial Invitees.`}
-            dataListing={Managing}
-          />
-        </div>
         <div className="my-10 lg:my-20">
           <ManagingCommittee
             heading={""}
@@ -57,6 +41,23 @@ const page = () => {
             count={4}
           />
         </div>
+        <div className="my-5  lg:my-20">
+          <ManagingCommittee
+            heading={"Office"}
+            title={" Bearers"}
+            content={`The Management of the Association is vested in a Managing 
+            Committee of not more than sixteen elected members of which at least three 
+            persons should be from Corporate Sector. The Managing Committee shall be elected 
+            at the Annual General Meeting of the Association every year. There shall be 
+            a President, two Vice Presidents, an Honorary Secretary, a Joint Secretary 
+            and a Treasurer all of whom shall be elected by the Managing Committee and 
+            will hold office for the duration of the Management Committee for which they 
+            were elected. In addition to the elected members there are Co-opted Members and 
+            FSpecial Invitees.`}
+            dataListing={Managing}
+          />
+        </div>
+       
       </div>
       <PageEndQuery
         heading={"View Our Past Presidents"}
