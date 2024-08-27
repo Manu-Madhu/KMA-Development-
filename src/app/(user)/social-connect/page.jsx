@@ -1,11 +1,17 @@
+'use client'
 import ArticleCard from "@/components/user/Common/ArticleCard";
 import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
 import Filter from "@/components/user/Social-Connect/filter";
 import { followUsLinks } from "@/data/follow_us";
-import { socialConnect } from "@/data/social_connect";
+import useFetchSocialConnect from "@/hooks/socialConnectHooks/useGetSocialConnect";
 
 function Page() {
+  const {socialConnects,loading}= useFetchSocialConnect();
+  if(loading) return <div class=" flex justify-center items-center">
+  <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+</div>
+  
   return (
     <>
       <div className="max-w-screen-xl p-3 mx-auto">
@@ -14,14 +20,14 @@ function Page() {
         </div>
         <Filter />
         <div className="w-full grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-6 mb-20">
-          {socialConnect.map((connect) => (
+          {socialConnects.map((connect) => (
             <ArticleCard
-              key={connect.id}
+              key={connect._id}
               title={connect.title}
               textColor={connect.textColor}
-              platform={connect.platform}
+              platform={connect.platform.name}
               type={connect.type}
-              thumbnailUrl={connect.thumbnailUrl}
+              thumbnailUrl={connect.coverImageUrl}
             />
           ))}
         </div>

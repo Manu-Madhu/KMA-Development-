@@ -5,7 +5,7 @@ const GalleryImageCard = ({ data }) => {
   return (
     <div className="w-full rounded-xl">
       <Image
-        src={data?.image}
+        src={data?.fileUrl}
         alt="GalleryImage"
         className="w-full object-cover"
         width={500}

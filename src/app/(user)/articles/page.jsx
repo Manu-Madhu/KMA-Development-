@@ -1,20 +1,28 @@
+'use client'
 import Article from "@/components/user/article/Article";
 import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import { Articles } from "@/data/Articles";
+import useFetchArticles from "@/hooks/articleHooks/useGetArticles";
+
 import React from "react";
 
 const ArticlePage = () => {
+  const {articles,loading,error} = useFetchArticles();
+
+  if(loading) return <div class=" flex justify-center items-center">
+  <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+</div>
+
   return (
     <>
       <div className="pt-10 max-w-screen-xl mx-auto w-full p-3">
         <UnderlinedHeading heading="" text="Articles" />
         <div className="my-10 md:my-16">
           <div className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-4 gap-3">
-            {Articles.map((item) => (
+            {articles.map((item) => (
               <Article
                 key={item?._id}
-                thumbnailUrl={item?.thumbnailUrl}
+                thumbnailUrl={item?.coverImageUrl}
                 textColor="#FF5C67"
                 platform={item?.date}
                 title={item?.title}
