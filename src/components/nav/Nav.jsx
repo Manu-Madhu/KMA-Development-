@@ -45,13 +45,24 @@ const Nav = () => {
       <div
         className={`max-w-screen-xl mx-auto w-full hidden lg:flex items-center justify-between h-[80px] p-3`}
       >
-        <Image
-          src={"/logo.png"}
-          alt="logo"
-          className=""
-          width={150}
-          height={50}
-        />
+        {/* Update */}
+        {scrolled ? (
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            className=""
+            width={150}
+            height={50}
+          />
+        ) : (
+          <Image
+            src={"/logo1.png"}
+            alt="logo"
+            className=""
+            width={150}
+            height={50}
+          />
+        )}
         <ul className="flex gap-5">
           {NavData.map((item) => (
             <div key={item?._id} className="flex items-center">
@@ -60,6 +71,7 @@ const Nav = () => {
                   data={item}
                   isOpen={openDropdown === item?._id} // Pass down if the dropdown is open
                   handleToggle={() => handleToggle(item?._id)} // Handle toggle
+                  closeNav={setMobileMenu}
                 />
               ) : (
                 <li className="cursor-pointer">
@@ -69,17 +81,21 @@ const Nav = () => {
             </div>
           ))}
         </ul>
-        <button
-          className={`border rounded-2xl text-sm p-2 px-5  ${
-            scrolled
-              ? "text-primaryColor"
-              : location !== "/"
-              ? "text-primaryColor"
-              : "text-white "
-          } `}
-        >
-          Contact Us
-        </button>
+        <div className="relative overflow-hidden rounded-full ">
+          <Link href={"/contact-us"}>
+            <button
+              className={`buttonAnimation overflow-hidden border rounded-full text-sm p-2 px-5  ${
+                scrolled
+                  ? "text-primaryColor"
+                  : location !== "/"
+                  ? "text-primaryColor"
+                  : "text-white "
+              } `}
+            >
+              <span>Contact Us</span>
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Mobile View */}

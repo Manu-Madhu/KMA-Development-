@@ -23,14 +23,14 @@ const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
         )}
       </div>
       {isOpen && (
-        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded z-10 p-2 md:min-w-[200px]">
+        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded-2xl z-10 p-2 md:min-w-[200px]">
           {data.subData.map((subItem) => (
             <Link
               onClick={onChanger}
               key={subItem?._id}
               href={subItem?.Path || "#"}
             >
-              <li className="cursor-pointer truncate capitalize hover:bg-primaryColor hover:rounded text-sm text-black hover:text-white px-5 py-2">
+              <li className="cursor-pointer truncate capitalize hover:bg-primaryColor hover:rounded-xl text-sm text-black hover:text-white px-5 py-2">
                 {subItem?.name}
               </li>
             </Link>

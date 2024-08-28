@@ -1,26 +1,27 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import useAxiosPrivate from "@/hooks/useAxiosPrivate"; // Assuming your custom axios hook
 import { bannersRoute } from "@/utils/Endpoint"; // Assuming this is the correct path
+import axios from "@/axios-folder/axios";
+import VideoBackground from "./VideoBackground";
 
 function LandingPart() {
-  const axiosPrivate = useAxiosPrivate();
   const [bannerItems, setBannerItems] = useState([]); // Store banner items from the API
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sample = "https://firebasestorage.googleapis.com/v0/b/kmaassets-afcf8.appspot.com/o/WhatsApp%20Video%202024-08-28%20at%2012.32.09_827ceb27.mp4?alt=media&token=4258c900-c172-4730-9ed7-005d45b9207e";
 
   // Fetch banner items from the API
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const response = await axiosPrivate.get(bannersRoute); // Fetch banners from API
-        setBannerItems(response.data); // Assume response.data is an array of banners
+        const response = await axios.get(bannersRoute);
+        setBannerItems(response.data);
       } catch (error) {
         console.error("Failed to fetch banner items:", error);
       }
     };
 
-    fetchBanners(); // Fetch data when component mounts
-  }, [axiosPrivate]);
+    fetchBanners();
+  }, []);
 
   // Auto-slide functionality to change the banner every 3 seconds
   useEffect(() => {
@@ -36,13 +37,10 @@ function LandingPart() {
   return (
     <div className="h-screen relative w-full flex flex-col items-center text-white bg-white">
       <div className="absolute top-0 left-0 w-full h-full">
-        {bannerItems.length > 0 && (
-          <img
-            src={bannerItems[currentIndex].fileUrl} // Use `fileUrl` from the fetched data
-            alt={bannerItems[currentIndex].name} // Use `name` for alt text
-            className="w-full h-full object-cover"
-          />
-        )}
+        <div className="h-screen relative w-full flex flex-col items-center text-white bg-white">
+          <div className="absolute w-screen h-screen bg-black/60 z-10 top-0 left-0"></div>
+          <VideoBackground videoSrc={sample} />
+        </div>
       </div>
 
       <div className="absolute flex flex-col items-center justify-center gap-3 lg:gap-6 top-1/4">
@@ -50,12 +48,12 @@ function LandingPart() {
           Shaping a sustainable <br /> future
         </h1>
 
-        <p className="lg:text-xl mt-4 text-base font-[200] text-center w-2/3 lg:w-full">
+        <p className="lg:text-lg mt-4 text-base font-[300] text-center w-2/3 lg:w-full z-10">
           Honouring Excellence in CSR and ESG Leadership
         </p>
 
-        <button className="p-2 lg:p-3 px-4 lg:px-8 mt-8 border border-gray-600 w-fit rounded-full font-semibold bg-white text-red-600">
-          Join Us
+        <button className="homeButton p-2 mt-2 lg:p-2.5 px-6 lg:px-8 w-fit rounded-full lg:font-semibold z-10">
+          <span>Join Us</span>
         </button>
       </div>
     </div>

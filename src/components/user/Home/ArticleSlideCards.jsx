@@ -151,9 +151,9 @@ const ArticleSlideCards = () => {
         </span>
       </div>
 
-      <div className="flex justify-center lg:my-5">
-        <button className="mx-auto px-6 py-2 mt-12 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
-          View All
+      <div className="flex justify-center lg:my-5 relative">
+        <button className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border border-black/20 w-fit rounded-full font-semibold text-red-600">
+          <span>View All</span>
         </button>
       </div>
     </div>

@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { IoIosArrowDropleft } from "react-icons/io";
-import { IoIosArrowDropright } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { IoIosArrowDropright } from "react-icons/io";
+import { IoIosArrowDropleft } from "react-icons/io";
 import Image from "next/image";
 import cover from "../../../../public/assets/about/about1.png";
 import Link from "next/link";
@@ -29,12 +29,21 @@ const AwardSlideCards = () => {
     dots: true,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 1100,
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     centerMode: true,
     beforeChange: (oldI, newI) => setSlideIndex(newI),
+
+    // Customizing dots
+    customPaging: (i) => (
+      <div
+        className={`slick-dots w-2 h-2 mt-10 rounded-full bg-[#E3000F]/20 ${
+          i === slideIndex ? "bg-red-600" : ""
+        }`}
+      ></div>
+    ),
 
     responsive: [
       {
@@ -64,6 +73,7 @@ const AwardSlideCards = () => {
       },
     ],
   };
+
   function formatDate(createdAt) {
     const date = new Date(createdAt);
     let formattedDate = null;
@@ -76,7 +86,6 @@ const AwardSlideCards = () => {
     }
     return "";
   }
-  ``;
   return (
     <div className="w-full h-auto my-10 lg:my-40 p-3">
       <div className=" mx-auto slider-container relative ">
@@ -89,20 +98,12 @@ const AwardSlideCards = () => {
           {data?.map((item, index) => (
             <div
               key={index}
-              className={`w-full h-[220px] max-xl:h-[300px] max-sm:h-[220px] rounded-2xl
-                                    bg-gradient-to-r from-[#E83F4A] to-[#F5828A] "
-                                ${
-                                  index === slideIndex
-                                    ? "slide slide-active"
-                                    : "slide"
-                                }
-                                flex flex-col p-4 text-white
-                                `}
+              className={`w-full h-[220px] max-xl:h-[300px] max-sm:h-[220px] rounded-2xl   bg-gradient-to-r from-[#E83F4A] to-[#F5828A] "
+               ${
+                 index === slideIndex ? "slide slide-active" : "slide"
+               }  flex flex-col p-4 text-white  `}
             >
-              <span
-                className="w-8 h-8 rounded-full bg-white text-primaryColor 
-                                   flex items-center justify-center text-lg font-bold"
-              >
+              <span className="w-8 h-8 rounded-full bg-white text-primaryColor  flex items-center justify-center text-lg font-bold">
                 {index + 1}
               </span>
 
@@ -121,13 +122,19 @@ const AwardSlideCards = () => {
           className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center  "
           onClick={previous}
         >
-          <BsArrowLeftCircleFill size={28}   className="text-white lg:text-[#E3000F]" />
+          <BsArrowLeftCircleFill
+            size={28}
+            className="text-white lg:text-[#E3000F]"
+          />
         </span>
         <span
           className="z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit h-full flex items-center"
           onClick={next}
         >
-          <BsArrowRightCircleFill size={28}  className="text-white lg:text-[#E3000F]" />
+          <BsArrowRightCircleFill
+            size={28}
+            className="text-white lg:text-[#E3000F]"
+          />
         </span>
       </div>
     </div>

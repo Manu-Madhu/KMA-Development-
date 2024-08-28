@@ -31,17 +31,17 @@ const Page = () => {
   }
 
   return (
-    <div className="max-w-screen-xl p-3 py-14 pb-20 mx-auto">
+    <div className="max-w-screen-xl p-3 py-14 pb-20 lg:mt-20 mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Left Side: Text Content */}
         <div className="lg:mr-20">
           <div className="lg:mr-5">
-            <UnderlinedHeading heading="The Member" text="Registration" />
+            <UnderlinedHeading heading="The Member" text="Registration Process:" />
           </div>
           <div className="lg:text-left text-center">
-            <h1 className="text-[2.5rem] max-md:text-3xl font-bold leading-[3.5rem]">
+            {/* <h1 className="text-[2.5rem] max-md:text-3xl font-bold leading-[3.5rem]">
               Process:
-            </h1>
+            </h1> */}
             <ol className="list-decimal pl-4 mt-4 space-y-5  text-gray-800 lg:text-left text-start">
               <li>
                 Understand Member benefits, Membership Options, and Fee Details.{" "}

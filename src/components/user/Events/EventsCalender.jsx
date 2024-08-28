@@ -12,7 +12,7 @@ function EventsCalender() {
                     <Calendar />
                 </div>
                 <div className='w-[34%] max-md:w-full mt-10 md:mt-20'>
-                    <EventCard Name='Event Name' Title='Event Title' Description='Event Description' Location='Event Location' />
+                    <EventCard Name='Event Name' Title='Event Title' Description='Event Description' Location='Event Location' border={true} />
                 </div>
             </div>
         </div>

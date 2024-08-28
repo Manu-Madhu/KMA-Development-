@@ -7,10 +7,10 @@ const AccordionItem = ({ title, content, isOpen, onClick, isHighlighted }) => (
     <h2>
       <button
         type="button"
-        className={`flex items-center justify-between w-full p-5 font-medium border border-gray hover:border-blue-700 ${
+        className={`flex items-center justify-between w-full p-5 font-medium border border-gray  ${
           isHighlighted
             ? "text-primaryColor bg-primaryColor bg-opacity-5"
-            : "text-gray-500 "
+            : "text-[#181818] "
         }`}
         onClick={onClick}
       >
