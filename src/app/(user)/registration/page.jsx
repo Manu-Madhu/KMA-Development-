@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { FaGlobeAsia } from "react-icons/fa";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import Link from "next/link";
-import useregistrationValidation from "@/hooks/registrationHooks.js/useregistrationValidation";
+import userRegistrationValidation from "@/hooks/registrationHooks.js/useRegistrationValidation";
 import validateForm from "@/hooks/registrationHooks.js/validateRegistration";
 
 const Page = () => {
@@ -23,7 +23,7 @@ const Page = () => {
     errors,
     handleChange,
     handleSubmit,
-  }=useregistrationValidation(initialState,validateForm)
+  }=userRegistrationValidation(initialState,validateForm)
 
   //handle form submission
   const submitForm=()=>{
