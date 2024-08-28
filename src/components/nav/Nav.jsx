@@ -45,13 +45,24 @@ const Nav = () => {
       <div
         className={`max-w-screen-xl mx-auto w-full hidden lg:flex items-center justify-between h-[80px] p-3`}
       >
-        <Image
-          src={"/logo.png"}
-          alt="logo"
-          className=""
-          width={150}
-          height={50}
-        />
+        {/* Update */}
+        {scrolled ? (
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            className=""
+            width={150}
+            height={50}
+          />
+        ) : (
+          <Image
+            src={"/logo1.png"}
+            alt="logo"
+            className=""
+            width={150}
+            height={50}
+          />
+        )}
         <ul className="flex gap-5">
           {NavData.map((item) => (
             <div key={item?._id} className="flex items-center">
@@ -60,6 +71,7 @@ const Nav = () => {
                   data={item}
                   isOpen={openDropdown === item?._id} // Pass down if the dropdown is open
                   handleToggle={() => handleToggle(item?._id)} // Handle toggle
+                  closeNav={setMobileMenu}
                 />
               ) : (
                 <li className="cursor-pointer">
@@ -69,17 +81,21 @@ const Nav = () => {
             </div>
           ))}
         </ul>
-        <button
-          className={`border rounded-2xl text-sm p-2 px-5  ${
-            scrolled
-              ? "text-primaryColor"
-              : location !== "/"
-              ? "text-primaryColor"
-              : "text-white "
-          } `}
-        >
-          Contact Us
-        </button>
+        <div className="relative overflow-hidden rounded-full ">
+          <Link href={"/contact-us"}>
+            <button
+              className={`buttonAnimation overflow-hidden border rounded-full text-sm p-2 px-5  ${
+                scrolled
+                  ? "text-primaryColor"
+                  : location !== "/"
+                  ? "text-primaryColor"
+                  : "text-white "
+              } `}
+            >
+              <span>Contact Us</span>
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Mobile View */}
@@ -110,19 +126,19 @@ const Nav = () => {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <div className="w-full flex flex-col  items-center justify-center">
+          <div className="flex flex-col w-full h-full">
+            <div className="w-full h-full flex flex-col  items-start justify-start px-10 mt-12">
               <Image
                 src={"/logo.png"}
                 alt="logo"
-                className=""
+                className="w-60"
                 width={240}
                 height={50}
               />
-              <div className="mt-10">
-                <ul className="flex flex-col items-center gap-5 text-black w-full">
+              <div className="mt-5 w-full flex items-center justify-center">
+                <ul className="flex flex-col items-center justify-center gap-2 text-black w-full">
                   {NavData.map((item) => (
-                    <div key={item?._id} className="flex items-center w-full">
+                    <div key={item?._id} className="flex items-start w-full ">
                       {item?.subData?.length > 0 ? (
                         <SubNav
                           data={item}
@@ -131,7 +147,7 @@ const Nav = () => {
                           closeNav={setMobileMenu}
                         />
                       ) : (
-                        <li className="cursor-pointer flex items-center w-full justify-center">
+                        <li className="cursor-pointer border w-full p-2 rounded">
                           <Link
                             onClick={() => setMobileMenu(!mobileMenu)}
                             href={item?.Path}

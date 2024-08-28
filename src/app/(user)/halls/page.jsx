@@ -16,7 +16,7 @@ function Page() {
           <UnderlinedHeading heading={"Iconic KMA"} text={"House"} />
         </div>
         <div className="pt-5">
-          <p className="w-full mt-10">
+          <p className="w-full mt-10 text-sm leading-6 text-[#1F392C]">
             {`Right at the centre of the buzzing city, in Panampilly Nagar, where
           the heart of Kochi throbs, KMA House stands proud and tall. After its
           complete makeover, KMA House meets with international standards of

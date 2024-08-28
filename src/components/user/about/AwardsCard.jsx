@@ -7,7 +7,7 @@ function AwardsCard({ title, description, image }) {
                 <h1 className="text-xl font-bold text-primaryColor">
                     {title}
                 </h1>
-                <p className='text-left text-xs line-clamp-2'>{description}</p>
+                <p className='text-left text-xs line-clamp-2 text-[#3E3E59]'>{description}</p>
             </div>
         </div>
     )

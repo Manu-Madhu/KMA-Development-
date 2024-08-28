@@ -1,9 +1,9 @@
 import React from "react";
 import vector from "../../../../public/assets/kma csr awards/Vector.png";
 import Image from "next/image";
-import EventCard from "../Common/EventCard";
 import HomeCarousal from "./HomeEventCarousel/HomeCarousal";
 import wavybg from "../../../../public/assets/events/wavybg.png";
+import EventCard from "../Common/EventCard";
 
 function HomeEvents() {
   return (

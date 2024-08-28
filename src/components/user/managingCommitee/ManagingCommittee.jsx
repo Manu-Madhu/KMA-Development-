@@ -15,12 +15,7 @@ const ManagingCommittee = ({ heading, title, content, dataListing, count }) => {
       </div>
       {!count ? (
         <>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 lg:mt-14 gap-5">
-            {dataListing.map((item) => (
-              <ManagingCard key={item?._id} data={item} />
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 gap-5">
+          <div className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 lg:mt-14 gap-5">
             {dataListing.map((item) => (
               <ManagingCard key={item?._id} data={item} />
             ))}
@@ -28,22 +23,7 @@ const ManagingCommittee = ({ heading, title, content, dataListing, count }) => {
         </>
       ) : (
         <>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 lg:mt-14 gap-5">
-            {dataListing.map((item) => (
-              <ManagingCard key={item?._id} data={item} />
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 gap-5">
-            {dataListing.map((item) => (
-              <ManagingCard key={item?._id} data={item} />
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 lg:mt-14 gap-5">
-            {dataListing.map((item) => (
-              <ManagingCard key={item?._id} data={item} />
-            ))}
-          </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 gap-5">
+          <div className="w-full grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 my-5 md:my-10 lg:mt-14 gap-5">
             {dataListing.map((item) => (
               <ManagingCard key={item?._id} data={item} />
             ))}

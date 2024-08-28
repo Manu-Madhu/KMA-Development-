@@ -41,6 +41,11 @@ export const NavData = [
                 name: "Events ",
                 Path: "/events"
             },
+            {
+                _id: 2,
+                name: "Our Halls ",
+                Path: "/halls"
+            },
         ]
     },
     {

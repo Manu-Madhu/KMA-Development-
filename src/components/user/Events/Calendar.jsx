@@ -66,7 +66,7 @@ function Calendar() {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-7 w-full">
+      <div className="grid grid-cols-7 w-full border rounded-xl overflow-hidden">
         {dayOfTheWeek.map((day, index) => (
           <div
             key={index}

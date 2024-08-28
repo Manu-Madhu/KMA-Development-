@@ -12,7 +12,7 @@ import { BsArrowRightCircleFill } from "react-icons/bs";
 
 const ArticleSlideCards = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [data, setData] = useState([1, 1,1, 1, 1]);
+  const [data, setData] = useState([1, 1, 1, 1, 1]);
   const [loading, setLoading] = useState(true);
 
   let sliderRef = useRef(null);
@@ -76,16 +76,16 @@ const ArticleSlideCards = () => {
   }
   ``;
   return (
-    <div className="w-full py-12">
-      <h1 className="my-8 lg:my-14 text-[2.8rem] max-md:text-[1.5rem] font-bold leading-[3.5rem] max-md:leading-9 text-center">
+    <div className="w-full py-10 lg:py-12">
+      <h1 className="my-8 lg:my-14 leading-[3.5rem] max-md:leading-9 text-center text-title font-bold mx-auto w-fit mb-12 max-md:text-[2rem]">
         Latest{" "}
-        <span className="relative mr-3">
+        <span className="relative ml-3">
           Articles
           <Image
-            src={"/assets/kma csr awards/Vector.png"}
             width={500}
             height={500}
-            className="absolute right-0 -bottom-2 max-md:-bottom-1 w-full h-4 max-md:h-2"
+            src={"/assets/kma csr awards/Vector.png"}
+            className="absolute right-0 -bottom-2"
             alt="Vector"
           />
         </span>
@@ -151,9 +151,9 @@ const ArticleSlideCards = () => {
         </span>
       </div>
 
-      <div className="flex justify-center lg:my-5">
-        <button className="mx-auto px-6 py-2 mt-12 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
-          View All
+      <div className="flex justify-center lg:my-5 relative">
+        <button className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border border-black/20 w-fit rounded-full font-semibold text-red-600">
+          <span>View All</span>
         </button>
       </div>
     </div>

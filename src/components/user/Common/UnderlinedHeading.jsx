@@ -7,7 +7,7 @@ function UnderlinedHeading({ heading, text }) {
         {" "}{text}
         <Image
           src={"/assets/kma csr awards/Vector.png"}
-          className="absolute right-0 -bottom-2 w-full h-4 max-md:h-3"
+          className="absolute object-contain right-0 -bottom-2 w-full h-4 max-md:h-3"
           alt="Vector"
           width={500}
           height={500}

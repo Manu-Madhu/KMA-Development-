@@ -4,7 +4,7 @@ import cover from "../../../../public/assets/about/about1.png";
 
 function Articles() {
   return (
-    <div className="max-w-screen-xl mx-auto w-full p-3 mt-10 lg:mt-36 pb-10 flex flex-col items-center">
+    <div className="max-w-screen-xl mx-auto w-full p-3 mt-28 lg:mt-36 pb-10 flex flex-col items-center">
       <h1 className="text-[2.8rem] max-md:text-[1.5rem] font-bold leading-[3.5rem] max-md:leading-9 text-center">
         <span className="relative mr-3">
           Unlimited
@@ -18,7 +18,7 @@ function Articles() {
         </span>
         Access to All the <br /> Resources, Articles and Insights
       </h1>
-      <div  className="w-full grid grid-cols-3 max-sm:grid-cols-1 gap-4 mt-10 lg:mt-12">
+      <div className="w-full grid grid-cols-3 max-sm:grid-cols-1 gap-4 mt-10 lg:mt-12">
         {[1, 1, 1]?.map((item, index) => (
           <ArticleCard
             type="video"
@@ -30,9 +30,14 @@ function Articles() {
           />
         ))}
       </div>
-      <button className="px-6 py-2 mt-12 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
-        View All
-      </button>
+      <div className="flex justify-center relative mb-10">
+        <button
+          className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border 
+        border-black/20 w-fit rounded-full font-semibold text-red-600"
+        >
+          <span className="truncate">View All</span>
+        </button>
+      </div>
     </div>
   );
 }

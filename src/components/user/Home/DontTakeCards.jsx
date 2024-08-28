@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import cover from "../../../../public/assets/about/about1.png";
+import cover from "../../../../public/card.png";
 
 import { ImQuotesLeft } from "react-icons/im";
 
@@ -28,9 +28,9 @@ const DontTakeCards = () => {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     initialSlide: 0,
     centerMode: true,
     beforeChange: (oldI, newI) => setSlideIndex(newI),
@@ -78,22 +78,23 @@ const DontTakeCards = () => {
   }
 
   return (
-    <div className="w-full py-8 lg:py-12 relative ">
-      <h1 className=" my-8 lg:my-14 text-[2.8rem] max-md:text-[1.7rem] font-bold leading-[3.5rem] max-md:leading-9 text-center">
+    <div className="w-full lg:py-12 relative ">
+
+      <h1 className="my-8 lg:my-14 lg:leading-[3.5rem] leading-[45px]  text-title max-md:text-[2.2rem] font-bold mx-auto w-fit mb-8 text-center capitalize p-3">
         Don't take our{" "}
-        <span className="relative mr-3">
+        <span className="relative ml-3">
           word for it
           <Image
-            src={"/assets/kma csr awards/Vector.png"}
             width={500}
             height={500}
+            src={"/assets/kma csr awards/Vector.png"}
             className="absolute right-0 -bottom-2 max-md:-bottom-1 w-full h-4 max-md:h-2"
             alt="Vector"
           />
         </span>
       </h1>
 
-      <div className=" mx-auto slider-container relative p-3 lg:p-0 lg:pt-5 lg:mt-8">
+      <div className=" mx-auto slider-container relative p-3 lg:p-0 lg:pt-5 lg:mt-8 ">
         <Slider
           ref={(slider) => {
             sliderRef = slider;
@@ -103,7 +104,7 @@ const DontTakeCards = () => {
           {data?.map((item, index) => (
             <div
               key={index}
-              className={`w-full h-[300px] sm:h-[350px] relative rounded-2xl overflow-clip
+              className={`w-[500px] h-[300px] sm:h-[350px] relative rounded-2xl overflow-hidden
                       ${
                         index === slideIndex
                           ? "slide-active"
@@ -116,6 +117,7 @@ const DontTakeCards = () => {
                       }
                       `}
             >
+              <div className="absolute w-full  h-ful bg-black top-0 left-0 "></div>
               {item?.thumbnail?.location ? (
                 <Image
                   src={item?.thumbnail?.location}
@@ -131,18 +133,18 @@ const DontTakeCards = () => {
               )}
 
               <div
-                className="absolute top-0 w-full h-[300px] sm:h-[350px] flex flex-col
+                className="absolute top-0 w-full h-full flex flex-col
                   items-start text-white px-5 justify-around "
               >
                 <ImQuotesLeft
                   size={56}
-                  className={`${
+                  className={`absolute top-3 ${
                     index === slideIndex ? "text-red-600" : "text-white"
                   }`}
                 />
 
-                <div className="flex flex-col items-start">
-                  <p className="text-sm mb-4 font-[300] leading-2">
+                <div className="absolute bottom-5 flex flex-col items-start">
+                  <p className="text-lg mb-5 font-[300] leading-6">
                     Overall, I had a great experience at KMA Hall. The
                     facilities are excellent, the location is convenient, and
                     the staff is friendly and helpful.

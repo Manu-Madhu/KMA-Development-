@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import vector from "../../../../../public/assets/kma csr awards/Vector.png";
 import BenefitCard from "./BenefitCard";
@@ -5,6 +7,7 @@ import { LuUsers } from "react-icons/lu";
 import { HiOutlineBookOpen } from "react-icons/hi2";
 import { FaRegHandshake } from "react-icons/fa";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { useEffect, useState } from "react";
 
 function MemberBenefits() {
   const data = [
@@ -33,6 +36,14 @@ function MemberBenefits() {
       content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`,
     },
   ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, 2000); // Change card every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [data.length]);
 
   return (
     <div className="lg:pb-10 max-w-screen-xl mx-auto p-3 w-full flex flex-col items-center lg:mt-20">
@@ -47,21 +58,24 @@ function MemberBenefits() {
           />
         </span>
       </h1>
-      <p className="text-center mt-3 max-sm:text-sm">
-        KMA membership provides innumerable opportunities to enrich their <br />{" "}
+      <p className="text-start lg:text-center mt-3 max-sm:text-[13px]">
+        KMA membership provides innumerable opportunities to enrich their <br className="hidden lg:block"/>
         experiences by participating in a variety of programs
       </p>
 
-      <div className="w-full mt-10 lg:mt-20 flex flex-wrap lg:flex-row justify-around items-center gap-4">
+      <div className="w-full mt-10 lg:mt-20 flex  lg:flex-row gap-4 overflow-y-scroll lg:overflow-hidden rounded-2xl ">
         {data.map((item, index) => (
-          <BenefitCard
-            key={index}
-            index={index}
-            bgcolor={item.bgcolor}
-            icon={item.icon}
-            title={item.title}
-            content={item.content}
-          />
+          <div className="w-full">
+            <BenefitCard
+              key={index}
+              index={index}
+              bgcolor={item.bgcolor}
+              icon={item.icon}
+              title={item.title}
+              content={item.content}
+              activeIndex={activeIndex}
+            />
+          </div>
         ))}
       </div>
     </div>

@@ -10,19 +10,19 @@ const Footer = () => {
   return (
     <>
       {/* top side */}
-      <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto p-3 pb-5 my-10 h-fit md:h-[300px]">
-        <div className="flex flex-col items-start justify-between w-full md:w-2/5">
+      <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto p-3 pb-5 mt-10 h-fit md:h-[300px]">
+        <div className="flex flex-col items-start justify-between w-full md:w-2/5 ">
           <div className="top">
             <Image
               src={"/logo.png"}
               alt="logo"
-              className=""
-              width={140}
-              height={50}
+              className="lg:w-60 object-contain"
+              width={500}
+              height={500}
             />
           </div>
-          <div className="bottom w-full md:w-3/5 mt-5 md:mt-0">
-            <p className="text-xs truncate">
+          <div className="bottom w-full mt-5 md:mt-0 ">
+            <p className="text-[14px] w-full font-medium">
               Management House, Kerala Management Avenue, <br />
               Panampilly Nagar PO, Kochi - 682036
             </p>
@@ -34,7 +34,7 @@ const Footer = () => {
               <MenuList data={data} key={data?._id} />
             ))}
           </div>
-          <div className="bottom flex gap-2 w-full md:justify-end mt-3">
+          <div className="bottom flex gap-2 w-full justify-end mt-3">
             {icon.map((data) => (
               <IconCard data={data} key={data?._id} />
             ))}
