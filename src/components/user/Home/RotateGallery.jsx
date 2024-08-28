@@ -108,9 +108,9 @@ const RotateGallery = () => {
 
       <button
         onClick={skipper}
-        className="w-fit z-40 bg-black text-primaryColor hover:text-white hover:bg-primaryColor border-2 border-[#777] rounded-3xl p-2 lg:p-3 lg:px-10 absolute bottom-8  "
+        className="buttonAnimation overflow-hidden w-fit z-40 bg-black text-primaryColor border-2 border-[#FFFFFF]/20 rounded-full p-2  lg:px-6 absolute bottom-8  "
       >
-        Skip
+        <span>Skip</span>
       </button>
     </div>
   );

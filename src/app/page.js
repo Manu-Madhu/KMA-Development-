@@ -9,8 +9,11 @@ export default function Home() {
       <nav className="w-full">
         <Nav />
       </nav>
-
-      <section><HomePage /></section>
+      
+      {/* main page */}
+      <section>
+        <HomePage />
+      </section>
 
       {/* Footer Part */}
       <footer>

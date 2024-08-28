@@ -11,7 +11,7 @@ function AboutKMADescription() {
 
       <AboutVideoCard />
 
-      <p className="my-10 max-md:text-sm">
+      <p className="my-10 text-[15px] font-[400] leading-6">
         {`Cochin was a sleepy little town in the 1950’s. The State of Kerala had just been formed in November 1956 and the Communist Government 
                 headed by E.M.S.Namboodiripad was yet to become a reality. P.S.Rao, formerly of the Indian Civil Service, was the Governor who administered
                  over the State with the help of his advisers. Cochin City had not come into existence and the three Municipalities of Ernakulam, Mattanchery
