@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { FaGlobeAsia } from "react-icons/fa";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import Link from "next/link";
-import userRegistrationValidation from "@/hooks/registrationHooks.js/userRegistrationValidation";
+import userRegistrationValidation from "@/hooks/registrationHooks.js/useRegistrationValidation";
 import validateForm from "@/hooks/registrationHooks.js/validateRegistration";
 
 const Page = () => {
