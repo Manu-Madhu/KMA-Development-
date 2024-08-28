@@ -3,10 +3,10 @@ import React, { useRef } from "react";
 import EventCard from "../../Common/EventCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./HomeCarousel.css"; // Import the custom CSS file
 import { events } from "@/data/events";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const responsive = {
   superLargeDesktop: {
@@ -45,20 +45,20 @@ function HomeCarousel() {
   return (
     <div className=" relative ">
       <span
-        className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center "
+        className=" z-40 cursor-pointer absolute top-0 left-0.5 lg:left-4 bottom-0 w-fit h-full flex items-center "
         onClick={handlePrev}
       >
         <BsArrowLeftCircleFill size={28} color="#E3000F" />
       </span>
 
       <span
-        className=" z-40 cursor-pointer absolute top-0 right-4 bottom-0 w-fit h-full flex items-center "
+        className=" z-40 cursor-pointer absolute top-0 right-0.5 lg:right-4 bottom-0 w-fit h-full flex items-center "
         onClick={handleNext}
       >
         <BsArrowRightCircleFill size={28} color="#E3000F" />
       </span>
 
-      <div className="w-11/12 mx-auto">
+      <div className=" w-10/12 lg:w-11/12 mx-auto">
         <Carousel
           ref={carouselRef}
           responsive={responsive}

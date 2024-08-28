@@ -12,7 +12,7 @@ function EventCard({
 }) {
   return (
     <div
-      className={`p-7 relative overflow-clip flex flex-col w-[97%] ${
+      className={`p-7 relative overflow-clip flex flex-col ms-1 lg:ms-0 w-[97%] ${
         border ? "border" : ""
       }  h-80 max-md:h-64 justify-between 
         rounded-2xl bg-white`}

@@ -58,8 +58,8 @@ function MemberBenefits() {
           />
         </span>
       </h1>
-      <p className="text-center mt-3 max-sm:text-sm">
-        KMA membership provides innumerable opportunities to enrich their <br />{" "}
+      <p className="text-start lg:text-center mt-3 max-sm:text-[13px]">
+        KMA membership provides innumerable opportunities to enrich their <br className="hidden lg:block"/>
         experiences by participating in a variety of programs
       </p>
 

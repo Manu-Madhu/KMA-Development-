@@ -3,7 +3,7 @@ import React from "react";
 
 const ManagingCard = ({ data }) => {
   return (
-    <div className="border rounded-3xl w-full md:w-[240px] md:h-[290px] overflow-hidden">
+    <div className="border rounded-xl lg:rounded-3xl w-full md:w-[240px] md:h-[290px] overflow-hidden">
       <div>
         <Image
           src={data?.image}

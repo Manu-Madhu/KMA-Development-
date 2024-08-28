@@ -78,15 +78,16 @@ const DontTakeCards = () => {
   }
 
   return (
-    <div className="w-full py-8 lg:py-12 relative ">
-      <h1 className=" my-8 lg:my-14 text-[2.8rem] max-md:text-[1.7rem] font-bold leading-[3.5rem] max-md:leading-9 text-center">
+    <div className="w-full lg:py-12 relative ">
+
+      <h1 className="my-8 lg:my-14 lg:leading-[3.5rem] leading-[45px]  text-title max-md:text-[2.2rem] font-bold mx-auto w-fit mb-8 text-center capitalize p-3">
         Don't take our{" "}
-        <span className="relative mr-3">
+        <span className="relative ml-3">
           word for it
           <Image
-            src={"/assets/kma csr awards/Vector.png"}
             width={500}
             height={500}
+            src={"/assets/kma csr awards/Vector.png"}
             className="absolute right-0 -bottom-2 max-md:-bottom-1 w-full h-4 max-md:h-2"
             alt="Vector"
           />

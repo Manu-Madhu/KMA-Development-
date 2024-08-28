@@ -13,7 +13,7 @@ const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
       <div
         onClick={handleToggle}
         key={data?._id}
-        className="flex items-center justify-center gap-2"
+        className="flex items-center justify-between gap-2 cursor-pointer border lg:border-none w-full p-2 rounded"
       >
         <h1 className="cursor-pointer">{data?.name}</h1>
         {isOpen ? (
@@ -23,7 +23,7 @@ const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
         )}
       </div>
       {isOpen && (
-        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded-2xl z-10 p-2 md:min-w-[200px]">
+        <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded-2xl z-10 p-2 md:min-w-[200px] mt-1">
           {data.subData.map((subItem) => (
             <Link
               onClick={onChanger}

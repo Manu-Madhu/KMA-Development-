@@ -19,7 +19,7 @@ function ManagingDirectors() {
         </span>
       </h1>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 w-full lg:mt-7">
+      <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 w-full lg:mt-7">
         {members.map((member, index) => (
           <ProfileCard
             key={index}

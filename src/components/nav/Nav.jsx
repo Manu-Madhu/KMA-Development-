@@ -126,19 +126,19 @@ const Nav = () => {
             />
           </div>
 
-          <div className="flex flex-col items-center justify-center w-full h-full">
-            <div className="w-full flex flex-col  items-center justify-center">
+          <div className="flex flex-col w-full h-full">
+            <div className="w-full h-full flex flex-col  items-start justify-start px-10 mt-12">
               <Image
                 src={"/logo.png"}
                 alt="logo"
-                className=""
+                className="w-60"
                 width={240}
                 height={50}
               />
-              <div className="mt-10">
-                <ul className="flex flex-col items-center gap-5 text-black w-full">
+              <div className="mt-5 w-full flex items-center justify-center">
+                <ul className="flex flex-col items-center justify-center gap-2 text-black w-full">
                   {NavData.map((item) => (
-                    <div key={item?._id} className="flex items-center w-full">
+                    <div key={item?._id} className="flex items-start w-full ">
                       {item?.subData?.length > 0 ? (
                         <SubNav
                           data={item}
@@ -147,7 +147,7 @@ const Nav = () => {
                           closeNav={setMobileMenu}
                         />
                       ) : (
-                        <li className="cursor-pointer flex items-center w-full justify-center">
+                        <li className="cursor-pointer border w-full p-2 rounded">
                           <Link
                             onClick={() => setMobileMenu(!mobileMenu)}
                             href={item?.Path}
