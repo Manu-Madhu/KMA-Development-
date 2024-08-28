@@ -1,6 +1,6 @@
 "use client";
 import useFormValidation from "@/hooks/loginHooks/useFormValidation";
-import ValidationLogin from "@/hooks/loginHooks/ValidationLogin";
+import ValidationLogin from "@/hooks/loginHooks/validationLogin";
 import React from "react";
 import { useRouter } from "next/navigation";
 
