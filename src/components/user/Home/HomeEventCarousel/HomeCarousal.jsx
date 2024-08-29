@@ -1,12 +1,15 @@
 "use client";
-import React, { useRef } from "react";
+
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import EventCard from "../../Common/EventCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./HomeCarousel.css"; // Import the custom CSS file
-import { events } from "@/data/events";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import axios from "@/axios-folder/axios";
+import { eventRoute } from "@/utils/Endpoint";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+// import { events } from "@/data/events";
 
 const responsive = {
   superLargeDesktop: {
@@ -29,18 +32,43 @@ const responsive = {
 
 function HomeCarousel() {
   const carouselRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [events, setEvent] = useState([]);
 
+  // get the event initial data
+  const getEventData = useCallback(() => {
+    setLoading(true);
+    axios
+      .get(eventRoute)
+      .then((res) => {
+        setEvent(res.data.events)
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  // Next Button Handler
   const handleNext = () => {
     if (carouselRef.current) {
       carouselRef.current.next();
     }
   };
-
+  // prev Button handler
   const handlePrev = () => {
     if (carouselRef.current) {
       carouselRef.current.previous();
     }
   };
+
+  // initial data fetching
+  useEffect(() => {
+    getEventData();
+  }, []);
 
   return (
     <div className=" relative ">
@@ -68,13 +96,10 @@ function HomeCarousel() {
           renderDotsOutside
           dotListClass="custom-dot-list"
         >
-          {events.map((event, index) => (
+          {events?.slice(0.4)?.map((event, index) => (
             <EventCard
               key={index}
-              Name={event.name}
-              Title={event.title}
-              Description={event.description}
-              Location={event.location}
+              data={event}
             />
           ))}
         </Carousel>
