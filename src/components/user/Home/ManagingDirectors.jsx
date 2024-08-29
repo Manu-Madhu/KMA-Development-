@@ -4,6 +4,7 @@ import Person from "../../../../public/1.png";
 
 import ProfileCard from "./ProfileCard";
 import { members } from "@/data/members";
+import Link from "next/link";
 function ManagingDirectors() {
   return (
     <div className="max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-10 pb-28 relative">
@@ -20,7 +21,7 @@ function ManagingDirectors() {
       </h1>
 
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 w-full lg:mt-7">
-        {members.map((member, index) => (
+        {members.slice(0, 6).map((member, index) => (
           <ProfileCard
             key={index}
             name={member?.name}
@@ -29,9 +30,11 @@ function ManagingDirectors() {
           />
         ))}
       </div>
-      <button className="buttonAnimation overflow-hidden absolute bottom-0 px-6 py-2 mt-8 border border-black/10 w-fit rounded-full font-semibold text-red-600">
-        <span>View All</span>
-      </button>
+      <Link href={'/managing-committee'} className="pe-32">
+        <button className="buttonAnimation  overflow-hidden absolute bottom-0 px-6 py-2 mt-8 border border-black/10 w-fit rounded-full font-semibold text-red-600">
+          <span>View All</span>
+        </button>
+      </Link>
     </div>
   );
 }
