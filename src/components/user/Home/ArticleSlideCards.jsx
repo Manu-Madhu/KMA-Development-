@@ -1,19 +1,21 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 import cover from "../../../../public/assets/about/about1.png";
 import Link from "next/link";
+import axios from "@/axios-folder/axios";
 
+import { articleRoute, publicationsRoute } from "@/utils/Endpoint";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 
 const ArticleSlideCards = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [data, setData] = useState([1, 1, 1, 1, 1]);
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([1, 1, 1, 1]);
+  const [loadingData, setLoading] = useState(true);
 
   let sliderRef = useRef(null);
   const next = () => {
@@ -62,6 +64,8 @@ const ArticleSlideCards = () => {
       },
     ],
   };
+
+  // Date conversion function
   function formatDate(createdAt) {
     const date = new Date(createdAt);
     let formattedDate = null;
@@ -74,7 +78,28 @@ const ArticleSlideCards = () => {
     }
     return "";
   }
-  ``;
+
+  // article data fetching
+  const getArticleData = useCallback(() => {
+    axios
+      .get(articleRoute)
+      .then((res) => {
+        console.log(res?.data?.articles);
+        setData(res?.data?.articles);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {});
+  }, []);
+
+  // initial time data fetching
+  useEffect(() => {
+    getArticleData();
+  }, []);
+
+  console.log(data);
+
   return (
     <div className="w-full py-10 lg:py-12">
       <h1 className="my-8 lg:my-14 leading-[3.5rem] max-md:leading-9 text-center text-title font-bold mx-auto w-fit mb-12 max-md:text-[2rem]">
@@ -105,9 +130,9 @@ const ArticleSlideCards = () => {
                       ${index === slideIndex ? "slide slide-active" : "slide"}
                       `}
             >
-              {item?.thumbnail?.location ? (
+              {item?.coverImageUrl ? (
                 <img
-                  src={item?.thumbnail?.location}
+                  src={item?.coverImageUrl}
                   alt="image"
                   className="w-full h-full object-cover "
                 />
@@ -124,13 +149,17 @@ const ArticleSlideCards = () => {
                   items-center p-4 bg-[#2A282F] backdrop-blur-[5px]"
               >
                 <div className="flex flex-col">
-                  <span className="text-[#FF5C67] text-sm">21/10/2024</span>
-                  <span className="text-white">Article title here</span>
+                  <span className="text-[#FF5C67] text-sm">
+                    {formatDate(item?.createdAt)}
+                  </span>
+                  <span className="text-white">{item?.title}</span>
                 </div>
 
-                <button className="bg-white text-sm text-black  rounded-2xl py-2 px-6">
-                  View
-                </button>
+                <Link href={`/articles/${item?._id}`}>
+                  <button className="bg-white text-sm text-black  rounded-2xl py-2 px-6">
+                    View
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -151,10 +180,12 @@ const ArticleSlideCards = () => {
         </span>
       </div>
 
-      <div className="flex justify-center lg:my-5 relative">
-        <button className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border border-black/20 w-fit rounded-full font-semibold text-red-600">
-          <span>View All</span>
-        </button>
+      <div className="flex justify-center lg:my-5 relative pe-32">
+        <Link href={"/articles"}>
+          <button className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border border-black/20 w-fit rounded-full font-semibold text-red-600">
+            <span>View All</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

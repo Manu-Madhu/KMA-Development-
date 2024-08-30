@@ -31,10 +31,10 @@ function ArticleCard({
         <p className="text-white text-lg">{title}</p>
       </div>
       <div
-        className={`p-4 inset-0 size-fit m-auto text-white rounded-full absolute bg-[#2A282FCC] ${type == "video" ? "" : "hidden"
+        className={`p-4 inset-0 size-fit m-auto text-white rounded-full absolute cursor-pointer bg-[#2A282FCC] ${type == "video" ? "" : "hidden"
           }`}
       >
-        {link ? <Link href={link?.link}>{link?.name}</Link> : <FaPlay />}
+        {link ? <Link href={link}>{link?.name || <FaPlay />}</Link> : <FaPlay />}
       </div>
     </div>
   );
