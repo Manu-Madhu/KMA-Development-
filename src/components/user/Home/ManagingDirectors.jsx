@@ -1,41 +1,29 @@
 import Image from "next/image";
 import vector from "../../../../public/assets/kma csr awards/Vector.png";
 import Person from "../../../../public/1.png";
-
+import { Managing } from "@/data/Managing";
 import ProfileCard from "./ProfileCard";
-import { members } from "@/data/members";
 import Link from "next/link";
+import ManagingCommittee from "../managingCommitee/ManagingCommittee";
+
 function ManagingDirectors() {
   return (
+    
     <div className="max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-10 pb-28 relative">
-      <h1 className="text-title font-bold mx-auto w-fit mb-12 max-md:text-[2rem]">
-        Managing
-        <span className="relative ml-3">
-          Committee
-          <Image
-            src={vector}
-            className="absolute right-0 -bottom-2"
-            alt="Vector"
+      <ManagingCommittee
+            heading={"Managing"}
+            title={"Committee"}
+            dataListing={Managing.slice(0,4)}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4  gap-4 justify-between"
+            count={1}
           />
-        </span>
-      </h1>
-
-      <div className="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-4 w-full lg:mt-7">
-        {members.slice(0, 6).map((member, index) => (
-          <ProfileCard
-            key={index}
-            name={member?.name}
-            role={member.title}
-            image={Person}
-          />
-        ))}
-      </div>
-      <Link href={'/managing-committee'} className="pe-32">
+           <Link href={'/managing-committee'} className="pe-32">
         <button className="buttonAnimation  overflow-hidden absolute bottom-0 px-6 py-2 mt-8 border border-black/10 w-fit rounded-full font-semibold text-red-600">
           <span>View All</span>
         </button>
       </Link>
     </div>
+  
   );
 }
 
