@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { IoIosArrowDropright } from "react-icons/io";
 import { IoIosArrowDropleft } from "react-icons/io";
 import Image from "next/image";
+import {awardCards} from "@/data/awardCards"
 import cover from "../../../../public/assets/about/about1.png";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ import { BsArrowRightCircleFill } from "react-icons/bs";
 
 const AwardSlideCards = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [data, setData] = useState([1, 1, 1, 1]);
+  const [cards, setCards] = useState(awardCards); 
   const [loading, setLoading] = useState(true);
 
   let sliderRef = useRef(null);
@@ -53,6 +54,7 @@ const AwardSlideCards = () => {
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+      
         },
       },
       {
@@ -61,6 +63,7 @@ const AwardSlideCards = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+        
         },
       },
       {
@@ -95,7 +98,7 @@ const AwardSlideCards = () => {
           }}
           {...settings}
         >
-          {data?.map((item, index) => (
+          {cards?.map((item, index) => (
             <div
               key={index}
               className={`w-full h-[220px] max-xl:h-[300px] max-sm:h-[220px] rounded-2xl   bg-gradient-to-r from-[#E83F4A] to-[#F5828A] "
@@ -107,19 +110,18 @@ const AwardSlideCards = () => {
                 {index + 1}
               </span>
 
-              <p className="mt-6">KMA CSR Award 2024</p>
+              <p className="mt-6">{item.title}</p>
 
               <p className="mt-6 text-sm">
-                KMA CSR Award 2024 for recognising exceponal Corporate Social
-                Responsibility (CSR) Projects in each of the following CSR
-                themes:
+                {item.description}
               </p>
+             
             </div>
           ))}
         </Slider>
 
         <span
-          className=" z-40 cursor-pointer absolute top-0 left-4 bottom-0 w-fit h-full flex items-center  "
+          className=" z-40 cursor-pointer absolute top-0 left-4  bottom-0 w-fit h-full flex items-center  "
           onClick={previous}
         >
           <BsArrowLeftCircleFill
