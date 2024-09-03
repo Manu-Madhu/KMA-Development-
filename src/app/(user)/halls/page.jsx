@@ -33,9 +33,9 @@ function Page() {
           corporate events.`}
           </p>
           <Image
-            className="h-[70vh] max-md:h-[50vh] max-sm:h-[25vh] mt-10 rounded-xl object-cover"
-            src={hallBanner}
-            alt="Hall Banner"
+            className="w-full h-auto max-h-[70vh] mt-10 rounded-xl object-contain"
+            src='/KMA-house.jpg'
+            alt="Hall Banner" width={1300} height={100}
           />
         </div>
         <div className="pb-10 mt-10">
