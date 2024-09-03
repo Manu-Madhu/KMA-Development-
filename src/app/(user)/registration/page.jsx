@@ -8,26 +8,55 @@ import { IoCloudUploadOutline } from "react-icons/io5";
 import Link from "next/link";
 import userRegistrationValidation from "@/hooks/registrationHooks.js/useRegistrationValidation";
 import validateForm from "@/hooks/registrationHooks.js/validateRegistration";
+import useRegisterUser from "@/hooks/registrationHooks.js/useRegisterUser";
+import useUsernameChecker from "@/hooks/registrationHooks.js/useUsernameChecker";
 
 const Page = () => {
-  const initialState={
+  const initialState = {
     username: "",
     password: "",
-    name: "",
+    applicantName: "",
     email: "",
-    telephone: "",
+    phone: "",
     country: "",
-  }
+    address: "",
+    fax: "",
+    state: "",
+    identityProof: null, 
+    contactPerson: "", 
+    natureofbusiness: "",
+    membershipType: "",
+    nameofbussiness: "",
+    registrationNumber: "",
+    registrationDate: "",
+    commencementDate: "",
+    authorizedPerson: "",
+    authorizedMeetingPerson: "",
+    hasRenewalPay: false,
+    payMode :"",
+    website:"",
+  };
+
+const {loading,registerUser}= useRegisterUser();
+
   const {
     formData,
     errors,
-    handleChange,
+     handleChange,
     handleSubmit,
   }=userRegistrationValidation(initialState,validateForm)
 
+  const { isAvailable, loading: usernameLoading } = useUsernameChecker(formData.username);
+
   //handle form submission
-  const submitForm=()=>{
+  const submitForm= async (e)=>{
     console.log("Form submitted Successfully",formData);
+    const result = await registerUser(formData); 
+    if (result.success) {
+      console.log("User registered successfully");
+    } else {
+      console.log("Registration failed");
+    }
   }
 
   return (
@@ -81,7 +110,18 @@ const Page = () => {
               {errors.username && (
                 <p className="text-red-500 text-sm">{errors.username}</p>
               )}
+            {/* Display username availability status */}
+            <div className="lg:ml-1">
+              {usernameLoading ? (
+                <p className="text-blue-500 text-sm">Checking availability...</p>
+              ) : isAvailable !== null && (
+                <p className={`text-sm ${isAvailable ? 'text-green-500' : 'text-red-500'}`}>
+                  {isAvailable ? 'Username is available' : 'Username is taken'}
+                </p>
+              )}
             </div>
+            </div>
+
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
                 Password
@@ -104,14 +144,14 @@ const Page = () => {
               </label>
               <input
                 type="text"
-                name="name"
+                name="applicantName"
                 placeholder="Name of the Applicant"
-                value={formData.name}
+                value={formData.applicantName}
                 onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
-              {errors.name && (
-                <p className="text-red-500 text-sm">{errors.name}</p>
+              {errors.applicantName && (
+                <p className="text-red-500 text-sm">{errors.applicantName}</p>
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
@@ -122,8 +162,13 @@ const Page = () => {
                 name="address"
                 placeholder="Enter your address here"
                 rows="5"
+                value={formData.address}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               ></textarea>
+               {errors.address && (
+                <p className="text-red-500 text-sm">{errors.address}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -132,6 +177,9 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="State/Province"
+                name="state"
+                value={formData.state}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -142,6 +190,9 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="Fax"
+                name="fax"
+                value={formData.fax}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -153,10 +204,10 @@ const Page = () => {
                 <select className="block w-full px-8 py-2 border border-gray-200 rounded-md shadow-sm appearance-none pr-8 focus:outline-none
                  focus:ring-red-500 focus:border-red-500 sm:text-sm"
                  value={formData.country}
+                 name="country"
                 onChange={handleChange}>
                   <option>United States</option>
                   <option>India</option>
-                  {/* Add other countries as needed */}
                 </select>
                 <div className="absolute inset-y-0 left-0 flex items-center px-2 pointer-events-none">
                   <FaGlobeAsia className="text-gray-400" />
@@ -172,13 +223,14 @@ const Page = () => {
               </label>
               <input
                 type="text"
+                name="phone"
                 placeholder="Telephone"
-                value={formData.telephone}
+                value={formData.phone}
                 onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
-              {errors.telephone && (
-                <p className="text-red-500 text-sm">{errors.telephone}</p>
+              {errors.phone && (
+                <p className="text-red-500 text-sm">{errors.phone}</p>
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
@@ -190,16 +242,31 @@ const Page = () => {
                   <MdEmail />
                 </span>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="@gmail.com"
+                  name="email"
                   value={formData.email}
                 onChange={handleChange}
                   className="w-full px-3 py-2 focus:outline-none sm:text-sm"
                 />
-                {errors.telephone && (
+                {errors.email && (
                 <p className="text-red-500 text-sm">{errors.email}</p>
               )}
               </div>
+            </div>
+            <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
+              <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
+                website
+              </label>
+              <input
+                type="text"
+                name=" website"
+                placeholder=" website"
+                value={formData.website}
+                onChange={handleChange}
+                className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+              />
+            
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -208,6 +275,9 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="Contact Person"
+                name="contactPerson"
+                value={formData.contactPerson}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -218,6 +288,9 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="Nature of business/poduct line:"
+                name="natureofbusiness"
+                value={formData.natureofbusiness}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -225,10 +298,18 @@ const Page = () => {
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
                 Membership applied for
               </label>
-              <select className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+              <select 
+                name="membershipType"
+                value={formData.membershipType}
+                onChange={handleChange}
+              className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+                <option>Membership applied for</option>
                 <option>Membership applied for</option>
                 {/* Add other countries as needed */}
               </select>
+              {errors.membershipType && (
+                <p className="text-red-500 text-sm">{errors.membershipType}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
@@ -237,6 +318,9 @@ const Page = () => {
               <input
                 type="text"
                 placeholder="bussiness"
+                name="nameofbussiness"
+                value={formData.nameofbussiness}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -309,7 +393,7 @@ const Page = () => {
                 Attach identity proof
               </label>
               <div className="w-full lg:w-2/3 mt-1 block px-3 py-3 border-2 border-dashed border-gray-300 rounded-md shadow-sm text-center cursor-pointer">
-                <input type="file" className="hidden" id="file-upload" />
+                <input type="file" className="hidden"  name="identityProof" id="file-upload" onChange={handleChange} />
                 <label htmlFor="file-upload" className="cursor-pointer">
                   <div className="flex flex-col items-center">
                     <IoCloudUploadOutline className="w-12 h-12" />
@@ -323,6 +407,9 @@ const Page = () => {
                   </div>
                 </label>
               </div>
+              {errors.identityProof && (
+                <p className="text-red-500 text-sm">{errors.identityProof}</p>
+              )}
             </div>
             <div className="flex flex-col sm:flex-row items-start space-y-2 sm:space-y-0 sm:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
@@ -331,18 +418,33 @@ const Page = () => {
               <div className="w-full sm:w-auto">
                 <input
                   type="checkbox"
+                  name="hasRenewalPay"
+                  value={formData.hasRenewalPay}
+                  onChange={handleChange}
                   className="form-checkbox h-5 w-5 text-red-500 rounded border-gray-300 focus:ring-red-500"
                 />
               </div>
+              {errors.hasRenewalPay && (
+                <p className="text-red-500 text-sm">{errors.hasRenewalPay}</p>
+              )}
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
                 Mode of Payment
               </label>
-              <select className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+              <select
+               name="payMode"
+               value={formData.payMode}
+               onChange={handleChange}
+               className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
                 <option>Select payment mode</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="bankTransfer">Bank Transfer</option>
                 {/* Add other options as needed */}
               </select>
+              {errors.payMode && (
+    <p className="text-red-500 text-sm">{errors.payMode}</p>
+  )}
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5">
@@ -367,9 +469,10 @@ const Page = () => {
             <div>
               <button
                 type="submit"
+                disabled={loading}
                 className="py-3 mt-2 px-4 border border-transparent rounded-full shadow-sm text-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
-                Register for Membership
+              {loading ? "Registering..." :"Register for Membership"}
               </button>
             </div>
           </form>

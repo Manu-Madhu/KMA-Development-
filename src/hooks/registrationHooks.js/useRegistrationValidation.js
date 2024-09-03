@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const useRegistrationValidation = (initialState, validateForm) => {
@@ -22,9 +21,23 @@ const useRegistrationValidation = (initialState, validateForm) => {
 
   // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: '' }); // Clear errors on input change
+    const { name, type, value, checked, files } = e.target;
+    
+    // Handle file input
+    if (type === 'file') {
+      setFormData({ ...formData, [name]: files[0] });
+    } 
+    // Handle checkbox
+    else if (type === 'checkbox') {
+      setFormData({ ...formData, [name]: checked });
+    } 
+  
+    else {
+      setFormData({ ...formData, [name]: value });
+    }
+    
+    
+    setErrors({ ...errors, [name]: '' });
   };
 
   return {
