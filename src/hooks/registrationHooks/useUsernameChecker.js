@@ -7,7 +7,8 @@ const useUsernameChecker = (username) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (username) {
+    // Only check availability if the username has 5 or more characters
+    if (username && username.length >= 5) {
       setLoading(true);
       const checkUsername = async () => {
         try {
@@ -27,6 +28,7 @@ const useUsernameChecker = (username) => {
       };
       checkUsername();
     } else {
+      // Reset the availability state when the username is less than 5 characters
       setIsAvailable(null);
     }
   }, [username]);
