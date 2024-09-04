@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { AuthProvider } from "./Providers";
+import { AuthProvider, MemberProvider } from "./Providers";
 import { ToastContainer } from "react-toastify";
 import AOSInitializer from "@/components/AOSInitializer";
 import Footer from "@/components/footer/Footer";
@@ -18,11 +18,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
+          <MemberProvider>
           <section>
             <AOSInitializer/>
             <ToastContainer />
             {children}
           </section>
+          </MemberProvider>
         </AuthProvider>
       </body>
     </html>
