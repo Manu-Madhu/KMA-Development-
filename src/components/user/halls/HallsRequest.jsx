@@ -6,7 +6,7 @@ function HallsRequest() {
         <div className='w-full mt-5 h-screen relative flex items-center justify-center'>
             <div className='w-fit flex flex-col items-center'>
                 <h1 className='text-[2.4rem] max-md:text-[2.2rem] font-bold leading-[3.5rem] max-md:leading-10 text-center'>
-                    To inquire more about our halls
+                    To Enquire more about our halls
                 </h1>
                 <p className='text-center'>Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here</p>
                 <button className='px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600'>

@@ -144,7 +144,7 @@ const ContactForm = () => {
             value={formData.phoneNo}
             onChange={handleChange}
             className="p-2 text-sm w-full border rounded-lg border-[#D0D5DD] placeholder:text-[#667085] ps-4"
-            placeholder="+1 (555) 000-0000"
+            placeholder="+91 (555) 000-0000"
           />
         </div>
 
@@ -161,7 +161,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="flex w-full gap-3">
+        {/* <div className="flex w-full gap-3">
           <input
             type="checkbox"
             className="p-2 text-sm border rounded-lg border-[#D0D5DD] placeholder:text-[#475467] ps-4"
@@ -169,7 +169,7 @@ const ContactForm = () => {
           <label htmlFor="" className="text-[#344054] text-sm">
             You agree to our friendly <Link href={`#`} className="underline">privacy policy</Link>.
           </label>
-        </div>
+        </div> */}
         <div className="flex flex-col w-full">
           <button type="submit" className="bg-primaryColor text-white p-3 text-sm rounded-lg">
             Send message

@@ -11,7 +11,8 @@ const VerticalScrollProgress = () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            scrolled *= 1.5;
+            // scrolled *= 1.5;
+            
             setScrollHeight(scrolled);
         };
 
@@ -27,8 +28,9 @@ const VerticalScrollProgress = () => {
         if (yearBubble) {
             const bubbleRect = yearBubble.getBoundingClientRect();
             const redDotRect = redDotRef.current.getBoundingClientRect();
-            const bubbleTop = bubbleRect.top - bubbleRect.height;
-            return redDotRect.top >= bubbleTop;
+            // const bubbleTop = bubbleRect.top - bubbleRect.height;
+            const bubbleMidpoint = bubbleRect.top + (bubbleRect.height / 2);
+        return redDotRect.top >= bubbleMidpoint;
         }
         return false;
     };

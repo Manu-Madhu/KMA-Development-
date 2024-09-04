@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import wavynet from "../../../../../public/assets/home/wavynet.png";
 
 function HomeRegister() {
@@ -20,9 +20,11 @@ function HomeRegister() {
         <p className="text-center">
           Click the register button below to see the procedures
         </p>
+        <Link href={"/registration"}>
         <button className="px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600">
           Register now
         </button>
+        </Link>
       </div>
     </div>
   );

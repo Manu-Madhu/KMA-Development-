@@ -5,6 +5,7 @@ import ArticleCard from "../Common/ArticleCard";
 import cover from "../../../../public/assets/about/about1.png";
 import axios from "@/axios-folder/axios";
 import { socialConnectRoute } from "@/utils/Endpoint";
+import Link from "next/link";
 
 function Articles() {
   const [data, setData] = useState([]);
@@ -60,12 +61,14 @@ function Articles() {
         )}
       </div>
       <div className="flex justify-center relative mb-10">
+      <Link href={"/social-connect"}>
         <button
           className="buttonAnimation overflow-hidden absolute mx-auto px-6 py-2 mt-12 border 
         border-black/20 w-fit rounded-full font-semibold text-red-600"
         >
           <span className="truncate">View All</span>
         </button>
+        </Link>
       </div>
     </div>
   );
