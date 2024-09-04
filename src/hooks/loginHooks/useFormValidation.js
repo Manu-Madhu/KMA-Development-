@@ -19,11 +19,13 @@ const useFormValidation = (initialValues, validate, navigation) => {
 
     if (Object.keys(validationErrors).length === 0) {
       setIsSubmitted(true);
+      console.log(values.username,values.password)
       const result = await signIn('credentials', {
         redirect: false,
         username: values.username,
         password: values.password,
       });
+      console.log('Sign-in result:', result); 
 
       if (result.ok) {
         toast.success('Login successful!');

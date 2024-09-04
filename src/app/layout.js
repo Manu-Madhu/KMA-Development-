@@ -17,15 +17,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <AuthProvider>
-          <MemberProvider> */}
+        <AuthProvider>
           <section>
             <AOSInitializer/>
             <ToastContainer />
             {children}
-          </section>
-          {/* </MemberProvider>
-        </AuthProvider> */}
+          </section> 
+        </AuthProvider>
       </body>
     </html>
   );

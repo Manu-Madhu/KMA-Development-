@@ -1,18 +1,26 @@
-"use client"
+"use client";
 import React from "react";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import { FaGlobeAsia } from "react-icons/fa";
-import { IoCloudUploadOutline } from "react-icons/io5";
 import Link from "next/link";
-import userRegistrationValidation from "@/hooks/registrationHooks.js/useRegistrationValidation";
-import validateForm from "@/hooks/registrationHooks.js/validateRegistration";
-import useRegisterUser from "@/hooks/registrationHooks.js/useRegisterUser";
-import useUsernameChecker from "@/hooks/registrationHooks.js/useUsernameChecker";
+import useRegistrationValidation from "@/hooks/registrationHooks/useRegistrationValidation";
+import validateForm from "@/hooks/registrationHooks/validateRegistration";
+import useRegisterUser from "@/hooks/registrationHooks/useRegisterUser";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import Image from "next/image";
 
 const Page = () => {
   const initialState = {
+      natureofbusiness: "",
+      membershipType: "",
+      nameofbussiness: "",
+      registrationNumber: "",
+      registrationDate: "",
+      commencementDate: "",
+      authorizedPerson: "",
+      authorizedMeetingPerson: "",
+      BSaddress:"",
     username: "",
     password: "",
     applicantName: "",
@@ -23,41 +31,71 @@ const Page = () => {
     fax: "",
     state: "",
     identityProof: null, 
-    contactPerson: "", 
-    natureofbusiness: "",
-    membershipType: "",
-    nameofbussiness: "",
-    registrationNumber: "",
-    registrationDate: "",
-    commencementDate: "",
-    authorizedPerson: "",
-    authorizedMeetingPerson: "",
+    contactPerson: "",
     hasRenewalPay: false,
-    payMode :"",
-    website:"",
+    payMode: "",
+    website: "",
   };
 
-const {loading,registerUser}= useRegisterUser();
+  const { loading, registerUser } = useRegisterUser();
 
   const {
     formData,
     errors,
-     handleChange,
+    fileName,
+    loading: usernameLoading,
+    isAvailable,
+    setFormData,
+    handleChange,
     handleSubmit,
-  }=userRegistrationValidation(initialState,validateForm)
+  } = useRegistrationValidation(initialState, validateForm);
+  const resetForm = () => {
+    setFormData(initialState);
+  };
 
-  const { isAvailable, loading: usernameLoading } = useUsernameChecker(formData.username);
+  const submitForm = async (e) => {
+    const business = {
+      nature: formData?.natureofbusiness,
+      name: formData?.nameofbussiness,
+      address: formData?.BSaddress,
+      regNum: formData?.registrationNumber,
+      regDate: formData?.registrationDate,
+      commenceDate: formData?.commencementDate,
+      authRep: formData?.authorizedPerson,
+      meetAuthRep: formData?.authorizedMeetingPerson,
+    };
 
-  //handle form submission
-  const submitForm= async (e)=>{
-    console.log("Form submitted Successfully",formData);
-    const result = await registerUser(formData); 
+    const actualFD = new FormData();
+    actualFD.append("username", formData?.username);
+    actualFD.append("password", formData?.password);
+    actualFD.append("applicantName", formData?.applicantName);
+    actualFD.append("address", formData?.address);
+    actualFD.append("state", formData?.state);
+    actualFD.append("country", formData?.country);
+    actualFD.append("phone", formData?.phone);
+    actualFD.append("fax", formData?.fax);
+    actualFD.append("email", formData?.email);
+    actualFD.append("website", formData?.website);
+    actualFD.append("contactPerson", formData?.contactPerson);
+    actualFD.append("membershipType", formData?.membershipType);
+    actualFD.append("business", JSON.stringify(business));
+
+    if (formData?.identityProof) {
+      actualFD.append('file', formData.identityProof); // Handle file input
+    }
+   
+    for (let [key, value] of actualFD.entries()) {
+      console.log(`${key}:`, value);
+    }
+    console.log("Form submitted Successfully", actualFD,formData);
+    const result = await registerUser(actualFD);
     if (result.success) {
       console.log("User registered successfully");
+      resetForm();
     } else {
       console.log("Registration failed");
     }
-  }
+  };
 
   return (
     <div className="max-w-screen-xl p-3 py-14 pb-20 lg:mt-20 mx-auto">
@@ -65,7 +103,10 @@ const {loading,registerUser}= useRegisterUser();
         {/* Left Side: Text Content */}
         <div className="lg:mr-20">
           <div className="lg:mr-5">
-            <UnderlinedHeading heading="The Member" text="Registration Process:" />
+            <UnderlinedHeading
+              heading="The Member"
+              text="Registration Process:"
+            />
           </div>
           <div className="lg:text-left text-center">
             {/* <h1 className="text-[2.5rem] max-md:text-3xl font-bold leading-[3.5rem]">
@@ -94,7 +135,10 @@ const {loading,registerUser}= useRegisterUser();
         </div>
         {/* Right Side: Form in a Card */}
         <div className="bg-white shadow-md border w-full rounded-lg mx-auto p-6 max-w-md sm:max-w-lg lg:max-w-full lg:ml-10">
-          <form className="grid grid-cols-1 gap-4" onSubmit={(e) => handleSubmit(e, submitForm)}>
+          <form
+            className="grid grid-cols-1 gap-4"
+            onSubmit={(e) => handleSubmit(e, submitForm)}
+          >
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
                 Username
@@ -110,16 +154,26 @@ const {loading,registerUser}= useRegisterUser();
               {errors.username && (
                 <p className="text-red-500 text-sm">{errors.username}</p>
               )}
-            {/* Display username availability status */}
-            <div className="lg:ml-1">
-              {usernameLoading ? (
-                <p className="text-blue-500 text-sm">Checking availability...</p>
-              ) : isAvailable !== null && (
-                <p className={`text-sm ${isAvailable ? 'text-green-500' : 'text-red-500'}`}>
-                  {isAvailable ? 'Username is available' : 'Username is taken'}
-                </p>
-              )}
-            </div>
+              {/* Display username availability status */}
+              <div className="lg:ml-1">
+                {usernameLoading ? (
+                  <p className="text-blue-500 text-sm">
+                    Checking availability...
+                  </p>
+                ) : (
+                  isAvailable !== null && (
+                    <p
+                      className={`text-sm ${
+                        isAvailable ? "text-green-500" : "text-red-500"
+                      }`}
+                    >
+                      {isAvailable
+                        ? "Username is available"
+                        : "Username is taken"}
+                    </p>
+                  )
+                )}
+              </div>
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
@@ -166,7 +220,7 @@ const {loading,registerUser}= useRegisterUser();
                 onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               ></textarea>
-               {errors.address && (
+              {errors.address && (
                 <p className="text-red-500 text-sm">{errors.address}</p>
               )}
             </div>
@@ -201,11 +255,13 @@ const {loading,registerUser}= useRegisterUser();
                 Country
               </label>
               <div className="relative w-full lg:w-2/3 mt-1">
-                <select className="block w-full px-8 py-2 border border-gray-200 rounded-md shadow-sm appearance-none pr-8 focus:outline-none
+                <select
+                  className="block w-full px-8 py-2 border border-gray-200 rounded-md shadow-sm appearance-none pr-8 focus:outline-none
                  focus:ring-red-500 focus:border-red-500 sm:text-sm"
-                 value={formData.country}
-                 name="country"
-                onChange={handleChange}>
+                  value={formData.country}
+                  name="country"
+                  onChange={handleChange}
+                >
                   <option>United States</option>
                   <option>India</option>
                 </select>
@@ -246,12 +302,12 @@ const {loading,registerUser}= useRegisterUser();
                   placeholder="@gmail.com"
                   name="email"
                   value={formData.email}
-                onChange={handleChange}
+                  onChange={handleChange}
                   className="w-full px-3 py-2 focus:outline-none sm:text-sm"
                 />
                 {errors.email && (
-                <p className="text-red-500 text-sm">{errors.email}</p>
-              )}
+                  <p className="text-red-500 text-sm">{errors.email}</p>
+                )}
               </div>
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
@@ -260,13 +316,12 @@ const {loading,registerUser}= useRegisterUser();
               </label>
               <input
                 type="text"
-                name=" website"
-                placeholder=" website"
+                name="website"
+                placeholder="website"
                 value={formData.website}
                 onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
-            
             </div>
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
@@ -298,11 +353,12 @@ const {loading,registerUser}= useRegisterUser();
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
                 Membership applied for
               </label>
-              <select 
+              <select
                 name="membershipType"
                 value={formData.membershipType}
                 onChange={handleChange}
-              className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+                className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+              >
                 <option>Membership applied for</option>
                 <option>Membership applied for</option>
                 {/* Add other countries as needed */}
@@ -329,7 +385,9 @@ const {loading,registerUser}= useRegisterUser();
                 Address of the business/entity
               </label>
               <textarea
-                name="address"
+                name="BSaddress"
+                value={formData.BSaddress}
+                onChange={handleChange}
                 placeholder="Enter your address here"
                 rows="5"
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
@@ -341,6 +399,9 @@ const {loading,registerUser}= useRegisterUser();
               </label>
               <input
                 type="text"
+                name="registrationNumber"
+                value={formData.registrationNumber}
+                onChange={handleChange}
                 placeholder="Registration number of business/entity"
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
@@ -350,7 +411,10 @@ const {loading,registerUser}= useRegisterUser();
                 Registration date of business/entity
               </label>
               <input
-                type="text"
+                type="date"
+                name="registrationDate"
+                value={formData.registrationDate}
+                onChange={handleChange}
                 placeholder="10/12/2023"
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
@@ -360,13 +424,14 @@ const {loading,registerUser}= useRegisterUser();
                 Date of commencement of business/entity
               </label>
               <input
-                type="text"
+                type="date"
+                name="commencementDate"
+                value={formData.commencementDate}
+                onChange={handleChange}
                 placeholder="10/12/2023"
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
-
-            {/* Form Field - Organization's website */}
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
                 Name of the authorized person representing business/entity
@@ -374,6 +439,9 @@ const {loading,registerUser}= useRegisterUser();
               <input
                 type="text"
                 placeholder="name"
+                name="authorizedPerson"
+                value={formData.authorizedPerson}
+                onChange={handleChange}
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               />
             </div>
@@ -382,18 +450,28 @@ const {loading,registerUser}= useRegisterUser();
                 Name of person authorized to attend meetings
               </label>
               <textarea
-                name="address"
+                name="authorizedMeetingPerson"
+                value={formData.authorizedMeetingPerson}
+                onChange={handleChange}
                 placeholder="name"
                 rows="5"
                 className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
               ></textarea>
             </div>
+            {/* File Upload Field */}
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full lg:w-1/3 text-sm font-medium text-gray-700">
                 Attach identity proof
               </label>
               <div className="w-full lg:w-2/3 mt-1 block px-3 py-3 border-2 border-dashed border-gray-300 rounded-md shadow-sm text-center cursor-pointer">
-                <input type="file" className="hidden"  name="identityProof" id="file-upload" onChange={handleChange} />
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="identityProof"
+                  accept="image/*,application/pdf"
+                  onChange={handleChange} // Handle file input change
+                  className="hidden"
+                />
                 <label htmlFor="file-upload" className="cursor-pointer">
                   <div className="flex flex-col items-center">
                     <IoCloudUploadOutline className="w-12 h-12" />
@@ -406,10 +484,16 @@ const {loading,registerUser}= useRegisterUser();
                     </p>
                   </div>
                 </label>
+                
               </div>
-              {errors.identityProof && (
-                <p className="text-red-500 text-sm">{errors.identityProof}</p>
-              )}
+                {errors.identityProof && (
+                  <p className="text-red-500 text-sm">{errors.identityProof}</p>
+                )}
+              {formData.identityProof && (
+                   <div className="mt-2 flex justify-between items-center">
+                   <span className="text-gray-700">{formData.identityProof.name}</span>
+                 </div>
+                )}
             </div>
             <div className="flex flex-col sm:flex-row items-start space-y-2 sm:space-y-0 sm:space-x-5 border-b border-gray-200 pb-4">
               <label className="w-full sm:w-1/3 text-sm font-medium text-gray-700">
@@ -433,18 +517,19 @@ const {loading,registerUser}= useRegisterUser();
                 Mode of Payment
               </label>
               <select
-               name="payMode"
-               value={formData.payMode}
-               onChange={handleChange}
-               className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm">
+                name="payMode"
+                value={formData.payMode}
+                onChange={handleChange}
+                className="w-full lg:w-2/3 mt-1 block px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+              >
                 <option>Select payment mode</option>
                 <option value="creditCard">Credit Card</option>
                 <option value="bankTransfer">Bank Transfer</option>
                 {/* Add other options as needed */}
               </select>
               {errors.payMode && (
-    <p className="text-red-500 text-sm">{errors.payMode}</p>
-  )}
+                <p className="text-red-500 text-sm">{errors.payMode}</p>
+              )}
             </div>
 
             <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-5">
@@ -472,7 +557,7 @@ const {loading,registerUser}= useRegisterUser();
                 disabled={loading}
                 className="py-3 mt-2 px-4 border border-transparent rounded-full shadow-sm text-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
-              {loading ? "Registering..." :"Register for Membership"}
+                {loading ? "Registering..." : "Register for Membership"}
               </button>
             </div>
           </form>

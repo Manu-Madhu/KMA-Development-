@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import axios from "../../axios-folder/axios";
 import { toast } from "react-toastify";
@@ -5,10 +6,11 @@ import { toast } from "react-toastify";
 const useRegisterUser = () => {
   const [loading, setLoading] = useState(false);
 
-  const registerUser = async (formData) => {
+  const registerUser = async (actualFD) => {
     setLoading(true);
     try {
-      const response = await axios.post("api/v1/register", formData);
+      const response = await axios.post("api/v1/register",actualFD);
+      console.log("Response:", response);
       const data = response.data;
       console.log(data)
 
@@ -26,7 +28,7 @@ const useRegisterUser = () => {
       }
       return { success: false };
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error("Error during registration:", error.response || error.message || error);
       toast.error("Registration failed. Please check your details.");
       return { success: false };
     } finally {

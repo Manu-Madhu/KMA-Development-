@@ -1,5 +1,6 @@
-import { baseUrl, login } from "@/utils/Endpoint";
+import { baseUrl } from "@/utils/Endpoint";
 import NextAuth from "next-auth/next";
+
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const authOptions = {
@@ -10,13 +11,21 @@ const authOptions = {
 
             async authorize(credentials) {
                 try {
-                    const res = await fetch(`${baseUrl}api/v1/auth/login`, {
+                    console.log('Credentials received:', credentials);
+
+                    const res = await fetch(`${baseUrl}/api/v1/auth/login`, {
                         method: 'POST',
                         body: JSON.stringify(credentials),
                         headers: { 'Content-Type': 'application/json' },
                     });
 
+                    if (!res.ok) {
+                        console.log(res.error)
+                        throw new Error('Failed to sign in');
+                    }
+
                     const user = await res.json();
+                    console.log('API response:', user);
 
                     if (res.ok && user) {
                         console.log("User from the auth option", user);
@@ -41,13 +50,13 @@ const authOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
-                token.user = user
+                token.user = user;
             }
             return token;
         },
         async session({ session, token }) {
             if (token) {
-                session.user = token?.user 
+                session.user = token?.user;
             }
             return session;
         },

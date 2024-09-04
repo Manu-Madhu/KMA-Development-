@@ -27,7 +27,7 @@ export const MemberProvider = ({ children }) => {
         }
     }, [session, status, router]);
 
-    // Or render a loading spinner
+  
     if (status === 'loading' || !session || session?.user?.userInfo?.role !== 'member') {
         return (
             <div className='h-screen w-full grid place-items-center'>
