@@ -15,8 +15,9 @@ function Page() {
           </h1>
           <UnderlinedHeading heading={"Iconic KMA"} text={"House"} />
         </div>
-        <div className="pt-5">
-          <p className="w-full mt-10 text-sm leading-6 text-[#1F392C]">
+        <div className="flex mt-16 max-w-screen-xl lg:h-[560px] mx-auto p-3 w-full  max-lg:flex-col ">
+          <p className="w-full mt-10 text-sm leading-6 text-[#1F392C] justify-center
+          ">
             {`Right at the centre of the buzzing city, in Panampilly Nagar, where
           the heart of Kochi throbs, KMA House stands proud and tall. After its
           complete makeover, KMA House meets with international standards of
@@ -33,7 +34,7 @@ function Page() {
           corporate events.`}
           </p>
           <Image
-            className="w-full h-auto max-h-[70vh] mt-10 rounded-xl object-contain"
+            className="w-full h-auto max-h-[70vh] mt-10 rounded-lg object-contain"
             src='/KMA-house.jpg'
             alt="Hall Banner" width={1300} height={100}
           />
@@ -52,7 +53,7 @@ function Page() {
           </div>
         </div>
       </div>
-      <PageEndQuery heading={`To inquire more about our halls`} subheading={`Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here`} button={{ title: "Submit Request", path:'/halls/inquiry' }} />
+      <PageEndQuery heading={`To Enquire more about our halls`} subheading={`Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here`} button={{ title: "Submit Request", path:'/halls/inquiry' }} />
 
     </>
   );

@@ -31,7 +31,7 @@ function Page() {
                         />
                     </div>
                     <button className='border border-gray-400 w-fit px-5 text-primaryColor rounded-full py-2 mt-5'>
-                        Inquire Now
+                        Enquire Now
                     </button>
                 </form>
             </div>
@@ -40,3 +40,6 @@ function Page() {
 }
 
 export default Page
+
+
+

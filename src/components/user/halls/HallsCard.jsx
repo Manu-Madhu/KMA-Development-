@@ -26,7 +26,7 @@ function HallsCard({ isInquiryHidden = false, hall }) {
                 isInquiryHidden ? "hidden" : ""
               }`}
             >
-              inquire
+              Enquire
             </button>
           </Link>
         </div>

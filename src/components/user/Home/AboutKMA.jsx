@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+
 function AboutKMA() {
   return (
     <div className="mb-10">
@@ -56,10 +58,11 @@ function AboutKMA() {
                of Kerala was also present to grace the occasion.
 
         </p>
-
+        <Link href="/about"> {/* Use Link to navigate */}
         <button className="px-6 py-2 mt-8 border border-[#000000]/20 w-fit rounded-full font-semibold text-red-600 hover:bg-red-600  hover:text-white ease-in-out duration-300 hover:border-red-600">
           Know more
         </button>
+        </Link>
       </div>
       <Image
         data-aos="fade-up"
