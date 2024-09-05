@@ -4,7 +4,10 @@ import React from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
-  const onChanger = () => {
+  const onChanger = (item) => {
+    if (item.onClick) {
+      item.onClick();
+    }
     handleToggle();
     closeNav(false);
   };
@@ -26,7 +29,7 @@ const SubNav = ({ data, isOpen, handleToggle, closeNav }) => {
         <div className="bg-white shadow w-full border border-red-300 lg:w-fit absolute lg:top-6 rounded-2xl z-10 p-2 md:min-w-[200px] mt-1">
           {data.subData.map((subItem) => (
             <Link
-              onClick={onChanger}
+            onClick={() => onChanger(subItem)}
               key={subItem?._id}
               href={subItem?.Path || "#"}
             >
