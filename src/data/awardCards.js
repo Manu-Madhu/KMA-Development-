@@ -10,5 +10,9 @@ export const awardCards=[
     {
         title:"KMA impactful NGO Awards ",
         description:"KMA impactful NGO Awards acknowledges NGO’s ,Trust and Corporate  foundation for exemplary CSR execution in various sectors "
+    },
+    {
+        title:"KMA Management Leadership Award ",
+        description:"KMA Management Leadership Award recognizes individuals or organizations that have demonstrated exceptional leadership and management skills in their respective fields. "
     }
 ]
