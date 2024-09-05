@@ -5,6 +5,7 @@ import GalleryImageCard from "./GalleryImageCard";
 import axios from "../../../axios-folder/axios";
 import { toast } from "react-toastify";
 import { galleryRoute } from "@/utils/Endpoint";
+import ImageModal from "./ImageModal";
 
 const useFetchGalleryData = () => {
   const [galleryData, setGalleryData] = useState([]);
@@ -15,7 +16,7 @@ const useFetchGalleryData = () => {
       try {
         const response = await axios.get(galleryRoute);
         const data = await response.data;
-        console.log(data)
+        console.log(data);
         if (data.error) {
           toast.error(`Error: ${data.error}`);
           return;
@@ -40,6 +41,8 @@ const GalleryContent = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [category, setCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (!loading && galleryData.length > 0) {
@@ -60,6 +63,28 @@ const GalleryContent = () => {
     setFilteredData(filterData);
   };
 
+  const openModal = (index) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === filteredData.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevious = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? filteredData.length - 1 : prevIndex - 1
+    );
+  };
+
+  console.log(filteredData)
   if (loading) {
     return (
       <div class=" flex justify-center items-center">
@@ -89,10 +114,23 @@ const GalleryContent = () => {
       </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 mt-4">
-        {filteredData.map((item) => (
-          <GalleryImageCard data={item} key={item?._id} />
+        {filteredData.map((item, index) => (
+          <GalleryImageCard
+            data={item}
+            key={item?._id}
+            onClick={() => openModal(index)}
+          />
         ))}
       </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        images={filteredData}
+        currentIndex={currentImageIndex}
+        onNext={handleNext}
+        onPrevious={handlePrevious}
+      />
     </div>
   );
 };

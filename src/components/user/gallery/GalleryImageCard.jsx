@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-const GalleryImageCard = ({ data }) => {
+const GalleryImageCard = ({ data, onClick }) => {
   return (
-    <div className="w-full h-[200px] rounded-xl">
+    <div className="w-full h-[200px] rounded-xl cursor-pointer" onClick={onClick}>
       <Image
         src={data?.fileUrl}
         alt="GalleryImage"
