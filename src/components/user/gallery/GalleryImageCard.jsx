@@ -3,11 +3,11 @@ import React from "react";
 
 const GalleryImageCard = ({ data }) => {
   return (
-    <div className="w-full rounded-xl">
+    <div className="w-full h-[200px] rounded-xl">
       <Image
         src={data?.fileUrl}
         alt="GalleryImage"
-        className="w-full object-cover"
+        className="w-full h-full object-cover rounded"
         width={500}
         height={500}
       />

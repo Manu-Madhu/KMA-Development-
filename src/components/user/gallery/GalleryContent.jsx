@@ -4,8 +4,7 @@ import { GalleryData } from "@/data/gallery";
 import GalleryImageCard from "./GalleryImageCard";
 import axios from "../../../axios-folder/axios";
 import { toast } from "react-toastify";
-
-
+import { galleryRoute } from "@/utils/Endpoint";
 
 const useFetchGalleryData = () => {
   const [galleryData, setGalleryData] = useState([]);
@@ -14,15 +13,15 @@ const useFetchGalleryData = () => {
   useEffect(() => {
     const fetchGalleryData = async () => {
       try {
-        const response = await axios.get("api/v1/gallery"); 
+        const response = await axios.get(galleryRoute);
         const data = await response.data;
-
+        console.log(data)
         if (data.error) {
           toast.error(`Error: ${data.error}`);
           return;
         }
 
-        setGalleryData(data.gallery); 
+        setGalleryData(data.gallery);
       } catch (err) {
         toast.error("Failed to load gallery data. Please try again.");
       } finally {
@@ -44,10 +43,14 @@ const GalleryContent = () => {
 
   useEffect(() => {
     if (!loading && galleryData.length > 0) {
-      const uniqueCategories = [...new Set(galleryData.map((item) => item.category))];
+      const uniqueCategories = [
+        ...new Set(galleryData.map((item) => item.category)),
+      ];
       setCategory(uniqueCategories);
       setSelectedCategory(uniqueCategories[0]);
-      setFilteredData(galleryData.filter((item) => item.category === uniqueCategories[0]));
+      setFilteredData(
+        galleryData.filter((item) => item.category === uniqueCategories[0])
+      );
     }
   }, [galleryData, loading]);
 
@@ -57,16 +60,17 @@ const GalleryContent = () => {
     setFilteredData(filterData);
   };
 
-  if(loading) {
-    return <div class=" flex justify-center items-center">
-  <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-</div>
+  if (loading) {
+    return (
+      <div class=" flex justify-center items-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+      </div>
+    );
   }
-
 
   return (
     <div>
-      <h1>Filter by event:</h1>
+      {/* <h1>Filter by event:</h1>
       <div className="mt-3 flex gap-4 overflow-x-scroll">
         {category?.map((data, i) => (
           <div
@@ -82,7 +86,7 @@ const GalleryContent = () => {
             {data}
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 mt-4">
         {filteredData.map((item) => (
