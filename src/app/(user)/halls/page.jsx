@@ -39,7 +39,7 @@ function Page() {
           />
         </div>
         <div className="pb-10 mt-10">
-          <UnderlinedHeading heading={"Our"} text={"Halls"} />
+          <UnderlinedHeading heading={"Banquet"} text={"Halls"} />
           <div className="mt-16 grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
             {
               halls.map((hall, index) => (

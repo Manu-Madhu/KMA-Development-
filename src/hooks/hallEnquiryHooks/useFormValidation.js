@@ -21,5 +21,5 @@ export const useFormValidation = (initialState) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  return { formData, errors, handleChange, validateForm };
+  return { formData, errors, handleChange, validateForm,setFormData };
 };
