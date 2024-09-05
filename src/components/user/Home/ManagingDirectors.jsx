@@ -8,7 +8,7 @@ import ManagingCommittee from "../managingCommitee/ManagingCommittee";
 
 function ManagingDirectors() {
   return (
-    <div className="max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-10 pb-28 relative">
+    <div className="max-w-screen-xl mx-auto w-full p-3 flex flex-col items-center mt-1 pb-28 relative">
       <ManagingCommittee
         heading={"Managing"}
         title={"Committee"}
