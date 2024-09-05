@@ -8,13 +8,12 @@ import PageEndQuery from "@/components/user/Common/PageEndQuery";
 function Page() {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto p-3">
-        <div className="mt-10">
+      <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
           <h1 className="text-[2.8rem] max-md:text-4xl  font-bold leading-[3.2rem] text-center">
             {`World Convenes at Kochi's`}
           </h1>
           <UnderlinedHeading heading={"Iconic KMA"} text={"House"} />
-        </div>
+
         <div className="flex mt-16 max-w-screen-xl lg:h-[560px] mx-auto p-3 w-full  max-lg:flex-col ">
           <p className="w-full mt-10 text-sm leading-6 text-[#1F392C] justify-center
           ">

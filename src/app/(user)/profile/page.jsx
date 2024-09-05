@@ -34,7 +34,7 @@ const Profile = () => {
     <MemberProvider>
       <div className="pb-20">
         <div className="flex flex-col justify-center items-center pt-10">
-          <Image src="/hafizelipz.png" width={200} height={200} alt="Profile Image" />
+          <Image src="/dummy-profile-pic.jpg" width={200} height={200} alt="Profile Image" />
           <div className="flex flex-col mt-5 items-center justify-center text-black">
             <h1 className="text-[2.8rem] max-md:text-2xl font-bold leading-[3.2rem] text-center">
               {user?.username}
