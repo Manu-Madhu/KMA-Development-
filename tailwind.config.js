@@ -22,7 +22,11 @@ module.exports = {
         customRed: '#ff0000',
         customGray:'#2A282F',
         customBlack:'#344054'
-      }
+      },
+      variants: {
+        display:['group-hover']
+       }
+       
     },
   },
   plugins: [],
