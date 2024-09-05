@@ -21,7 +21,7 @@ const ArticlePage = () => {
       <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
         <UnderlinedHeading heading="" text="Articles" />
         <div className="my-10 md:my-16">
-          <div className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-14">
             {articles.map((item) => (
               <Article
                 key={item?._id}

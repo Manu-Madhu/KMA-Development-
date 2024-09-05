@@ -11,13 +11,9 @@ const Article = ({
   link,
 }) => {
   return (
-    <div className="rounded-2xl overflow-hidden  flex  flex-col ">
-      <img
-        src={thumbnailUrl}
-        alt="Article Thumbnail"
-        className="object-cover "
-      />
-      <div className="p-4 bg-[#2A282F]/80 w-full min-h-[10px] backdrop-blur-xl flex justify-between items-center">
+    <div className="rounded-2xl overflow-clip h-[19rem] relative">
+     <img src={thumbnailUrl} alt='Thumbnail' className='object-cover h-full' />
+      <div className="h-22 absolute p-4 bg-gray-700/80 flex items-center justify-between bottom-0 w-full backdrop-blur-xl">
         <div className="text-sm">
           <p style={{ color: textColor }} className={`font-bold`}>
             {platform}

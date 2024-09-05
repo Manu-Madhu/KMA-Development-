@@ -5,31 +5,51 @@ import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
 import Filter from "@/components/user/Social-Connect/filter";
 import { followUsLinks } from "@/data/follow_us";
 import useFetchSocialConnect from "@/hooks/socialConnectHooks/useGetSocialConnect";
+import { useState } from "react";
 
 function Page() {
-  const {socialConnects,loading}= useFetchSocialConnect();
+  const { socialConnects, loading } = useFetchSocialConnect();
+  const [filteredPlatforms, setFilteredPlatforms] = useState([]);
+
+  const handleFilterChange = (selectedPlatforms) => {
+    setFilteredPlatforms(selectedPlatforms);
+  };
+
+
+
   if(loading) return <div class=" flex justify-center items-center">
   <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
 </div>
+
+// Filter the socialConnects based on the selected platforms
+const filteredConnects = filteredPlatforms.length > 0
+? socialConnects.filter(connect => filteredPlatforms.some(platform => platform.name === connect.platform.name))
+: socialConnects;
+
   
   return (
     <>
-      <div className="max-w-screen-xl p-3 mx-auto">
-        <div className="mt-10">
+      <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
           <UnderlinedHeading heading={" Social "} text="Connect" />
-        </div>
-        <Filter />
+          
+          <Filter onFilterChange={handleFilterChange} />
         <div className="w-full grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-6 mb-20">
-          {socialConnects.map((connect) => (
-            <ArticleCard
-              key={connect._id}
-              title={connect.title}
-              textColor={connect.textColor}
-              platform={connect.platform.name}
-              type={connect.type}
-              thumbnailUrl={connect.coverImageUrl}
-            />
-          ))}
+        {filteredConnects.length > 0 ? (
+            filteredConnects.map((connect) => (
+              <ArticleCard
+                key={connect._id}
+                title={connect.title}
+                textColor={connect.textColor}
+                platform={connect.platform.name}
+                type={connect.type}
+                thumbnailUrl={connect.coverImageUrl}
+              />
+            ))
+          ) : (
+            <div className="col-span-3 max-md:col-span-2 max-sm:col-span-1 text-center text-2xl text-black">
+              No data available
+            </div>
+          )}
         </div>
 
         <div className="mt-10 flex flex-col items-center">
