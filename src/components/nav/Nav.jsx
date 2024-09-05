@@ -6,12 +6,25 @@ import Image from "next/image";
 import SubNav from "./SubNav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import useLogout from "@/hooks/logoutHook/UseLogout";
 
 const Nav = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); // State to track the open dropdown
   const [scrolled, setScrolled] = useState(false); // State to track scroll position
   const location = usePathname();
+  const { data: session, status } = useSession();
+  const [isLoggedIn,setIsLoggenIn] = useState(false)
+  const logout = useLogout()
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      setIsLoggenIn(true);
+    } else {
+      setIsLoggenIn(false);
+    }
+  }, [status]);
   
   const handleToggle = (id) => {
     setOpenDropdown((prev) => (prev === id ? null : id));
@@ -31,6 +44,19 @@ const Nav = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Function to filter membership options based on login status
+  const filterMembershipOptions = (subData) => {
+    if (!subData) return [];
+    return subData.map(item => {
+      if (item.name.toLowerCase() === "logout") {
+        return { ...item, onClick: logout }; // Add onClick handler for logout
+      }
+      return item;
+    }).filter(item => 
+      isLoggedIn ? ['Profile', 'logout'].includes(item.name) : ['Registration', 'Login'].includes(item.name)
+    );
+  };
 
   return (
     <div
@@ -63,13 +89,18 @@ const Nav = () => {
           />
         )}
         <ul className="flex gap-5">
-          {NavData.map((item) => (
+        {NavData.map((item) => (
             <div key={item?._id} className="flex items-center">
               {item?.subData?.length > 0 ? (
                 <SubNav
-                  data={item}
-                  isOpen={openDropdown === item?._id} // Pass down if the dropdown is open
-                  handleToggle={() => handleToggle(item?._id)} // Handle toggle
+                  data={{
+                    ...item,
+                    subData: item.name === "Membership" 
+                      ? filterMembershipOptions(item.subData)
+                      : item.subData
+                  }}
+                  isOpen={openDropdown === item?._id}
+                  handleToggle={() => handleToggle(item?._id)}
                   closeNav={setMobileMenu}
                 />
               ) : (

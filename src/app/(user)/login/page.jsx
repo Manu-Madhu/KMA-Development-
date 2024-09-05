@@ -5,9 +5,11 @@ import ValidationLogin from "@/hooks/loginHooks/validationLogin";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+
 const LoginPage = () => {
   const { data: session, status } = useSession();
   const navigation = useRouter();
+
 
   useEffect(() => {
     if (status === "authenticated") {

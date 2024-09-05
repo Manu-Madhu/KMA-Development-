@@ -14,7 +14,7 @@ const ProfileData = ({user}) => {
             <h1 className="text-primaryColor lg:text-2xl font-bold">
               INLM_13433{" "}
             </h1>
-            <span className="text-[#475467] font-[550] lg:text-lg">{user.role}</span>
+            <span className="text-[#475467] font-[550] lg:text-lg">{user?.role}</span>
           </div>
           <div className="bg-[#E3000F] text-white rounded-full px-3 text-xs mt-2 p-2">
             <h1>Active Membership</h1>
@@ -36,19 +36,19 @@ const ProfileData = ({user}) => {
           <div className="mt-5 grid grid-cols-1 lg:grid-cols-2">
             <div className="flex gap-3 items-center justify-start mb-3">
               <MdMarkEmailUnread size={18} />
-              <h1 className="text-sm text-black ">{user.email}</h1>
+              <h1 className="text-sm text-black ">{user?.email}</h1>
             </div>
             <div className="flex gap-3 items-center justify-start mb-3">
               <MdMarkEmailUnread size={18} />
-              <h1 className="text-sm text-black ">{user.email}</h1>
+              <h1 className="text-sm text-black ">{user?.email}</h1>
             </div>
             <div className="flex gap-3 items-center justify-start mb-3">
               <FaPhone size={18} />
-              <h1 className="text-sm  text-black ">{user.phone}</h1>
+              <h1 className="text-sm  text-black ">{user?.phone}</h1>
             </div>
             <div className="flex gap-3 items-center justify-start mb-3">
               <FaPhone size={18} />
-              <h1 className="text-sm  text-black ">{user.phone}</h1>
+              <h1 className="text-sm  text-black ">{user?.phone}</h1>
             </div>
           </div>
           <div className="flex gap-3 items-start md:items-center justify-start mb-3">

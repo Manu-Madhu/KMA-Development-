@@ -122,6 +122,11 @@ export const NavData = [
                 name: "Profile",
                 Path: "/profile"
             },
+            {
+                _id: 4,
+                name: "logout",
+                Path: ""
+            },
         ]
     },
 
