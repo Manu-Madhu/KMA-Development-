@@ -265,5 +265,16 @@ export const presidents = [
         name: "Dr. Nirmala Lilly",
         img: "past-presidents/nirmala-lilly.jpg",
         year: "2021-2022"
+    },
+    {
+        name: "Mr. A. Balakrishnan",
+        img: "committee/balakrishnan.jpg",
+        year: "2023-2024"
+    },
+    {
+        name: "Mr. Bibu Punnooran",
+        img: "committee/bibu.jpg",
+        year: "2024-2025"
     }
+    
 ]
