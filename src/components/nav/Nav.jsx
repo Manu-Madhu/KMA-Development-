@@ -71,7 +71,9 @@ const Nav = () => {
       {/* Window View */}
       <div className="max-w-screen-xl mx-auto w-full hidden lg:flex items-center justify-between h-[80px] p-3">
         {/* Update */}
+        <Link href='/'>
         {scrolled ? (
+          
           <Image
             src={"/logo.png"}
             alt="logo"
@@ -88,6 +90,7 @@ const Nav = () => {
             height={50}
           />
         )}
+        </Link>
         <ul className="flex gap-5">
         {NavData.map((item) => (
             <div key={item?._id} className="flex items-center">
