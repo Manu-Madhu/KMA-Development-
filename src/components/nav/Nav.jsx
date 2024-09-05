@@ -54,7 +54,7 @@ const Nav = () => {
       }
       return item;
     }).filter(item => 
-      isLoggedIn ? ['Profile', 'logout'].includes(item.name) : ['Registration', 'Login'].includes(item.name)
+      isLoggedIn ? ['Profile', 'logout',"KMA-Membership"].includes(item.name) : ['Login',"KMA-Membership"].includes(item.name)
     );
   };
 

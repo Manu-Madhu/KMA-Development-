@@ -109,24 +109,30 @@ export const NavData = [
         subData: [
             {
                 _id: 1,
-                name: "Registration",
-                Path: "/registration"
+                name: "KMA-Membership",
+                Path: "/member"
             },
+            // {
+            //     _id: 2,
+            //     name: "Registration",
+            //     Path: "/registration"
+            // },
             {
-                _id: 2,
+                _id: 3,
                 name: "Login",
                 Path: "/login"
             },
             {
-                _id: 3,
+                _id: 4,
                 name: "Profile",
                 Path: "/profile"
             },
             {
-                _id: 4,
+                _id: 5,
                 name: "logout",
                 Path: ""
             },
+            
         ]
     },
 
