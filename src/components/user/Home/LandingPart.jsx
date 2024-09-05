@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import { bannersRoute } from "@/utils/Endpoint"; // Assuming this is the correct path
 import axios from "@/axios-folder/axios";
 import VideoBackground from "./VideoBackground";
+import Link from "next/link";
 
 function LandingPart() {
   const [bannerItems, setBannerItems] = useState([]); // Store banner items from the API
   const [currentIndex, setCurrentIndex] = useState(0);
-  const sample = "https://firebasestorage.googleapis.com/v0/b/kmaassets-afcf8.appspot.com/o/WhatsApp%20Video%202024-08-28%20at%2012.32.09_827ceb27.mp4?alt=media&token=4258c900-c172-4730-9ed7-005d45b9207e";
+  const sample =
+    "https://firebasestorage.googleapis.com/v0/b/kmaassets-afcf8.appspot.com/o/WhatsApp%20Video%202024-08-28%20at%2012.32.09_827ceb27.mp4?alt=media&token=4258c900-c172-4730-9ed7-005d45b9207e";
 
   // Fetch banner items from the API
   useEffect(() => {
@@ -52,9 +54,11 @@ function LandingPart() {
           Honouring Excellence in CSR and ESG Leadership
         </p>
 
-        <button className="homeButton p-2 mt-2 lg:p-2.5 px-6 lg:px-8 w-fit rounded-full lg:font-semibold z-10">
-          <span>Join Us</span>
-        </button>
+        <Link href={`/registration`} className="" >
+          <button className="homeButton p-2 mt-2 lg:p-2.5 px-6 lg:px-8 w-fit rounded-full lg:font-semibold z-10">
+            <span>Join Us</span>
+          </button>
+        </Link>
       </div>
     </div>
   );
