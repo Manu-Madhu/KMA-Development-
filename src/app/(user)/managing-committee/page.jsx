@@ -11,7 +11,7 @@ const page = () => {
         <div>
           <ManagingCommittee
             heading={"Managing"}
-            title={"Committee"}
+            title={"Committee Member 2024-25"}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 
@@ -21,13 +21,13 @@ const page = () => {
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
             FSpecial Invitees.`}
-            dataListing={Managing}
+            dataListing={Managing.slice(0, 13)}
           />
         </div>
         <div className="my-10 lg:my-20">
           <ManagingCommittee
             heading={""}
-            title={"Council"}
+            title={"Co-opted MC Members 2024-25 "}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 
@@ -37,7 +37,7 @@ const page = () => {
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
             FSpecial Invitees.`}
-            dataListing={Managing}
+            dataListing={Managing.slice(13)}
             count={4}
           />
         </div>

@@ -14,7 +14,7 @@ export const Managing=[
         name: "Mr. K. Harikumar",
         title: "CEO",
         description:"Arya Vaidya Sala, Kottakkal",
-        image: "/committee/harikumar.jpg",
+        image: "/committee/MR-K-HARIKUMAR.jpg",
         bgColor: "#fffff",
       },
     {
@@ -23,7 +23,7 @@ export const Managing=[
         name: "Mr. Algiers Khalid",
         title: "Founder & Owner",
         description:"Poovath International",
-        image: "/committee/algiers.jpg",
+        image: "/committee/MR-ALGIERS-KHALID.jpg",
         bgColor: "#fffff",
       },
     {
@@ -167,7 +167,7 @@ export const Managing=[
         name: "Jibu Paul",
         title: "CEO & Brand Strategist",
         description:"Brandbrains",
-        image: "/committee/jibu.jpg",
+        image: "/committee/MR-JIBU-PAUL.jpg",
         bgColor: "#fffff",
       },
       {
@@ -176,7 +176,7 @@ export const Managing=[
         name: "Dr. Nirmala Lilly",
         title: "CEO",
         description:"Infinity Hospitality Services",
-        image: "/committee/nirmala.jpg",
+        image: "/committee/MS-L-NIRMALA.jpg",
         bgColor: "#fffff",
       },
       {
