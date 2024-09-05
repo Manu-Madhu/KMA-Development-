@@ -15,13 +15,14 @@ const EventCard = ({
   // Correct the function signature
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = date.getDate(); // Extract the day
-    const month = date.toLocaleString("default", { month: "short" }); // Extract the month name
-    const year = date.getFullYear(); // Extract the year
-    return { day, month, year }; // Return as an object
+    const day = date.getDate(); 
+    const month = date.toLocaleString("default", { month: "short" }); 
+    const year = date.getFullYear(); 
+    return { day, month, year }; 
   };
 
   // Extract and format the date
+  console.log(data)
   const { day, month, year } = formatDate(data?.date);
 
   return (
@@ -42,7 +43,6 @@ const EventCard = ({
           </h1>
         </div>
 
-
         {/* Date year */}
         <div className="">
           <div className={`flex flex-col text-end items-end ${isArchived ? "hidden" : ""}`}   >
@@ -61,10 +61,7 @@ const EventCard = ({
       </p>
 
       <div
-        className={`px-4 py-2 ${
-          isArchived ? "bg-[#E3000F] text-white" : "bg-[#E3000F33]"
-        } w-fit max-md:text-sm font-medium rounded-full`}
-      >
+        className={`px-4 py-2 ${isArchived ? "bg-[#E3000F] text-white" : "bg-[#E3000F33]"} w-fit max-md:text-sm font-medium rounded-full`}>
         <p className="text-xs lg:text-sm">{data?.location || Location}</p>
       </div>
 
