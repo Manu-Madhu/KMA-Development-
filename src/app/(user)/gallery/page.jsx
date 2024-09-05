@@ -12,7 +12,7 @@ const GalleryPage = () => {
       </div>
 
       {/* Content Part */}
-      <div className="max-w-screen-xl mx-auto my-6 md:mt-10 md:mb-20 p-3">
+      <div className="max-w-screen-xl min-h-screen mx-auto my-6 md:mt-10 md:mb-20 p-3">
         <GalleryContent />
       </div>
 

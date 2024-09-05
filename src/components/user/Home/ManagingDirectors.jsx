@@ -12,6 +12,7 @@ function ManagingDirectors() {
       <ManagingCommittee
         heading={"Managing"}
         title={"Committee"}
+        home={true}
         dataListing={Managing.slice(0, 4)}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center"
         count={1}
