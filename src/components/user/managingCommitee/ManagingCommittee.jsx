@@ -35,3 +35,4 @@ const ManagingCommittee = ({ heading, title, content, dataListing, count }) => {
 };
 
 export default ManagingCommittee;
+
