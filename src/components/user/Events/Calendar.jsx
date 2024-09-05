@@ -1,16 +1,8 @@
 "use client";
 
-import {
-  add,
-  differenceInDays,
-  endOfMinute,
-  endOfMonth,
-  startOfMonth,
-  sub,
-} from "date-fns";
-import { useState } from "react";
+import React, { useState } from "react";
+import { add, sub, startOfMonth, endOfMonth, differenceInDays } from "date-fns";
 import CalendarCell from "./CalendarCell";
-import { eventdata } from "@/data/event_calendar_data";
 
 const dayOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const months = [
@@ -27,86 +19,93 @@ const months = [
   "November",
   "December",
 ];
-function Calendar() {
-  const today = new Date();
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
-  let startDate = startOfMonth(selectedDate);
-  let endDate = endOfMonth(selectedDate);
-  let prefixDays = startDate.getDay();
-  let nextMonthDays = 6 - endDate.getDay();
-  let numDays = differenceInDays(endDate, startDate) + 1;
-  let prevMonthDays =
-    differenceInDays(startDate, startOfMonth(sub(startDate, { months: 1 }))) -
-    1;
-  const prevMonth = () => {
-    setSelectedDate(sub(selectedDate, { months: 1 }));
+function Calendar({ onDateClick, eventdata }) {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  
+  const today = new Date();
+  const startDate = startOfMonth(selectedDate);
+  const endDate = endOfMonth(selectedDate);
+  const prefixDays = startDate.getDay();
+  const numDays = differenceInDays(endDate, startDate) + 1;
+
+  // Move to the previous month
+  const prevMonth = () => setSelectedDate(sub(selectedDate, { months: 1 }));
+
+  // Move to the next month
+  const nextMonth = () => setSelectedDate(add(selectedDate, { months: 1 }));
+
+  // When a day is clicked
+  const handleDayClick = (day) => {
+    const selectedDay = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
+
+    console.log(selectedDay)
+
+    // Find if there is any event on this particular day
+    const eventForDay = eventdata.find((event) => {
+      const eventDate = new Date(event.date); // Event's date from the eventdata
+      return eventDate.toDateString() === selectedDay.toDateString(); // Compare event date with the selected date
+    });
+
+    if (eventForDay) {
+      onDateClick(eventForDay); // Pass the event to parent (for card display)
+    }
   };
-  const nextMonth = () => {
-    setSelectedDate(add(selectedDate, { months: 1 }));
-  };
+
   return (
-    <div className=" rounded-xl border-gray-400 flex flex-col justify-between">
+    <div className="rounded-xl border-gray-400 flex flex-col justify-between">
       <div className="my-6 font-semibold flex items-center justify-between">
-        <h2>
-          {months[selectedDate.getMonth()] + " " + selectedDate.getFullYear()}
-        </h2>
+        <h2>{months[selectedDate.getMonth()] + " " + selectedDate.getFullYear()}</h2>
         <div>
           <button
             onClick={prevMonth}
-            className="text-black bg-red-200 px-4 py-2 rounded-lg  text-sm"
+            className="text-black bg-red-200 px-4 py-2 rounded-lg text-sm"
           >
             Prev
           </button>
           <button
-            className="text-black bg-red-200 px-4 py-2 rounded-lg  ml-2 text-sm"
             onClick={nextMonth}
+            className="text-black bg-red-200 px-4 py-2 rounded-lg ml-2 text-sm"
           >
             Next
           </button>
         </div>
       </div>
+
+      {/* Calendar grid */}
       <div className="grid grid-cols-7 w-full border rounded-xl overflow-hidden">
         {dayOfTheWeek.map((day, index) => (
-          <div
-            key={index}
-            className="border w-full text-sm font-medium text-gray-500 py-2 flex justify-center"
-          >
+          <div key={index} className="border w-full text-sm font-medium text-gray-500 py-2 flex justify-center">
             <h4>{day}</h4>
           </div>
         ))}
-        {Array.from({ length: prefixDays }).map((_, index) =>
-          index === 0 ? (
+        
+        {/* Empty cells for the days before the start of the month */}
+        {Array.from({ length: prefixDays }).map((_, index) => (
+          <CalendarCell key={index} current={false} date={index} />
+        ))}
+        
+        {/* Actual calendar days */}
+        {Array.from({ length: numDays }).map((_, index) => {
+          const day = index + 1;
+          const selectedDay = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), day);
+          
+          // Find event for this day
+          const eventForDay = eventdata.find((event) => {
+            const eventDate = new Date(event.date);
+            return eventDate.toDateString() === selectedDay.toDateString();
+          });
+
+          return (
             <CalendarCell
-              current={false}
-              date={prevMonthDays - (prefixDays - 1 - index)}
               key={index}
-            />
-          ) : (
-            <CalendarCell
-              current={false}
-              date={prevMonthDays - (prefixDays - 1 - index)}
-              key={index}
-            />
-          )
-        )}
-        {Array.from({ length: numDays }).map((_, index) =>
-          index === 0 ? (
-            <CalendarCell
               current={true}
-              date={index}
-              events={eventdata[`${index + 1}`]}
-              key={index}
+              date={day}
+              onEventClick={() => handleDayClick(day)}
+              events={eventForDay ? [eventForDay.title] : []} 
             />
-          ) : (
-            <CalendarCell
-              isToday={today.getDate() && index + 1}
-              date={index}
-              events={eventdata[`${index + 1}`]}
-              key={index}
-            />
-          )
-        )}
+          );
+        })}
       </div>
     </div>
   );

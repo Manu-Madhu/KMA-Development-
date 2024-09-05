@@ -5,7 +5,7 @@ import PageEndQuery from "@/components/user/Common/PageEndQuery";
 
 const CsrPage = () => {
   // Application path
-  const ApplicationFile = "/csr/test.pdf";
+  const ApplicationFile = "/csr/Scholarship-application.doc";
 
   return (
     <div className="pt-10 ">
