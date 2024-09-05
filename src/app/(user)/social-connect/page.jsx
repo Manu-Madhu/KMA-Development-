@@ -6,6 +6,7 @@ import Filter from "@/components/user/Social-Connect/filter";
 import { followUsLinks } from "@/data/follow_us";
 import useFetchSocialConnect from "@/hooks/socialConnectHooks/useGetSocialConnect";
 import { useState } from "react";
+import Link from "next/link";
 
 function Page() {
   const { socialConnects, loading } = useFetchSocialConnect();
@@ -43,6 +44,7 @@ const filteredConnects = filteredPlatforms.length > 0
                 platform={connect.platform.name}
                 type={connect.type}
                 thumbnailUrl={connect.coverImageUrl}
+                link={connect.link}
               />
             ))
           ) : (
@@ -56,17 +58,19 @@ const filteredConnects = filteredPlatforms.length > 0
           <UnderlinedHeading heading={"Follow "} text="Us" />
           <div className="grid grid-cols-4 max-md:grid-cols-2 w-fit mt-14 gap-4">
             {followUsLinks.map((item, index) => (
+            <Link href={item.link} target="_blank" rel="noopener noreferrer">
               <div
                 className="p-3 flex border border-gray-400 w-64 max-sm:w-40 rounded-full items-center gap-3"
                 key={index}
               >
                 <div className="size-9 rounded-full overflow-clip object-cover">
-                  <img src={item.icon} alt="Facebook" className="" />
+                  <img src={item.icon} alt= {item.platform} className="" />
                 </div>
                 <p className="text-black text-lg max-sm:text-base font-semibold">
                   {item.platform}
                 </p>
               </div>
+              </Link>
             ))}
           </div>
         </div>
