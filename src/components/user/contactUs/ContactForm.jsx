@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { baseUrl, contactusRoute, apiEndpoint } from '../../../utils/Endpoint'; // Adjust imports as needed
+import { contactusRoute } from "@/utils/Endpoint";
+import axios from "@/axios-folder/axios";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,22 +19,6 @@ const ContactForm = () => {
 
   // State for handling fetched data
   const [fetchedData, setFetchedData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}${apiEndpoint}`);
-        if (response.status === 200) {
-          setFetchedData(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error.response || error);
-        toast.error("Failed to fetch data.");
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,27 +31,39 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phoneNo || !formData.message) {
+    console.log(formData);
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.phoneNo ||
+      !formData.message
+    ) {
       toast.error("All fields are required.");
       return;
     }
 
     try {
-      const response = await axios.post(`${baseUrl}${contactusRoute}`, {
-        firstname: formData.firstName,
-        lastname: formData.lastName,
-        email: formData.email,
-        phoneNo: formData.phoneNo,
-        message: formData.message,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          // Include Authorization header if required
-          // 'Authorization': `Bearer YOUR_ACCESS_TOKEN`,
+      setLoading(true);
+      const response = await axios.post(
+        contactusRoute,
+        {
+          firstname: formData.firstName,
+          lastname: formData.lastName,
+          email: formData.email,
+          phoneNo: formData.phoneNo,
+          message: formData.message,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
+      );
 
-      if (response.status === 200) {
+      console.log(response)
+
+      if (response.status === 201) {
         toast.success("Message sent successfully!");
         setFormData({
           firstName: "",
@@ -77,20 +74,25 @@ const ContactForm = () => {
         });
       }
     } catch (error) {
+      console.log(error)
       console.error("Error sending message:", error.response || error);
       toast.error("Failed to send message. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <main>
-      <ToastContainer />
 
       <h1 className="text-[#475467] text-[15px]">
         Our friendly team would love to hear from you.
       </h1>
 
-      <form onSubmit={handleSubmit} className="mt-5 lg:mt-10 flex flex-col gap-5">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-5 lg:mt-10 flex flex-col gap-5"
+      >
         <div className="flex gap-3 w-full">
           <div className="w-full">
             <label htmlFor="firstName" className="text-[#344054] font-medium">
@@ -171,8 +173,11 @@ const ContactForm = () => {
           </label>
         </div> */}
         <div className="flex flex-col w-full">
-          <button type="submit" className="bg-primaryColor text-white p-3 text-sm rounded-lg">
-            Send message
+          <button
+            type="submit"
+            className="bg-primaryColor text-white p-3 text-sm rounded-lg"
+          >
+            {loading ? "Submitting .... " : "Send message "}
           </button>
         </div>
       </form>
@@ -181,7 +186,9 @@ const ContactForm = () => {
       {fetchedData && (
         <div className="mt-5">
           <h2 className="text-[#475467] text-[15px]">Fetched Data:</h2>
-          <pre className="bg-[#F9FAFB] p-3 rounded-lg">{JSON.stringify(fetchedData, null, 2)}</pre>
+          <pre className="bg-[#F9FAFB] p-3 rounded-lg">
+            {JSON.stringify(fetchedData, null, 2)}
+          </pre>
         </div>
       )}
     </main>

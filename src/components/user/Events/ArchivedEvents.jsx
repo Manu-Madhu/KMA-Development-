@@ -43,7 +43,7 @@ function ArchivedEvents() {
 
   return (
     <div className="mt-16 max-w-screen-xl mx-auto p-3 w-full">
-      <UnderlinedHeading heading="Archived" text=" Events" />
+      <UnderlinedHeading heading="Leader Insight" text=" Series " />
       <p className="my-10 md:my-14">
         The Management of the Association is vested in a Managing Committee of
         not more than sixteen elected members of which at least three persons
