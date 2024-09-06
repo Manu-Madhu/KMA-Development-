@@ -95,7 +95,7 @@ const GalleryContent = () => {
 
   return (
     <div>
-      {/* <h1>Filter by event:</h1>
+      <h1>Filter by event:</h1>
       <div className="mt-3 flex gap-4 overflow-x-scroll">
         {category?.map((data, i) => (
           <div
@@ -111,7 +111,7 @@ const GalleryContent = () => {
             {data}
           </div>
         ))}
-      </div> */}
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-2 mt-4">
         {filteredData.map((item, index) => (
