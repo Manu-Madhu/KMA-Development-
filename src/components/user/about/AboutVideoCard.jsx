@@ -43,7 +43,7 @@ function AboutVideoCard() {
             width={`100%`}
             height={`100%`}
             controls={true}
-            url="https://www.youtube.com/watch?v=IlbV1oxvoug"
+            url="https://www.youtube.com/watch?v=TrIr4Pz8XaM"
             playing={isVideoPlaying}
             onEnded={handleEnded}
             onPlay={handlePlay}
