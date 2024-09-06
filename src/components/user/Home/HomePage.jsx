@@ -23,14 +23,14 @@ function HomePage() {
   return (
     <div>
       <LandingPart />
-      <AwardSlideCards />
+      <HomeEvents />
       <AboutKMA />
       <div className="p-3 lg:p-0">
         <Stats />
       </div>
       <KmaVideo />
       <Mission />
-      <HomeEvents />
+      <AwardSlideCards />
       <Flagship />
       <MemberBenefits />
       <DontTakeCards />

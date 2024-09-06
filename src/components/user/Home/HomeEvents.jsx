@@ -7,12 +7,13 @@ import EventCard from "../Common/EventCard";
 
 function HomeEvents() {
   return (
-    <div className="w-full h-[700px]  bg-no-repeat bg-cover bg-center relative flex items-center">
+    <div className="w-full h-screen  bg-no-repeat bg-cover bg-center relative flex items-center mb-10">
+      <div className="bg-white absolute top-0 w-screen h-24 z-50 bg-gradient-to-b from-white to-[#FFBEC2]"></div>
       <Image
         src={wavybg}
         alt=""
         fill
-        className="z-0 object-cover sm:object-fill"
+        className="z-0 object- sm:object-fill"
         quality={100}
       />
 
@@ -27,7 +28,7 @@ function HomeEvents() {
             className="-mt-2 w-full object-cover"
           />
         </div>
-        <div className="mt-20">
+        <div className="my-20">
           <HomeCarousal />
         </div>
       </div>
