@@ -32,12 +32,17 @@ function ArticleCard({
         </p>
         <p className="text-white text-lg">{title}</p>
       </div>
-      <div
-        className={`p-4 inset-0 size-fit m-auto text-white rounded-full absolute cursor-pointer bg-[#2A282FCC] ${type == "video" ? "" : "hidden"
-          }`}
-      >
-        {link ? <Link href={link}>{link?.name || <FaPlay />}</Link> : <FaPlay />}
-      </div>
+      {type === "video" && (
+        <div className="p-4 inset-0 size-fit m-auto text-white rounded-full absolute cursor-pointer bg-[#2A282FCC]">
+          {link ? (
+            <Link href={link} target="_blank" rel="noopener noreferrer">
+              <FaPlay />
+            </Link>
+          ) : (
+            <FaPlay />
+          )}
+        </div>
+      )}
     </div>
   );
 }
