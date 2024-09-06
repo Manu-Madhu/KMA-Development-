@@ -1,3 +1,4 @@
+import AboutBook from "@/components/user/about/AboutBook";
 import AboutKMADescription from "@/components/user/about/AboutKMADescription";
 import AwardsAndRecognitions from "@/components/user/about/AwardsAndRecognitions";
 import HistoryBanner from "@/components/user/about/HistoryBanner";
@@ -10,13 +11,14 @@ function Page() {
   return (
     <div>
       <AboutKMADescription />
-      <RotateGallery />
+      {/* <RotateGallery /> */}
+      <AboutBook />
       <OurHistory />
       <AwardsAndRecognitions />
       <PageEndQuery
         heading={`Interested in Becoming a Member?`}
         subheading={`Click the register button below to see the procedures`}
-        button={{ title: "Register now",path:"/registration" }}
+        button={{ title: "Register now", path: "/registration" }}
       />
     </div>
   );

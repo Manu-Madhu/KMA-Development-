@@ -25,7 +25,6 @@ function AboutVideoCard() {
   };
 
   const handlePause = () => {
-    window.alert("halo")
     setIsVideoPlaying(false);
   };
   const handleEnded = () => {
