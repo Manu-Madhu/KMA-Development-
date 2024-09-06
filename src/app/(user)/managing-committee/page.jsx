@@ -1,7 +1,7 @@
 import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import ConductEvent from "@/components/user/Events/ConductEvent";
 import ManagingCommittee from "@/components/user/managingCommitee/ManagingCommittee";
-import { Managing } from "@/data/Managing";
+import { Managing ,OfficeBearers} from "@/data/Managing";
 import React from "react";
 
 const page = () => {
@@ -54,7 +54,7 @@ const page = () => {
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
             Special Invitees.`}
-            dataListing={Managing}
+            dataListing={OfficeBearers}
           />
         </div>
        

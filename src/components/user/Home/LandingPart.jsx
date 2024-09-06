@@ -46,15 +46,15 @@ function LandingPart() {
       </div>
 
       <div className="absolute flex flex-col items-center justify-center gap-3 lg:gap-6 top-1/4">
-        <h1 className="text-[4.5rem] max-sm:text-3xl leading-[80px] font-bold z-10 text-center">
-          Shaping a sustainable <br /> future
+        <h1 className="lg:text-[4.5rem] text-[3rem] leading-[50px] lg:leading-[80px] font-bold z-10 text-center capitalize">
+          spearheading management <br /> movement
         </h1>
 
         <p className="lg:text-lg mt-4 text-base font-[300] text-center w-2/3 lg:w-full z-10">
           Honouring Excellence in CSR and ESG Leadership
         </p>
 
-        <Link href={`/registration`} className="" >
+        <Link href={`/member`} className="">
           <button className="homeButton p-2 mt-2 lg:p-2.5 px-6 lg:px-8 w-fit rounded-full lg:font-semibold z-10">
             <span>Join Us</span>
           </button>
