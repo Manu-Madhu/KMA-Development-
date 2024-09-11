@@ -8,7 +8,7 @@ function HallsRequest() {
                 <h1 className='text-[2.4rem] max-md:text-[2.2rem] font-bold leading-[3.5rem] max-md:leading-10 text-center'>
                     To Enquire more about our halls
                 </h1>
-                <p className='text-center'>Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here</p>
+                <div className='text-center'>Please call us at +91 4044367,+91 231 7917,+91 231 7966 or submit a request here</div>
                 <button className='px-6 py-2 mt-8 border border-gray-600 w-fit rounded-full font-semibold text-red-600'>
                     Submit Request
                 </button>

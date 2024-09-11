@@ -1,10 +1,16 @@
 import React from 'react';
+import { IoClose } from "react-icons/io5";
 
 function EventForm({ event, onClose }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
         <h2 className="text-xl font-semibold mb-4">Event Form</h2>
+        <IoClose
+          onClick={onClose}
+          size={30}
+          className="absolute top-2 right-2 text-[#475467] cursor-pointer"
+        />
         <form>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
             Name
@@ -43,12 +49,7 @@ function EventForm({ event, onClose }) {
             Submit
           </button>
         </form>
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
-        >
-          &times;
-        </button>
+  
       </div>
     </div>
   );
