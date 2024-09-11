@@ -93,7 +93,10 @@ const Nav = () => {
         </Link>
         <ul className="flex gap-5">
         {NavData.map((item) => (
-            <div key={item?._id} className="flex items-center">
+            <div key={item?._id} className="flex items-center"
+            onMouseEnter={() => handleToggle(item?._id)} 
+              onMouseLeave={() => handleToggle(null)} 
+            > 
               {item?.subData?.length > 0 ? (
                 <SubNav
                   data={{
