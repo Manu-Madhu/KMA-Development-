@@ -8,7 +8,7 @@ function Page() {
         <>
         <div className='max-w-screen-xl mx-auto p-3'>
             <div className='mt-10'>
-                <UnderlinedHeading heading={"Past "} text="Precidents" />
+                <UnderlinedHeading heading={"Past "} text="Presidents'" />
             </div>
             <div className='relative h-fit mt-20'>
                 <ScrollProgress />

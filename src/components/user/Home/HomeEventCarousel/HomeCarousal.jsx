@@ -98,6 +98,7 @@ function HomeCarousel() {
         >
           {events?.slice(0.4)?.map((event, index) => (
             <EventCard
+            
               key={index}
               data={event}
             />

@@ -43,8 +43,8 @@ const page = () => {
         </div>
         <div className="my-5  lg:my-20">
           <ManagingCommittee
-            heading={"Office"}
-            title={" Bearers"}
+            heading={""}
+            title={"Secretariat"}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 

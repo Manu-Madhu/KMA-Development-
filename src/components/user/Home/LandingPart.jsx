@@ -51,7 +51,7 @@ function LandingPart() {
         </h1>
 
         <p className="lg:text-lg mt-4 text-base font-[300] text-center w-2/3 lg:w-full z-10">
-          Honouring Excellence in CSR and ESG Leadership
+          Founded in 1957
         </p>
 
         <Link href={`/member`} className="">

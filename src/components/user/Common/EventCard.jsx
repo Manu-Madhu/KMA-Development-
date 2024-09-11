@@ -15,10 +15,10 @@ const EventCard = ({
   // Correct the function signature
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const day = date.getDate(); 
-    const month = date.toLocaleString("default", { month: "short" }); 
-    const year = date.getFullYear(); 
-    return { day, month, year }; 
+    const day = date.getDate();
+    const month = date.toLocaleString("default", { month: "short" });
+    const year = date.getFullYear();
+    return { day, month, year };
   };
 
   // Extract and format the date
@@ -27,9 +27,10 @@ const EventCard = ({
 
   return (
     <div
-      className={`p-4 lg:p-7 relative overflow-clip flex flex-col ms-1 lg:ms-0 w-[97%] ${
-        border ? "border" : ""
-      }  h-80 max-md:h-64 justify-between  rounded-2xl bg-white`}
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      className={`p-4 lg:p-7 relative overflow-clip flex flex-col ms-1 lg:ms-0 w-[97%] ${border ? "border" : ""
+        }  h-80 max-md:h-64 justify-between  rounded-2xl bg-white`}
     >
       {/* base data */}
       <div className="flex gap-3">

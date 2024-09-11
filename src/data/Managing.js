@@ -283,15 +283,6 @@ export const Managing = [
 
 export const OfficeBearers = [
   {
-    _id: 1,
-    designation: " ",
-    name: "Prajith R Nair",
-    title: "Manager Operations",
-    description: "",
-    image: "/committee/office/1.jpg",
-    bgColor: "#fffff",
-  },
-  {
     _id: 2,
     designation: " ",
     name: "Lt. Jojoe Jacob",
@@ -301,14 +292,16 @@ export const OfficeBearers = [
     bgColor: "#fffff",
   },
   {
-    _id: 3,
+    _id: 1,
     designation: " ",
-    name: "Anoopa Atony",
-    title: "Accounts Office",
+    name: "Prajith R Nair",
+    title: "Manager Operations",
     description: "",
-    image: "/committee/office/3.jpg",
+    image: "/committee/office/1.jpg",
     bgColor: "#fffff",
   },
+
+
   {
     _id: 4,
     designation: " ",
@@ -316,6 +309,15 @@ export const OfficeBearers = [
     title: "Relationship Officer",
     description: "",
     image: "/committee/office/4.jpg",
+    bgColor: "#fffff",
+  },
+  {
+    _id: 3,
+    designation: " ",
+    name: "Anoopa Antony",
+    title: "Accounts Office",
+    description: "",
+    image: "/committee/office/3.jpg",
     bgColor: "#fffff",
   },
 ]

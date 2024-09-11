@@ -10,7 +10,7 @@ export default function Home() {
       <nav className="w-full">
         <Nav />
       </nav>
-      
+
       {/* main page */}
       <section>
         <HomePage />
