@@ -14,7 +14,7 @@ function Page() {
   return (
     <>
       <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
-        <UnderlinedHeading text="Reports" />
+        <UnderlinedHeading text="Annual Reports" />
         <div className="grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-14">
           {reports.map((data) => (
             <EBookCard

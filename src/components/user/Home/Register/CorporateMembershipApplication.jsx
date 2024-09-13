@@ -1,143 +1,12 @@
-"use client";
-import React, { useState } from "react";
-import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
-import { MdEmail } from "react-icons/md";
-import { FaGlobeAsia } from "react-icons/fa";
-import Link from "next/link";
-import useRegistrationValidation from "@/hooks/registrationHooks/useRegistrationValidation";
-import validateForm from "@/hooks/registrationHooks/validateRegistration";
-import useRegisterUser from "@/hooks/registrationHooks/useRegisterUser";
-import { IoCloudUploadOutline } from "react-icons/io5";
-import Image from "next/image";
-import CorporateMembershipApplication from "@/components/user/Home/Register/CorporateMembershipApplication";
+import Image from 'next/image'
+import React from 'react'
+import { FaGlobeAsia } from 'react-icons/fa'
+import { IoCloudUploadOutline } from 'react-icons/io5'
+import { MdEmail } from 'react-icons/md'
 
-const Page = () => {
-  const [isMemebershipApplication,setIsMemebershipApplication] =useState(false)
-  const initialState = {
-      natureofbusiness: "",
-      membershipType: "",
-      nameofbussiness: "",
-      registrationNumber: "",
-      registrationDate: "",
-      commencementDate: "",
-      authorizedPerson: "",
-      authorizedMeetingPerson: "",
-      BSaddress:"",
-    username: "",
-    password: "",
-    applicantName: "",
-    email: "",
-    phone: "",
-    country: "",
-    address: "",
-    fax: "",
-    state: "",
-    identityProof: null, 
-    contactPerson: "",
-    hasRenewalPay: false,
-    payMode: "",
-    website: "",
-  };
-
-  const { loading, registerUser } = useRegisterUser();
-
-  const {
-    formData,
-    errors,
-    fileName,
-    loading: usernameLoading,
-    isAvailable,
-    setFormData,
-    handleChange,
-    handleSubmit,
-  } = useRegistrationValidation(initialState, validateForm);
-  const resetForm = () => {
-    setFormData(initialState);
-  };
-
-  const submitForm = async (e) => {
-    const business = {
-      nature: formData?.natureofbusiness,
-      name: formData?.nameofbussiness,
-      address: formData?.BSaddress,
-      regNum: formData?.registrationNumber,
-      regDate: formData?.registrationDate,
-      commenceDate: formData?.commencementDate,
-      authRep: formData?.authorizedPerson,
-      meetAuthRep: formData?.authorizedMeetingPerson,
-    };
-
-    const actualFD = new FormData();
-    actualFD.append("username", formData?.username);
-    actualFD.append("password", formData?.password);
-    actualFD.append("applicantName", formData?.applicantName);
-    actualFD.append("address", formData?.address);
-    actualFD.append("state", formData?.state);
-    actualFD.append("country", formData?.country);
-    actualFD.append("phone", formData?.phone);
-    actualFD.append("fax", formData?.fax);
-    actualFD.append("email", formData?.email);
-    actualFD.append("website", formData?.website);
-    actualFD.append("contactPerson", formData?.contactPerson);
-    actualFD.append("membershipType", formData?.membershipType);
-    actualFD.append("business", JSON.stringify(business));
-
-    if (formData?.identityProof) {
-      actualFD.append('file', formData.identityProof); // Handle file input
-    }
-   
-    for (let [key, value] of actualFD.entries()) {
-      console.log(`${key}:`, value);
-    }
-    console.log("Form submitted Successfully", actualFD,formData);
-    const result = await registerUser(actualFD);
-    if (result.success) {
-      console.log("User registered successfully");
-      resetForm();
-    } else {
-      console.log("Registration failed");
-    }
-  };
-
+const CorporateMembershipApplication = ({handleSubmit,formData, handleChange,submitForm,isAvailable ,errors,usernameLoading,loading}) => {
   return (
-    <div className="max-w-screen-xl p-3 py-14 pb-20 lg:mt-20 mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Left Side: Text Content */}
-        <div className="lg:mr-20">
-          <div className="lg:mr-5">
-            <UnderlinedHeading
-              heading="The Member"
-              text="Registration Process:"
-            />
-          </div>
-          <div className="lg:text-left text-center">
-            {/* <h1 className="text-[2.5rem] max-md:text-3xl font-bold leading-[3.5rem]">
-              Process:
-            </h1> */}
-            <ol className="list-decimal pl-4 mt-4 space-y-5  text-gray-800 lg:text-left text-start">
-              <li>
-                Understand Member benefits, Membership Options, and Fee Details.{" "}
-                <Link href="/member" className="text-red-600 underline">
-                  Read more
-                </Link>
-              </li>
-              <li>Select unique username and password</li>
-              <li>Complete Membership Application Online</li>
-              <li>Remit Membership Fee</li>
-            </ol>
-            <p className="mt-2 lg:mt-4 text-gray-800 lg:text-left text-start">
-              Please choose from 3 payment options for settling the membership
-              fee online:
-            </p>
-            <p className="mt-2 lg:mt-4 text-gray-800 font-medium lg:text-left text-start">
-              1. Online Payment (Credit/Debit Card) 2. Bank Transfer 3. Demand
-              Draft/Cheque
-            </p>
-          </div>
-        </div>
-        {/* Right Side: Form in a Card */}
-       
-        <div className="bg-white shadow-md border w-full rounded-lg mx-auto p-6 max-w-md sm:max-w-lg lg:max-w-full lg:ml-10">
+    <div className="bg-white shadow-md border w-full rounded-lg mx-auto p-6 max-w-md sm:max-w-lg lg:max-w-full lg:ml-10">
           <form
             className="grid grid-cols-1 gap-4"
             onSubmit={(e) => handleSubmit(e, submitForm)}
@@ -565,23 +434,7 @@ const Page = () => {
             </div>
           </form>
         </div>
-       
-        {isMemebershipApplication &&
-        <CorporateMembershipApplication 
-        submitForm={submitForm}
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        isAvailable={isAvailable}
-        errors={errors}
-        usernameLoading={usernameLoading}
-        loading={loading}
-        />
-      }
-        
-      </div>
-    </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default CorporateMembershipApplication

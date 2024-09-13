@@ -57,12 +57,13 @@ import { useFormValidation } from "@/hooks/hallEnquiryHooks/useFormValidation";
 import { useSubmitForm } from "@/hooks/hallEnquiryHooks/useSubmitForm";
 
 function Page({ params }) {
-  const { formData, errors, handleChange, validateForm } = useFormValidation({
+  const { formData, errors, handleChange, validateForm,setFormData } = useFormValidation({
     name: '',
     email: '',
     phone: '',
   });
   const { submitForm } = useSubmitForm();
+  
 
   function findHall(_id) {
     return halls.find((item) => item?.id == _id);
@@ -72,6 +73,12 @@ function Page({ params }) {
     e.preventDefault();
     if (validateForm()) {
       await submitForm(formData);
+      // Reset form data after successful submission
+      setFormData({
+        name:'',
+        email:'',
+        phone:'',
+      })
     }
   };
 

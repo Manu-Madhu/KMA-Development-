@@ -4,6 +4,7 @@ import useFormValidation from "@/hooks/loginHooks/useFormValidation";
 import ValidationLogin from "@/hooks/loginHooks/validationLogin";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 const LoginPage = () => {
@@ -96,10 +97,10 @@ const LoginPage = () => {
               Remember for 30 days
             </label>
           </div>
-
+{/* 
           <div className="text-primaryColor font-bold text-xs truncate">
             Forgot password
-          </div>
+          </div> */}
         </div>
 
         <button
@@ -116,9 +117,11 @@ const LoginPage = () => {
         )}
         <div className="flex flex-row gap-2">
           <h6 className="text-xs opacity-80 ml-20">Don’t have an account?</h6>
+          <Link href="/registration">
           <h6 className="text-primaryColor text-center text-xs font-bold">
             Sign up
           </h6>
+          </Link>
         </div>
       </form>
     </div>
