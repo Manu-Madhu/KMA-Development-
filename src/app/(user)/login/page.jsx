@@ -1,14 +1,35 @@
 "use client";
+import { useSession } from "next-auth/react";
 import useFormValidation from "@/hooks/loginHooks/useFormValidation";
 import ValidationLogin from "@/hooks/loginHooks/validationLogin";
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+
 
 const LoginPage = () => {
-  const initialValues = { username: "", password: "" };
+  const { data: session, status } = useSession();
   const navigation = useRouter();
+
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      navigation.push("/profile"); // Redirect to profile page if already authenticated
+    }
+  }, [status, navigation]);
+
+  const initialValues = { username: "", password: "" };
   const { values, errors, isSubmitted, handleChange, handleSubmit } =
     useFormValidation(initialValues, ValidationLogin, navigation);
+
+  if (status === "loading") {
+    return <p>Loading...</p>; // Optionally, you can show a loading state
+  }
+
+  if (status === "authenticated") {
+    return null; // Prevent the login page from rendering if already authenticated
+  }
+
   return (
     <div className="mt-40 mb-40">
       <form className="max-w-xs mx-auto" onSubmit={handleSubmit}>
@@ -76,10 +97,10 @@ const LoginPage = () => {
               Remember for 30 days
             </label>
           </div>
-
+{/* 
           <div className="text-primaryColor font-bold text-xs truncate">
             Forgot password
-          </div>
+          </div> */}
         </div>
 
         <button
@@ -96,9 +117,11 @@ const LoginPage = () => {
         )}
         <div className="flex flex-row gap-2">
           <h6 className="text-xs opacity-80 ml-20">Don’t have an account?</h6>
+          <Link href="/registration">
           <h6 className="text-primaryColor text-center text-xs font-bold">
             Sign up
           </h6>
+          </Link>
         </div>
       </form>
     </div>

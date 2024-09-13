@@ -21,19 +21,19 @@ function MemberBenefits() {
       bgcolor: "bg-[#5CA7FF]",
       icon: <HiOutlineBookOpen size={32} />,
       title: "Learning",
-      content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`,
+      content: `Learning new things can lead to personal growth, increased understanding and knowledge, and improved job performance and career advancement.`,
     },
     {
       bgcolor: "bg-[#FFB45C]",
       icon: <HiOutlineChatBubbleLeftRight size={32} />,
       title: "Social",
-      content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`,
+      content: `Socializing can help to build professional relationships, enhance networking opportunities, and foster collaboration, leading to`,
     },
     {
       bgcolor: "bg-[#61C55F]",
       icon: <LuUsers size={32} />,
       title: "Community",
-      content: `Management networking can provide opportunities for professional growth, knowledge sharing, and building valuable relationships.`,
+      content: `KMA members have opportunities for networking, skill development, and staying updated on industry trends.`,
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);

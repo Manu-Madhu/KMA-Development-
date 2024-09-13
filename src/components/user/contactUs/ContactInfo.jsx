@@ -16,7 +16,7 @@ const ContactInfo = () => {
         <h5 className="text-[#000000]/50 font-semibold text-[16px]">
           Email Address
         </h5>
-        <p className="text-[#E3000F] font-[700] my-2">help@info.com</p>
+        <p className="text-[#E3000F] font-[700] my-2">info@kma.org.in</p>
         <p className="text-sm font-[500] text-black">Assistance hours: </p>
         <p className="text-sm font-[500] text-black">Monday - Friday 6 am to</p>
         <p className="text-sm font-[500] text-black">8 pm EST</p>
@@ -25,7 +25,7 @@ const ContactInfo = () => {
       {/* Number */}
       <section>
         <h5 className="text-[#000000]/50 font-semibold text-[16px]">Number</h5>
-        <p className="text-[#E3000F] font-[700] my-2">(808) 998-34256</p>
+        <p className="text-[#E3000F] font-[700] my-2">90727 75588, 0484 - 2317966</p>
         <p className="text-sm font-[500] text-black">Assistance hours: </p>
         <p className="text-sm font-[500] text-black">Monday - Friday 6 am to</p>
         <p className="text-sm font-[500] text-black">8 pm EST</p>

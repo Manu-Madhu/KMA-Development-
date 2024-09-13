@@ -7,7 +7,8 @@ import EventCard from "../Common/EventCard";
 
 function HomeEvents() {
   return (
-    <div className="w-full h-[700px]  bg-no-repeat bg-cover bg-center relative flex items-center">
+    <div className="w-full h-screen  bg-no-repeat bg-cover bg-center relative flex items-center mb-10">
+      <div className="absolute top-0 w-screen h-20 z-10 bg-gradient-to-b from-white to-[#FFBEC2] "></div>
       <Image
         src={wavybg}
         alt=""
@@ -16,9 +17,9 @@ function HomeEvents() {
         quality={100}
       />
 
-      <div className="w-full absolute ">
+      <div className="w-full absolute">
         <div className="mx-auto w-fit mb-8">
-          <h1 className="text-[2.8rem] max-md:text-[2.2rem] font-bold ml-3">
+          <h1 className="text-[2.8rem] max-md:text-[2.3rem] font-bold ml-3 z-10">
             Events
           </h1>
           <Image
@@ -27,7 +28,7 @@ function HomeEvents() {
             className="-mt-2 w-full object-cover"
           />
         </div>
-        <div className="mt-20">
+        <div className="my-10 lg:my-20">
           <HomeCarousal />
         </div>
       </div>

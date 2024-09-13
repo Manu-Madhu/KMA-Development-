@@ -12,7 +12,6 @@ function EventsPage() {
   return (
     <div className="pt-10 ">
       <UnderlinedHeading text="Events" />
-
       <Flagship />
       <UpcomingEvents />
       <ArchivedEvents />

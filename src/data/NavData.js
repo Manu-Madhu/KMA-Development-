@@ -41,11 +41,11 @@ export const NavData = [
                 name: "Events ",
                 Path: "/events"
             },
-            {
-                _id: 2,
-                name: "Our Halls ",
-                Path: "/halls"
-            },
+            // {
+            //     _id: 2,
+            //     name: "Our Halls ",
+            //     Path: "/halls"
+            // },
         ]
     },
     {
@@ -99,8 +99,8 @@ export const NavData = [
     },
     {
         _id: 7,
-        name: "CSR",
-        Path: "/csr"
+        name: "Our Halls",
+        Path: "/halls"
     },
     {
         _id: 5,
@@ -109,19 +109,30 @@ export const NavData = [
         subData: [
             {
                 _id: 1,
-                name: "Registration",
-                Path: "/registration"
+                name: "KMA-Membership",
+                Path: "/member"
             },
+            // {
+            //     _id: 2,
+            //     name: "Registration",
+            //     Path: "/registration"
+            // },
             {
-                _id: 2,
+                _id: 3,
                 name: "Login",
                 Path: "/login"
             },
             {
-                _id: 3,
+                _id: 4,
                 name: "Profile",
                 Path: "/profile"
             },
+            {
+                _id: 5,
+                name: "logout",
+                Path: ""
+            },
+            
         ]
     },
 

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import UnderlinedHeading from "@/components/user/Common/UnderlinedHeading";
 import EBookCard from "@/components/user/Common/EBookCard";
@@ -6,14 +6,17 @@ import React from "react";
 import useFetchPublications from "@/hooks/publicationHooks/useGetPublictions";
 
 function Page() {
-  const {publications,loading} = useFetchPublications();
-  if(loading) return <div class=" flex justify-center items-center">
-  <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-</div>
+  const { publications, loading } = useFetchPublications();
+  if (loading)
+    return (
+      <div class=" flex justify-center items-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+      </div>
+    );
 
   return (
     <>
-      <div className="max-w-screen-xl p-3 mx-auto pt-10">
+      <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
         <UnderlinedHeading text="Publications" />
         <div className="grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 mt-14">
           {publications.map((data) => (

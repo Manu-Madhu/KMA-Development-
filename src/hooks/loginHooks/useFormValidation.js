@@ -1,41 +1,44 @@
-import React,{useState} from 'react'
+import { useState } from 'react';
+import { signIn } from 'next-auth/react';
+import { toast } from 'react-toastify';
 
+const useFormValidation = (initialValues, validate, navigation) => {
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-const useFormValidation = (initialValues,validate,navigation) => {
-    const [values,setValues]=useState(initialValues);
-    const [errors,setErrors]=useState({});
-    const [isSubmitted,setIsSubmitted]=useState(false);
-    
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues(prevValues => ({ ...prevValues, [name]: value }));
+  };
 
-    const handleChange=(e)=>{
-        const{name,value}=e.target;
-        setValues({
-            ...values,
-            [name]:value,
-        });
-    };
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        const validationErrors=validate(values);
-        setErrors(validationErrors);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
 
-        if(Object.keys(validationErrors).length===0){
-          setIsSubmitted(true);  
-          console.log('Login Successfully');
-          setTimeout(()=>{
-            navigation.push('/profile');
-          },1500);
-        }
+    if (Object.keys(validationErrors).length === 0) {
+      setIsSubmitted(true);
+      console.log(values.username,values.password)
+      const result = await signIn('credentials', {
+        redirect: false,
+        username: values.username,
+        password: values.password,
+      });
+      console.log('Sign-in result:', result); 
+
+      if (result.ok) {
+        toast.success('Login successful!');
+        navigation.push('/profile'); 
+      } else {
+        toast.error(result.error || 'Login failed');
+      }
+    } else {
+      setIsSubmitted(false);
     }
+  };
 
-  return {
-      values,
-      errors,
-      isSubmitted,
-      handleChange,
-      handleSubmit,
-    
-  }
-}
+  return { values, errors, isSubmitted, handleChange, handleSubmit };
+};
 
-export default useFormValidation
+export default useFormValidation;

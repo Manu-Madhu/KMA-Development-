@@ -1,7 +1,7 @@
 import PageEndQuery from "@/components/user/Common/PageEndQuery";
 import ConductEvent from "@/components/user/Events/ConductEvent";
 import ManagingCommittee from "@/components/user/managingCommitee/ManagingCommittee";
-import { Managing } from "@/data/Managing";
+import { Managing ,OfficeBearers} from "@/data/Managing";
 import React from "react";
 
 const page = () => {
@@ -11,7 +11,7 @@ const page = () => {
         <div>
           <ManagingCommittee
             heading={"Managing"}
-            title={"Committee"}
+            title={"committee 2024-2025"}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 
@@ -20,14 +20,14 @@ const page = () => {
             and a Treasurer all of whom shall be elected by the Managing Committee and 
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
-            FSpecial Invitees.`}
-            dataListing={Managing}
+            Special Invitees.`}
+            dataListing={Managing.slice(0, 13)}
           />
         </div>
         <div className="my-10 lg:my-20">
           <ManagingCommittee
-            heading={""}
-            title={"Council"}
+            heading={"Co-opted"}
+            title={" members 2024-2025"}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 
@@ -36,15 +36,15 @@ const page = () => {
             and a Treasurer all of whom shall be elected by the Managing Committee and 
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
-            FSpecial Invitees.`}
-            dataListing={Managing}
+            Special Invitees.`}
+            dataListing={Managing.slice(13)}
             count={4}
           />
         </div>
         <div className="my-5  lg:my-20">
           <ManagingCommittee
-            heading={"Office"}
-            title={" Bearers"}
+            heading={""}
+            title={"Secretariat"}
             content={`The Management of the Association is vested in a Managing 
             Committee of not more than sixteen elected members of which at least three 
             persons should be from Corporate Sector. The Managing Committee shall be elected 
@@ -53,8 +53,8 @@ const page = () => {
             and a Treasurer all of whom shall be elected by the Managing Committee and 
             will hold office for the duration of the Management Committee for which they 
             were elected. In addition to the elected members there are Co-opted Members and 
-            FSpecial Invitees.`}
-            dataListing={Managing}
+            Special Invitees.`}
+            dataListing={OfficeBearers}
           />
         </div>
        

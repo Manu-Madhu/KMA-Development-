@@ -4,7 +4,7 @@ import FilterTile from './FilterTile'
 import { RxCross1 } from "react-icons/rx";
 import useFetchPlatforms from '@/hooks/socialConnectHooks/useGetPlatforms';
   
-  function Filter() {
+  function Filter({ onFilterChange }) {
     const { platforms, loading } = useFetchPlatforms();
     const [selectedPlatform, setSelectedPlatform] = useState([]);
     const [unSelectedPlatform, setUnSelectedPlatform] = useState([]);
@@ -14,6 +14,11 @@ import useFetchPlatforms from '@/hooks/socialConnectHooks/useGetPlatforms';
         setUnSelectedPlatform(platforms);
       }
     }, [platforms, loading]);
+
+  useEffect(() => {
+    // Notify parent component of the selected platforms
+    onFilterChange(selectedPlatform);
+  }, [selectedPlatform, onFilterChange]);
   
     return (
       <div className='w-full mt-16 max-md:mt-8'>

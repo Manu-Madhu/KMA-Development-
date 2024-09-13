@@ -8,15 +8,15 @@ import PageEndQuery from "@/components/user/Common/PageEndQuery";
 function Page() {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto p-3">
-        <div className="mt-10">
+      <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
           <h1 className="text-[2.8rem] max-md:text-4xl  font-bold leading-[3.2rem] text-center">
             {`World Convenes at Kochi's`}
           </h1>
           <UnderlinedHeading heading={"Iconic KMA"} text={"House"} />
-        </div>
-        <div className="pt-5">
-          <p className="w-full mt-10 text-sm leading-6 text-[#1F392C]">
+
+        <div className="flex mt-16 max-w-screen-xl lg:h-[560px] mx-auto p-3 w-full  max-lg:flex-col ">
+          <p className="w-full mt-10 text-sm leading-6 text-[#1F392C] justify-center
+          ">
             {`Right at the centre of the buzzing city, in Panampilly Nagar, where
           the heart of Kochi throbs, KMA House stands proud and tall. After its
           complete makeover, KMA House meets with international standards of
@@ -33,13 +33,13 @@ function Page() {
           corporate events.`}
           </p>
           <Image
-            className="h-[70vh] max-md:h-[50vh] max-sm:h-[25vh] mt-10 rounded-xl object-cover"
-            src={hallBanner}
-            alt="Hall Banner"
+            className="w-full h-auto max-h-[70vh] mt-10 rounded-lg object-contain"
+            src='/KMA-house.jpg'
+            alt="Hall Banner" width={1300} height={100}
           />
         </div>
         <div className="pb-10 mt-10">
-          <UnderlinedHeading heading={"Our"} text={"Halls"} />
+          <UnderlinedHeading heading={"Banquet"} text={"Halls"} />
           <div className="mt-16 grid grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4">
             {
               halls.map((hall, index) => (
@@ -52,7 +52,7 @@ function Page() {
           </div>
         </div>
       </div>
-      <PageEndQuery heading={`To inquire more about our halls`} subheading={`Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here`} button={{ title: "Submit Request", path:'/halls/inquiry' }} />
+      <PageEndQuery heading={`To Enquire more about our halls`} subheading={`Please call us at 0484-4044367, 231 7917, 231 7966 or submit a request here`} button={{ title: "Submit Request", path:'/halls/inquiry' }} />
 
     </>
   );

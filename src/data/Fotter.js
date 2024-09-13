@@ -120,31 +120,39 @@ export const FooterData = [
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { CiFacebook } from "react-icons/ci";
+import { FiYoutube } from "react-icons/fi";
+import { SlSocialLinkedin } from "react-icons/sl";
 
 export const icon = [
     {
         _id: 1,
-        icon: <FaTelegramPlane />,
-        path:"/",
-        name: "Telegram"
+        icon: <FiYoutube  />,
+        path:"https://www.youtube.com/kmavideochannel",
+        name: "youtube"
     },
     {
         _id: 2,
-        icon: <FaXTwitter />,
-        path:"/",
-        name: "Telegram"
+        icon: <CiFacebook />,
+        path:"https://www.facebook.com/KeralaManagementAssociation",
+        name: "Facebook"
     },
     {
         _id: 3,
         icon: <FaWhatsapp />,
-        path:"/",
+        path:"https://wa.me/+919072775588",
         name: "Whats app"
     },
     {
         _id: 4,
         icon: <FaInstagram />,
-        path:"/",
+        path:"https://www.instagram.com/kmacochin",
         name: "Instagram"
+    },
+    {
+        _id: 5,
+        icon: <SlSocialLinkedin />,
+        path:"https://www.linkedin.com/company/keralamanagementassociation/",
+        name: "Linkedin"
     },
 ]

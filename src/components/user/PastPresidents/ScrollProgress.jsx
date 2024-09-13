@@ -11,7 +11,8 @@ const VerticalScrollProgress = () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            scrolled *= 1.5;
+            // scrolled *= 1.5;
+            
             setScrollHeight(scrolled);
         };
 
@@ -27,8 +28,9 @@ const VerticalScrollProgress = () => {
         if (yearBubble) {
             const bubbleRect = yearBubble.getBoundingClientRect();
             const redDotRect = redDotRef.current.getBoundingClientRect();
-            const bubbleTop = bubbleRect.top - bubbleRect.height;
-            return redDotRect.top >= bubbleTop;
+            // const bubbleTop = bubbleRect.top - bubbleRect.height;
+            const bubbleMidpoint = bubbleRect.top + (bubbleRect.height / 2);
+        return redDotRect.top >= bubbleMidpoint;
         }
         return false;
     };
@@ -55,7 +57,7 @@ const VerticalScrollProgress = () => {
                         className="flex max-md:flex-col items-center justify-center my-8 h-44 relative w-full"
                     >
                         <div className="md:absolute max-md:relative md:right-[20%] md:pl-4">
-                            <img width={100} height={100} src={`/assets/presidents/${item.img}`} alt={item.name} className="size-44 object-cover rounded-lg" />
+                            <img width={100} height={100} src={`${item.img}`} alt={item.name} className="size-44 object-cover rounded-lg" />
                         </div>
                         <div
                             className="md:absolute left-[25%] max-md:mt-2 transform md:pr-4 text-xl font-bold capitalize"

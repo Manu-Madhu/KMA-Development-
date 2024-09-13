@@ -8,9 +8,9 @@ const ReactPlayer = dynamic(() => import("react-player/youtube"), {
 });
 
 function AboutVideoCard() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [isVideoStarted, setIsVideoStarted] = useState(false);
-  const [isImageVisible, setIsImageVisible] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoStarted, setIsVideoStarted] = useState(true);
+  const [isImageVisible, setIsImageVisible] = useState(false);
 
   useEffect(() => {
     if (isVideoStarted) {
@@ -43,7 +43,7 @@ function AboutVideoCard() {
             width={`100%`}
             height={`100%`}
             controls={true}
-            url="https://www.youtube.com/watch?v=IlbV1oxvoug"
+            url="https://www.youtube.com/watch?v=TrIr4Pz8XaM"
             playing={isVideoPlaying}
             onEnded={handleEnded}
             onPlay={handlePlay}

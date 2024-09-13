@@ -8,6 +8,7 @@ import Articles from "./Articles";
 import HomeRegister from "./Register/HomeRegister";
 import AwardSlideCards from "./AwardSlideCards";
 import ArticleSlideCards from "./ArticleSlideCards";
+import KmaVideo from "./KmaVideo/KmaVideo";
 import DontTakeCards from "./DontTakeCards";
 import AboutKMA from "./AboutKMA";
 import Mission from "./Mission";
@@ -22,14 +23,14 @@ function HomePage() {
   return (
     <div>
       <LandingPart />
-      <AwardSlideCards />
+      <HomeEvents />
       <AboutKMA />
       <div className="p-3 lg:p-0">
         <Stats />
       </div>
-      <RotateGallery />
+      <KmaVideo />
       <Mission />
-      <HomeEvents />
+      <AwardSlideCards />
       <Flagship />
       <MemberBenefits />
       <DontTakeCards />
@@ -37,6 +38,7 @@ function HomePage() {
       <ArticleSlideCards />
       <Articles />
       <HomeRegister />
+      {/* <RotateGallery /> */}
       {/* <YearVideoBanner /> */}
       {/* <OfficeBearers /> */}
       {/* <KMACSRAwards /> */}

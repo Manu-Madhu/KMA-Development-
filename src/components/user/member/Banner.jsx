@@ -24,6 +24,9 @@ const Banner = () => {
           Image "
         />
         <div className="px-6 mb-10 max-w-screen-xl p-3 pt-10 mx-auto">
+        <div className="mb-10">
+           <UnderlinedHeading  text={"Membership"} />
+        </div>
           <p className="text-base sm:text-[16px] text-justify leading-relaxed text-[#1F392C]">
             KMA provides a host of services to meet the growth needs of the
             Managers. KMA Membership offers many benefits. Members will be able

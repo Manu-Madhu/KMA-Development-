@@ -15,7 +15,7 @@ function Page() {
 
   return (
     <>
-      <div className="max-w-screen-xl p-3 mx-auto pt-10">
+      <div className="pt-10 max-w-screen-xl min-h-screen mx-auto w-full p-3">
         <UnderlinedHeading heading={"E-"} text="Library" />
         <div className="grid grid-cols-3 w-full max-md:grid-cols-2 max-sm:grid-cols-1 gap-3 my-14">
           {eLibrary.map((data) => (
